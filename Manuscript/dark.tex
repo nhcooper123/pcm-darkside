@@ -22,38 +22,72 @@ $^*$ ncooper@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland
 \vfill
 %\paragraph{Word-count:} X words
 
-\runninghead{The dark-side of PCMs}
+\runninghead{The dark-side of PCMs} % "Point of view" for Syst Biol
 \keywords{some words}
 
+%%%
+% From Syst Biol template
+\linespread{1.66}
+\raggedright
+\setlength{\parindent}{0.5in}
+
+\pagestyle{empty}
+
+\renewcommand{\section}[1]{%
+\bigskip
+\begin{center}
+\begin{Large}
+\normalfont\scshape #1
+\medskip
+\end{Large}
+\end{center}}
+
+\renewcommand{\subsection}[1]{%
+\bigskip
+\begin{center}
+\begin{large}
+\normalfont\itshape #1
+\end{large}
+\end{center}}
+
+\renewcommand{\subsubsection}[1]{%
+\vspace{2ex}
+\noindent
+\textit{#1.}---}
+
+\renewcommand{\tableofcontents}{}
+
+\bibpunct{(}{)}{;}{a}{}{,}  % this is a citation format command for natbib
+
+% Ignoring their title page setup as I like Rich's template better :)
+
+%%%%%
+
 \begin{document}
-%\pagestyle{empty}
 \modulolinenumbers[1]   % Line numbering on every line
 
 \mstitlepage
 \parindent=1.5em
 \addtolength{\parskip}{.3em}
 
-\begin{abstract}
-\raggedright
-\singlespacing
-An abstract abstract
-\end{abstract}
+\section{abstract}
+An abstract abstract % If "Point of View" there's no abstract
 
 \newpage
 \raggedright
 \doublespacing
-\section{Introduction}
+%\section{Introduction} % No intro heading for Syst biol
 
 \section{Example of the problem}
+
+We extracted yearly citation counts from the Web of Science on 22nd May 2013 for the following papers: \citet{boettiger2012your,blomberg2012independent,diaz1996testing,felsenstein1988phylogenies,felsenstein1985phylogenies,freckleton2009seven,freckleton2000phylogenetic,freckleton2002phylogenetic,freckleton2006detecting,grafen1989phylogenetic,garland1992procedures,hansen1997stabilizing,hansen1996translating,hansen2005assessing,jones1997optimum,garland2000using,garland1992rate,martins1997phylogenies,nee1994extinction,price1997correlated,rohle2006comment,ricklefs1996applications,rohlf2001comparative,schluter1997likelihood,westoby1995misinterpreting,westoby1995further}. We also obtained citation counts for \citet{harvey1991comparative} using Google Scholar, as Web of Science does not provide citation counts for books.
 
 \section{Future directions}
 
 \section{Acknowledgments}
+NC is supported by The European Commission CORDIS Seventh Framework Programme (FP7) Marie Curie CIG grant, proposal number: 321696.
 
-NC is supported by Marie Curie CIG grant (proposal no: ) 
-
-
-%\bibliographystyle{systbiol}
-%\bibliography{darkside.bib}
+\bibliographystyle{sysbio}
+\bibliography{darkside}
 
 \end{document}
