@@ -38,7 +38,6 @@
 *.out
 *.toc
 *.ttt
-*.pdf
 *.fdb_latexmk
 
 # beamer
