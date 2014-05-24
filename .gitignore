@@ -39,6 +39,7 @@
 *.toc
 *.ttt
 *.fdb_latexmk
+*.pdf
 
 # beamer
 *.nav
