@@ -5,9 +5,9 @@
 \usepackage{graphicx}
 \pagenumbering{arabic}
 
-\title{The "dark-side" of phylogenetic comparative methods}
+\title{The ``Dark Side'' of Phylogenetic Comparative Methods}
 \author{
-Richard G. FitzJohn$^{1}$, Matthew W. Pennell$^{2}$\\, some others and Natalie Cooper$^{3,*}$
+Richard G. FitzJohn$^{1}$, Matthew W. Pennell$^{2}$, others,\\ and Natalie Cooper$^{3,4,*}$
 }
 \date{}
 \affiliation{\noindent{\footnotesize
@@ -16,16 +16,16 @@ $^2$ Institute for Bioinformatics and Evolutionary Studies, University
 of Idaho, Moscow, ID 83844, U.S.A.\\
 $^3$ School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland.\\ 
 $^4$ Trinity Centre for Biodiversity Research, Trinity College Dublin, Dublin 2, Ireland.\\
-$^*$ ncooper@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland.\\ Fax: +353 1 677 8094; Tel: +353 1 896 1926.\\
+$^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland. Fax: +353 1 677 8094; Tel: +353 1 896 1926.\\
 }}
 
 \vfill
 %\paragraph{Word-count:} X words
 
-\runninghead{The dark-side of PCMs} % "Point of view" for Syst Biol
-\keywords{some words}
+\runninghead{The "dark side" of PCMs} % "Point of view" for Syst Biol
+\keywords{PCM, assumption, etc.}
 
-%%%
+%%%%%
 % From Syst Biol template
 \linespread{1.66}
 \raggedright
@@ -70,22 +70,33 @@ $^*$ ncooper@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland
 \parindent=1.5em
 \addtolength{\parskip}{.3em}
 
-\section{abstract}
-An abstract abstract % If "Point of View" there's no abstract
+%\section{abstract}
+% If Syst Biol "Point of View" there's no abstract
 
 \newpage
 \raggedright
 \doublespacing
-%\section{Introduction} % No intro heading for Syst biol
+%\section{Introduction} % No intro heading for Syst Biol
 
-\section{Example of the problem}
+Phylogenetic comparative methods (PCMs) were initially developed in the 1980s to deal with the statistical non-independence of species in comparative analyses. Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, rates of trait evolution, and modes of evolution for morphological and ecological traits %list of citations or see Pennell & Harmon or O'Meara). 
 
-We extracted yearly citation counts from the Web of Science on 22nd May 2013 for the following papers: \citet{boettiger2012your,blomberg2012independent,diaz1996testing,felsenstein1988phylogenies,felsenstein1985phylogenies,freckleton2009seven,freckleton2000phylogenetic,freckleton2002phylogenetic,freckleton2006detecting,grafen1989phylogenetic,garland1992procedures,hansen1997stabilizing,hansen1996translating,hansen2005assessing,jones1997optimum,garland2000using,garland1992rate,martins1997phylogenies,nee1994extinction,price1997correlated,rohle2006comment,ricklefs1996applications,rohlf2001comparative,schluter1997likelihood,westoby1995misinterpreting,westoby1995further}. We also obtained citation counts for \citet{harvey1991comparative} using Google Scholar, as Web of Science does not provide citation counts for books.
+PCMs have become extremely popular over recent years; in 2013 alone \citet{harvey1991comparative}'s seminal book on the comparative method in evolutionary biology received 195 citations (Google Scholar search, 22nd May 2014), and at the 2014 Evolution meeting in Raleigh NC, we estimate that over X talks used PCMs. This increase in use is at least partially the result of the number of available R packages to run these analyses (for example ape, GEIGER, diversitree, caper - citations) and the community's increasing familiarity with R \citep{R-Core-Team:2014aa}. Unfortunately with this increase in popularity, comes an increase in misuse! % need to work on this paragraph
 
-\section{Future directions}
+% From proposal: PCMs make numerous assumptions and suffer from biases in the same way as any statistical method, but these issues are often inadequately assessed in empirical studies. Such issues are the responsibility of end users but also of methods developers: the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. To address these issues, we propose this symposium to discuss issues in both classical and recent PCMs, along with new research on detecting for these issues and accounting for them.  We hope that this will both increase awareness of these problems and encourage further research and careful thought in the area, along with better dialogue between method developers and method users.
+
+
+\subsection{Example of the problem}
+
+We extracted yearly citation counts from the Web of Science on 22nd May 2013 for the following papers: \citet{diaz1996testing,felsenstein1988phylogenies,felsenstein1985phylogenies,freckleton2000phylogenetic,freckleton2002phylogenetic,freckleton2006detecting,grafen1989phylogenetic,garland1992procedures,hansen1996translating,hansen2005assessing,jones1997optimum,garland2000using,garland1992rate,martins1997phylogenies,price1997correlated,rohle2006comment,ricklefs1996applications,rohlf2001comparative,schluter1997likelihood,westoby1995misinterpreting,westoby1995further}. We also obtained citation counts for \citet{harvey1991comparative} using Google Scholar, as Web of Science does not provide citation counts for books.
+
+\subsection{Recommendations}
+
+
+\section{Funding}
+This work was supported by The European Commission CORDIS Seventh Framework Programme (FP7) Marie Curie CIG grant, proposal number: 321696 (NC)
 
 \section{Acknowledgments}
-NC is supported by The European Commission CORDIS Seventh Framework Programme (FP7) Marie Curie CIG grant, proposal number: 321696.
+Thanks to Star Wars for the hilarious jokes.
 
 \bibliographystyle{sysbio}
 \bibliography{darkside}
