@@ -1,3 +1,7 @@
-# The “dark side” of phylogenetic comparative methods
+# The “Dark Side” of Phylogenetic Comparative Methods
 
-Code, figures, etc for our symposium talk.
+![darkside logo](https://github.com/richfitz/Figures/pcm-darkside.git.png)
+
+Code, figures, etc for our symposium talk and associated paper.
+
+
