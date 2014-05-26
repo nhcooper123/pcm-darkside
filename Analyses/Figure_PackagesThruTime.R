@@ -14,9 +14,9 @@ names(dsYear) <- c("YearReleased", "R", "NPackages")
 dsYear <- dsYear[order(dsYear$YearReleased), ]
 
 # Calculate cumulative number of packages per year
-dsYear$TotalPkg <- cumsum(dsYear$NPackages)
-dsR$TotalPkg <- cumsum(dsR$NPackages)
-dsX$TotalPkg <- cumsum(dsX$NPackages)
+# separately for non R and R packages
+dsYear$TotalPkg[dsYear$R == "other"] <- cumsum(dsYear$NPackages[dsYear$R == "other"])
+dsYear$TotalPkg[dsYear$R == "R"] <- cumsum(dsYear$NPackages[dsYear$R == "R"])
 
 # pdf("PackagesPerYear.pdf")
 
@@ -27,7 +27,7 @@ myplot <- ggplot(data = dsYear,
 # Modifications to graph including legend, y-axis label etc.
 myplot + 
 geom_smooth(method = "loess", se = FALSE) + 
-ylab("Total number of packages") +
+ylab("Cumulative number of packages") +
 xlab("Year released")
 
 # dev.off()
