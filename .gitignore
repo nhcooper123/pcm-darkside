@@ -53,12 +53,11 @@ Icon?
 Thumbs.db
 
 # R #
-.Rhistory
+*.Rhistory
+*.Rapp.history
 
 # *.\#*
 # \#*\#
 
 ignore/
 *.Rcheck/
-
-notes.md
