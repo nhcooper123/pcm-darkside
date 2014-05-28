@@ -3,6 +3,7 @@
 *.xls
 *.doc
 *.docx
+*.pptx
 
 # Compiled source #
 *.com
