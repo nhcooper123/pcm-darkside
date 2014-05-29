@@ -78,39 +78,34 @@ $^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dub
 \doublespacing
 %\section{Introduction} % No intro heading for Syst Biol
 
-Phylogenetic comparative methods (PCMs) were initially developed in the 1980s to deal with the statistical non-independence of species in comparative analyses (e.g. \citet{felsenstein1985phylogenies,grafen1989phylogenetic}. Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, the tempo and mode of trait evolution, and models of speciation and extinction (see reviews in \citealp{o2012evolutionary} and \citealp{pennell2013integrative}).
+Phylogenetic comparative methods (PCMs) were initially developed in the 1980s to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}). Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, the tempo and mode of trait evolution, and models of speciation and extinction (see reviews in \citealp{o2012evolutionary, pennell2013integrative}). PCMs have become extremely popular over recent years; in 2013 alone Harvey and Pagel's \citeyearpar{harvey1991comparative} book on \textit{The Comparative Method in Evolutionary Biology} was cited 195 times (Google Scholar, 22nd May 2014), and at the 2014 Evolution meeting in Raleigh NC, we estimate that over XX %need to count these!
+talks used PCMs of one form or another. 
 
-PCMs have become extremely popular over recent years; in 2013 alone \citet{harvey1991comparative}'s book on the comparative method in evolutionary biology received 195 citations (Google Scholar, 22nd May 2014), and at the 2014 Evolution meeting in Raleigh NC, we estimate that over XX %need to count these!
-talks used PCMs of one form or another. Unfortunately, PCMs make numerous assumptions and suffer from biases in the same way as any statistical method, but the more popular these methods become, the less awareness methods users seem to have of this ``dark side''. Thus assumptions and biases are often inadequately assessed in empirical studies, leading to poor model fits and mis- or over-interpreted results.
+PCMs also have a ``dark side''; they make various assumptions and suffer from biases in the same way as any statistical method. Unfortunately, the more popular these methods become, the less awareness methods users seem to have of this ``dark side''. Increasingly assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and mis- or over-interpreted results. Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers, but who should take responsibility for such actions? And why has this gap developed in the first place? Here we explore these issues and make suggestions for making everything better. %needs some tightening!!!
 
-%Here we explore this problem in more detail.
+\subsection{Why aren't more methods-users aware of the ``dark side'' of PCMs?}
 
-%Such issues are the responsibility of end users but also of methods developers: the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. To address these issues, we propose this symposium to discuss issues in both classical and recent PCMs, along with new research on detecting for these issues and accounting for them.  We hope that this will both increase awareness of these problems and encourage further research and careful thought in the area, along with better dialogue between method developers and method users.
+To apply a method correctly, methods-users must be aware of the assumptions and biases of the method in question, and know how to identify whether their model adequately meets these assumptions. If methods users are unaware of these factors there are several possible explanations:
 
-%In this paper we discuss why we think this has happened, and suggest ways to bridge the knowledge gap between methods users and methods developers.  
+\begin{enumerate}
+\item Assumptions and biases are not mentioned in the literature.
+\item Assumptions and biases are mentioned in the literature, but the literature is too technical for the novice user and/or pertinent details are hidden within the text.
+\item Methods users have bypassed the literature gone straight to the implementation of the method.
+\end{enumerate}
 
+Note that we assume that methods-users ignore assumptions and biases because they are unaware of them. Of course, there may be methods-users who are perfectly aware of these issues but choose to sweep them under the carpet to get their work published. Although we believe there is no excuse for doing this, we also recognize that the ``publish or perish'' culture of academia may pressurize nontenured scientists into this. Hopefully some of the changes we suggest below will also help with this problem.
+
+\subsubsection{1. Assumptions and biases are not mentioned in the literature}
+
+\subsubsection{2. Literature is too technical or dense}
+
+\subsubsection{3. Users jump straight to the implementation of the method}
 
 %This increase in use is at least partially the result of the number of available R packages to run these analyses (for example ape, GEIGER, diversitree, caper - citations) and the community's increasing familiarity with R \citep{R-Core-Team:2014aa}. Unfortunately with this increase in popularity, comes an increase in misuse! % need to work on this paragraph
 
-% From proposal: PCMs make numerous assumptions and suffer from biases in the same way as any statistical method, but these issues are often inadequately assessed in empirical studies. Such issues are the responsibility of end users but also of methods developers: the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. To address these issues, we propose this symposium to discuss issues in both classical and recent PCMs, along with new research on detecting for these issues and accounting for them.  We hope that this will both increase awareness of these problems and encourage further research and careful thought in the area, along with better dialogue between method developers and method users.
 
 
-%Why are PCMs increasingly being misused? All evidence points to a knowledge-gap between methods users and methods developers.
 
-\subsection{}
-
-To apply a method correctly, methods users must first be aware of the assumptions and biases of the method in question.  
-
-
-- and how to detect whether their model adequately meets these assumptions - as well as details of the number of taxa required for sufficient power etc. If failure to account for the assumptions of the method is the result of a knowledge gap then there are several possible explanations:
-
-\begin{enumerate}
-\item The assumptions are not mentioned in the literature.
-\item The assumptions are mentioned in the literature, but the literature is too dense and technical, or pertinent details are hidden within large sections of text.
-\item The assumptions are mentioned in the literature but methods users have gone straight to the implementation of the method and the manual does not mention assumptions
-
-
-Above we have assumed a knowledge gap, we are not considering cases where The method user is aware of the assumptions and how to test for them, but chooses not to because it means they cannot publish.
 
 
 
@@ -127,6 +122,8 @@ Above we have assumed a knowledge gap, we are not considering cases where The me
 We extracted yearly citation counts from the Web of Science on 22nd May 2013 for the following papers: \citet{diaz1996testing,felsenstein1988phylogenies,felsenstein1985phylogenies,freckleton2000phylogenetic,freckleton2002phylogenetic,freckleton2006detecting,grafen1989phylogenetic,garland1992procedures,hansen1996translating,hansen2005assessing,jones1997optimum,garland2000using,garland1992rate,martins1997phylogenies,price1997correlated,rohle2006comment,ricklefs1996applications,rohlf2001comparative,schluter1997likelihood,westoby1995misinterpreting,westoby1995further}. We also obtained citation counts for \citet{harvey1991comparative} using Google Scholar, as Web of Science does not provide citation counts for books.
 
 \subsection{Recommendations}
+
+%Such issues are the responsibility of end users but also of methods developers: the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. To address these issues, we propose this symposium to discuss issues in both classical and recent PCMs, along with new research on detecting for these issues and accounting for them.  We hope that this will both increase awareness of these problems and encourage further research and careful thought in the area, along with better dialogue between method developers and method users.
 
 
 \section{Funding}
