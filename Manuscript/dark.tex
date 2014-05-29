@@ -79,13 +79,13 @@ $^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dub
 %\section{Introduction} % No intro heading for Syst Biol
 
 Phylogenetic comparative methods (PCMs) were initially developed in the 1980s to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}). Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, the tempo and mode of trait evolution, and models of speciation and extinction (see reviews in \citealp{o2012evolutionary, pennell2013integrative}). PCMs have become extremely popular over recent years; in 2013 alone Harvey and Pagel's \citeyearpar{harvey1991comparative} book on \textit{The Comparative Method in Evolutionary Biology} was cited 195 times (Google Scholar, 22nd May 2014), and at the 2014 Evolution meeting in Raleigh NC, we estimate that over XX %need to count these!
-talks used PCMs of one form or another. 
+talks used PCMs of one form or another.
 
-PCMs also have a ``dark side''; they make various assumptions and suffer from biases in the same way as any statistical method. Unfortunately, the more popular these methods become, the less awareness methods users seem to have of this ``dark side''. Increasingly assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and mis- or over-interpreted results. Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers, but who should take responsibility for such actions? And why has this gap developed in the first place? Here we explore these issues and make suggestions for making everything better. %needs some tightening!!!
+PCMs also have a ``dark side''; they make various assumptions and suffer from biases in the same way as any statistical method. Unfortunately, the more popular these methods become, the less awareness methods-users seem to have of this ``dark side''. Increasingly assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and misinterpreted results. Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers, but who should take responsibility for such actions? And why has this gap developed in the first place? Here we explore these issues and make suggestions for improvements.\\ %needs some rewording
 
 \subsection{Why aren't more methods-users aware of the ``dark side'' of PCMs?}
 
-To apply a method correctly, methods-users must be aware of the assumptions and biases of the method in question, and know how to identify whether their model adequately meets these assumptions. If methods users are unaware of these factors there are several possible explanations:
+To apply a method correctly, methods-users must be aware of the assumptions and biases of the method in question, and know how to identify whether their model adequately meets these assumptions. If methods-users are unaware of these factors there are several possible explanations:
 
 \begin{enumerate}
 \item Assumptions and biases are not mentioned in the literature.
@@ -97,33 +97,56 @@ Note that we assume that methods-users ignore assumptions and biases because the
 
 \subsubsection{1. Assumptions and biases are not mentioned in the literature}
 
+%Distinction between "warning" papers, and papers that just mention assumptions in passing. 
+
+%Yes they are! Pictures of warnings papers and some highlighted text from Harvey and Pagel. Seems to be disconnect between users and literature, esp older stuff – graph for Felsenstein 85 showing increased citations but without caveats papers cited. Caveats papers often cited as but(t) see or fly by citations with no depth.
+
+%Note that there is a time lag though and a settling in period for a new method (show example with PICs: 1991 before real critiques appeared)
+
+%Some stuff isn’t published, or is published and isn’t justified - “folklore” and rules of thumb (±3 from Jones&Purvis97).
+
+%Notes on how citation counts were extracted:
+%We extracted yearly citation counts from the Web of Science on 22nd May 2013 for the following papers: We also obtained citation counts for \citet{harvey1991comparative} using Google Scholar, as Web of Science does not provide citation counts for books.
+
 \subsubsection{2. Literature is too technical or dense}
+
+%OK maybe a fair point. Can we expect methods users to read every paper before using a method? (Yes – wouldn’t let someone work on your microscope unless you were sure they knew what they were doing!!!). Perhaps some work to be done in summarizing this – needs incentives – no benefits to wikis and workshop teaching cf to writing high impact papers, or papers at all. However, people willing to share skills are the people we really want as colleagues, not the selfish high achievers! Collaborate with someone who does know this stuff? Again problematic as highly skilled technical people end up with too much to do and still end up only being middle author. Maybe something like in physics with “theoretical lead” and “technical lead” authors??? Perhaps write a less technical summary for methods papers, or a “Caveats box” to put this up front – i.e. will only work if you have X taxa and this kind of data. Check these assumptions. Incentivize accompanying blogs to explain this stuff? Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish. Speed up publication by archiving. Put code on github so knowledgeable users can access at an earlier stage if they want to. Helpful for finding bugs etc. Methods developers could also benefit from collaboration with methods users who could help them find corner cases and make their methods more useful with real data? [Again I’m torn with some of these ideas because is it really the developer’s job to stop people from being fuckwits? But if this info isn’t included here, *where* would it come from and *who* would provide it? Users can’t be trusted.]
 
 \subsubsection{3. Users jump straight to the implementation of the method}
 
 %This increase in use is at least partially the result of the number of available R packages to run these analyses (for example ape, GEIGER, diversitree, caper - citations) and the community's increasing familiarity with R \citep{R-Core-Team:2014aa}. Unfortunately with this increase in popularity, comes an increase in misuse! % need to work on this paragraph
 
+%Huge increase in number of PCM packages since 1980s, and especially since 2008 [Graph]. Now people familiar with R they can just jump in and try stuff on their data with very little knowledge of what is going on or what the results mean [Though code sharing is cool and I’m not dissing that]. 
 
+%I’m torn as to what I think here – part of me thinks there should be a mention of assumptions in the manual/vignette (though not if this replicates an accompanying blog or book or something) but part of me thinks it’s the users responsibility to not be a fuckwit. Caper, diversitree and CAIC are good examples where assumptions are clearly laid out and methods for testing assumptions are available in caper and CAIC (not sure about diversitree ...). Ape book has none of this in it at all!
 
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Example of the problem}
-
-We extracted yearly citation counts from the Web of Science on 22nd May 2013 for the following papers: \citet{diaz1996testing,felsenstein1988phylogenies,felsenstein1985phylogenies,freckleton2000phylogenetic,freckleton2002phylogenetic,freckleton2006detecting,grafen1989phylogenetic,garland1992procedures,hansen1996translating,hansen2005assessing,jones1997optimum,garland2000using,garland1992rate,martins1997phylogenies,price1997correlated,rohle2006comment,ricklefs1996applications,rohlf2001comparative,schluter1997likelihood,westoby1995misinterpreting,westoby1995further}. We also obtained citation counts for \citet{harvey1991comparative} using Google Scholar, as Web of Science does not provide citation counts for books.
+%Again this needs to be incentivized as it’s adding work for already hard working and underappreciated methods developers. Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish.
 
 \subsection{Recommendations}
 
 %Such issues are the responsibility of end users but also of methods developers: the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. To address these issues, we propose this symposium to discuss issues in both classical and recent PCMs, along with new research on detecting for these issues and accounting for them.  We hope that this will both increase awareness of these problems and encourage further research and careful thought in the area, along with better dialogue between method developers and method users.
+
+%Big issue = who is responsible? Can't expect empiricists to be an expert in every method, but do want to add to workload of overloaded developers.
+
+%Improvements in methods, and ways of detecting biases etc should be sufficient for publication (rather than MEE's weird focus on novelty now it has a huge IF)
+
+%Incentives - funding for pure methods. Different authorship rules. 
+
+%Change the definition of success in academia. Quality not quantity. Remove rush to publish. This would help WOMEN too!
+
+%Collaborate! But make collaboration valuable to non first authors somehow
+
+%We really *do not* want to lose all the technical people from science. We need them more than ever as evo bio becomes more and more computationally intensive. Need to make it worth their while (can't match wages of industry)
+
+%Add methods to test assumptions as standard to packages. 
+
+%Grouping assumptions, biases and caveats more carefully in papers. Caveats box???
+
+%Accompanying blogs with methods papers to explain to non-technical audience. Could be Supp Matt too. Lavin et al 2008 is a beautiful example.
+
+%Some website with a list of key papers, and key summary points, for each method. Who would host? Who would write? Who would peer review?
+
+%Users need to take responsibility too. Work harder to understand. Read widely. Don't take results at face value. Become less trusting! Simulate data to check method does what you think it should do. Don't be afraid to question standard practice - sometimes it's just folklore.
 
 
 \section{Funding}
