@@ -23,17 +23,16 @@ newred <- rgb(red = 235, green = 81, blue = 83, maxColorValue = 255)
 newblue <- rgb(red = 75, green = 213, blue = 238, maxColorValue = 255)
 newyellow <- rgb(red = 229, green = 177, blue = 58, maxColorValue = 255)
 
-png("PackagesThruTime.png")
-
-par(bg = "black")
+png("PackagesThruTime.png", bg = "transparent")
 
 # Plot cumulative number of non-R packages through time
-plot(TotalPkg[R == "other"] ~ YearReleased[R == "other"], 
-     data = dsYear, type = "l", ylim = c(0,30), xlim = c(1980,2014), 
-     col = newred, lwd = 5)
+# plot(TotalPkg[R == "other"] ~ YearReleased[R == "other"], 
+#     data = dsYear, type = "l", ylim = c(0,30), xlim = c(1980,2014), 
+#     col = newred, lwd = 5)
 
 # Add line for R packages
-points(TotalPkg[R == "R"] ~ YearReleased[R == "R"], 
-	   data = dsYear, col = newblue, type = "l" , lwd = 5)
+plot(TotalPkg[R == "R"] ~ YearReleased[R == "R"], 
+	   data = dsYear, col = newred, type = "l" , lwd = 5, 
+	   xlim = c(2000,2014))
 
 dev.off()
