@@ -116,16 +116,18 @@ Although methods-developers (and advanced methods-users) are aware of the proble
 Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers, but who should take responsibility for such actions? And why has this gap developed in the first place? Here we explore these issues and make suggestions for improvements.\\ %needs some rewording
 
 \section{Why don't all methods-users know about the ``Dark Side'' of PCMs?}
+% Or something related to the break down in communication
 
 To apply a method correctly, methods-users must be aware of the assumptions and biases of the method in question, and know how to identify whether their model adequately meets these assumptions. If methods-users are unaware of these factors there are several possible explanations:
 
 \begin{enumerate}
 \item Not everything is mentioned in the literature.
-\item The literature is too technical for the novice user and/or pertinent details are hidden within the text.
+\item The literature is too technical for the novice user and/or important details are hidden within the text.
 \item Methods users have bypassed the literature gone straight to the implementation of the method.
 \end{enumerate}
 
-%Note that we assume that methods-users ignore assumptions and biases because they are unaware of them. Of course, there may be methods-users who are perfectly aware of these issues but choose to sweep them under the carpet to get their work published. Although we believe there is no excuse for doing this, we also recognize that the ``publish or perish'' culture of academia may pressurize nontenured scientists into this. Hopefully some of the changes we suggest below will also help with this problem.
+%Note that we assume that methods-users ignore assumptions and biases because they are unaware of them. Of course, there may be methods-users who are perfectly aware of these issues but choose to sweep them under the carpet to get their work published. Although we believe there is no excuse for doing this, we also recognize that the ``publish or perish'' culture of academia may pressurize nontenured scientists into this. Hopefully some of the changes we suggest below will also help with this problem. 
+%This could be a footnote, or left out!
 
 \subsection{1. Not everything is mentioned in the literature}
 
@@ -136,16 +138,22 @@ These often start out as arbitrary starting points for data exploration with no 
 
 % Do we want a specific example here? Theta estimation in OU models? 
 % Could mention ±3 from Jones&Purvis97 - totally unjustified rule of thumb now = canon.
+% Mention hidden assumptions?
 
 Other information about the limitations of a method may be absent from the literature due to the time lag between a new method being published and others having time to test and critique it. 
 For example, \citealp{felsenstein1985phylogenies} published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published %add citations.
 This time lag is shorter with more recent methods because more simulations testing the method are now required by journals.
 
-\subsection{2. Literature is technical, dense and numerous}
+\subsection{2. The literature is technical, dense and important information is hidden}
 
-%OK maybe a fair point. Can we expect methods users to read every paper before using a method? (Yes – wouldn’t let someone work on your microscope unless you were sure they knew what they were doing!!!). Perhaps some work to be done in summarizing this – needs incentives – no benefits to wikis and workshop teaching cf to writing high impact papers, or papers at all. However, people willing to share skills are the people we really want as colleagues, not the selfish high achievers! Collaborate with someone who does know this stuff? Again problematic as highly skilled technical people end up with too much to do and still end up only being middle author. Maybe something like in physics with “theoretical lead” and “technical lead” authors??? Perhaps write a less technical summary for methods papers, or a “Caveats box” to put this up front – i.e. will only work if you have X taxa and this kind of data. Check these assumptions. Incentivize accompanying blogs to explain this stuff? Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish. Speed up publication by archiving. Put code on github so knowledgeable users can access at an earlier stage if they want to. Helpful for finding bugs etc. Methods developers could also benefit from collaboration with methods users who could help them find corner cases and make their methods more useful with real data? [Again I’m torn with some of these ideas because is it really the developer’s job to stop people from being fuckwits? But if this info isn’t included here, *where* would it come from and *who* would provide it? Users can’t be trusted.]
+Although a lot of information is not found in the literature (see above), the majority of assumptions and biases are documented somewhere. 
+A big issue for novice methods-users is that this information is often extremely technical and dense. 
+It is not unusual for papers to be full of equations, over 20 pages long, and written in a way that gives even advanced users a headache. 
+Additionally there is a lot of literature to wade through before getting all of the required information. 
+For example, one of us (NC) reviewed papers discussing the assumptions and limitations of the most commonly used PCM, phylogenetic independent contrasts \citep{felsenstein1985phylogenies}. 
+Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book.
 
-
+Another issue is that it can sometimes be hard to find the information required. Assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. They are rarely neatly corralled. 
 
 
 
@@ -153,15 +161,7 @@ This time lag is shorter with more recent methods because more simulations testi
 
 %Yes they are! Pictures of warnings papers and some highlighted text from Harvey and Pagel. Seems to be disconnect between users and literature, esp older stuff – graph for Felsenstein 85 showing increased citations but without caveats papers cited. Caveats papers often cited as but(t) see or fly by citations with no depth.
 
-%Note that there is a time lag though and a settling in period for a new method (show example with PICs: 1991 before real critiques appeared)
-
-%Some stuff isn’t published, or is published and isn’t justified - “folklore” and rules of thumb (
-
-
-
-\subsection{3. Important information is hard to locate}
-
-\subsection{4. Users jump straight to the implementation of the method}
+\subsection{3. Users jump straight to the implementation of the method}
 
 %This increase in use is at least partially the result of the number of available R packages to run these analyses (for example ape, GEIGER, diversitree, caper - citations) and the community's increasing familiarity with R \citep{R-Core-Team:2014aa}. Unfortunately with this increase in popularity, comes an increase in misuse! % need to work on this paragraph
 
@@ -170,14 +170,6 @@ This time lag is shorter with more recent methods because more simulations testi
 %I’m torn as to what I think here – part of me thinks there should be a mention of assumptions in the manual/vignette (though not if this replicates an accompanying blog or book or something) but part of me thinks it’s the users responsibility to not be a fuckwit. Caper, diversitree and CAIC are good examples where assumptions are clearly laid out and methods for testing assumptions are available in caper and CAIC (not sure about diversitree ...). Ape book has none of this in it at all!
 
 %Again this needs to be incentivized as it’s adding work for already hard working and underappreciated methods developers. Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish.
-
-
-\subsection{An example using contrasts}
-Probably the most well-known, PCM is Felsenstein's \citeyearpar{felsenstein1985phylogenies} phylogenetically independent contrasts (PIC). shortly afterwards Grafen introduced the phylogenetic regression also known as phylogenetic generalised least squares (PGLS). Later papers confirmed that these methods are actually equivalent if a model of Brownian motion evolution is assumed (although the mathematical proof for this is "awkward"; \citet{rohlf2001comparative,blomberg2012independent})- with PIC being a special case of PGLS \citet{blomberg2012independent,rohle2006comment,rohlf2001comparative,garland2000using}.
-
-Many papers have discussed the assumptions of this method at length.\citealp{diaz1996testing} list these assumptions as 1) topology is perfect; 2) branch lengths are perfect and 3) the model of evolution is Brownian. Felsenstein points out the assumption of Brownian motion may not be very useful in his original paper \citet[p.13]{felsenstein1985phylogenies}. This was followed up by numerous publications in the 1990s discussing this assumption and providing multiple tests to see if the assumption was correct. Many of these papers are extremely explicit about the need to investigate these assumptions. 
-
-Assumptions of tree accuracy are less commonly discussed, partly because evidence suggests they make very little difference. Polytomies are dealt with though.
 
 \section{How can we solve some of these problems?}
 
@@ -209,6 +201,8 @@ Assumptions of tree accuracy are less commonly discussed, partly because evidenc
 %Some website with a list of key papers, and key summary points, for each method. Who would host? Who would write? Who would peer review?
 
 %Users need to take responsibility too. Work harder to understand. Read widely. Don't take results at face value. Become less trusting! Simulate data to check method does what you think it should do. Don't be afraid to question standard practice - sometimes it's just folklore. My pglm vs pgls example.
+
+%Can we expect methods users to read every paper before using a method? (Yes – wouldn’t let someone work on your microscope unless you were sure they knew what they were doing!!!). Perhaps some work to be done in summarizing this – needs incentives – no benefits to wikis and workshop teaching cf to writing high impact papers, or papers at all. However, people willing to share skills are the people we really want as colleagues, not the selfish high achievers! Collaborate with someone who does know this stuff? Again problematic as highly skilled technical people end up with too much to do and still end up only being middle author. Maybe something like in physics with “theoretical lead” and “technical lead” authors??? Perhaps write a less technical summary for methods papers, or a “Caveats box” to put this up front – i.e. will only work if you have X taxa and this kind of data. Check these assumptions. Incentivize accompanying blogs to explain this stuff? Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish. Speed up publication by archiving. Put code on github so knowledgeable users can access at an earlier stage if they want to. Helpful for finding bugs etc. Methods developers could also benefit from collaboration with methods users who could help them find corner cases and make their methods more useful with real data? [Again I’m torn with some of these ideas because is it really the developer’s job to stop people from being fuckwits? But if this info isn’t included here, *where* would it come from and *who* would provide it? Users can’t be trusted.]
 
 %A New Hope joke...
 
