@@ -1,31 +1,12 @@
+% Preamble
 \documentclass[a4paper,12pt]{article}
+
 \usepackage[osf]{mathpazo} % palatino
-\usepackage{ms}     % load the template
+\usepackage{ms}            % load the template
 \usepackage[round]{natbib} % author-year citations
-\usepackage{graphicx}
-\pagenumbering{arabic}
+\usepackage{graphicx}      
+\pagenumbering{arabic}    
 
-\title{The ``Dark Side'' of Phylogenetic Comparative Methods}
-\author{
-Richard G. FitzJohn$^{1}$, Matthew W. Pennell$^{2}$, others,\\ and Natalie Cooper$^{3,4,*}$
-}
-\date{}
-\affiliation{\noindent{\footnotesize
-$^1$ Department of Biological Sciences, Macquarie University, Sydney, NSW 2109, Australia \\
-$^2$ Institute for Bioinformatics and Evolutionary Studies, University
-of Idaho, Moscow, ID 83844, U.S.A.\\
-$^3$ School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland.\\ 
-$^4$ Trinity Centre for Biodiversity Research, Trinity College Dublin, Dublin 2, Ireland.\\
-$^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland. Fax: +353 1 677 8094; Tel: +353 1 896 1926.\\
-}}
-
-\vfill
-%\paragraph{Word-count:} X words
-
-\runninghead{The "dark side" of PCMs} % "Point of view" for Syst Biol
-\keywords{PCM, assumption, etc.}
-
-%%%%%
 % From Syst Biol template
 \linespread{1.66}
 \raggedright
@@ -33,22 +14,24 @@ $^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dub
 
 \pagestyle{empty}
 
-\renewcommand{\section}[1]{%
-\bigskip
-\begin{center}
-\begin{Large}
-\normalfont\scshape #1
-\medskip
-\end{Large}
-\end{center}}
+\renewcommand{\section}[1]{
+  \bigskip
+  \begin{center}
+  \begin{Large}
+  \normalfont\scshape #1
+  \medskip
+  \end{Large}
+  \end{center}
+}
 
-\renewcommand{\subsection}[1]{%
-\bigskip
-\begin{center}
-\begin{large}
-\normalfont\itshape #1
-\end{large}
-\end{center}}
+\renewcommand{\subsection}[1]{
+  \bigskip
+  \begin{center}
+  \begin{large}
+  \normalfont\itshape #1
+  \end{large}
+  \end{center}
+}
 
 \renewcommand{\subsubsection}[1]{%
 \vspace{2ex}
@@ -61,13 +44,39 @@ $^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dub
 
 % Ignoring their title page setup as I like Rich's template better :)
 
-%%%%%
+% Title page information
+
+\title{The ``Dark Side'' of Phylogenetic Comparative Methods}
+\author{
+  Richard G. FitzJohn$^{1}$, Cecile An\'{e}$^{2}$, Wayne Maddison$^{3}$,\\ Matthew W. Pennell$^{4}$, Gavin H. Thomas$^{5}$, April Wright$^{6}$,\\ and Natalie Cooper$^{7,8,*}$
+}
+\date{}
+\affiliation{\noindent{\footnotesize
+$^1$ Department of Biological Sciences, Macquarie University, Sydney, NSW 2109, Australia. \\
+$^2$ Wisconsin\\
+$^3$ UBC\\
+$^4$ Institute for Bioinformatics and Evolutionary Studies, University
+of Idaho, Moscow, ID 83844, U.S.A.\\
+$^5$ Sheffield\\
+$^6$ Austin\\
+$^7$ School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland.\\ 
+$^8$ Trinity Centre for Biodiversity Research, Trinity College Dublin, Dublin 2, Ireland.\\
+$^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland. Fax: +353 1 677 8094; Tel: +353 1 896 1926.\\
+}}
+
+\vfill
+%\paragraph{Word-count:} X words
+
+\runninghead{The ``Dark Side'' of PCMs}
+\keywords{PCM, assumption, etc.}
+
+% End of preamble
 
 \begin{document}
 \modulolinenumbers[1]   % Line numbering on every line
 
 \mstitlepage
-\parindent=1.5em
+\parindent = 1.5em
 \addtolength{\parskip}{.3em}
 
 %\section{abstract}
@@ -78,30 +87,51 @@ $^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dub
 \doublespacing
 %\section{Introduction} % No intro heading for Syst Biol
 
-Phylogenetic comparative methods (PCMs) were initially developed a long time ago in a galaxy far, far away - also know as the 1980s - to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}). Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, the tempo and mode of trait evolution, and models of speciation and extinction (see reviews in \citealp{o2012evolutionary, pennell2013integrative}). PCMs have become extremely popular over recent years; in 2013 alone Harvey and Pagel's \citeyearpar{harvey1991comparative} book on \textit{The Comparative Method in Evolutionary Biology} was cited 195 times (Google Scholar, 22nd May 2014), and at the 2014 Evolution meeting in Raleigh NC, we estimate that over XX %need to count these!
-talks used PCMs of one form or another. With advances in blah balh, there has never been a better time to be a comparative biologist.
+A long time ago in a galaxy far, far away - also known as the 1980s - phylogenetic comparative methods (PCMs) were developed to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}). 
+Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, the tempo and mode of trait evolution, and models of speciation and extinction (see reviews in \citealp{o2012evolutionary, pennell2013integrative}). 
+PCMs have become extremely popular over recent years; the number of papers featured the phrase `phylogenetic comparative' has increased exponentially since the 1980s (Figure \ref{PCMCitations}). 
+With new methods being published almost weekly, there has never been a better time to be a comparative biologist.
 
-However, PCMs also have a ``dark side''; they make various assumptions and suffer from biases in the same way as any statistical method \citet{freckleton2009seven} Unfortunately, the more popular these methods become, the less awareness methods-users seem to have of this ``dark side''. Increasingly assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and misinterpreted results. Additionally, little consideration is given to whether using a PCM is really appropriate for the question \citet{losos2011seeing}. Although methods-developers (and advanced methods-users) are aware of these issues, the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers, but who should take responsibility for such actions? And why has this gap developed in the first place? Here we explore these issues and make suggestions for improvements.\\ %needs some rewording
+\begin{figure}[h]
+\centering
+\includegraphics[width = 8cm]{PCMCitations.png}
+\caption{PCM papers through time}
+\label{PCMCitations}
+\end{figure}
 
-%some comments showing we're not the only people to think this, nor the first to say it.
-%cite Boettiger etal 2012
-%cite Losos 2011
-%cite Freckleton 2009
-%cite Blomberg et al 2012
+Unfortunately, PCMs also have a ``dark side''; they make various assumptions and suffer from biases in exactly the same way as any statistical method \citep{freckleton2009seven,boettiger2012your}. 
+The more popular these methods become, the less awareness methods-users seem to have of this dark side. Increasingly assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and misinterpreted results. 
+Additionally, little consideration is given to whether using a PCM is really appropriate for the question at hand \citep{losos2011seeing}. 
+To paraphrase \citet{blomberg2012independent}, the enthusiastic application of PCMs has greatly outpaced our theoretical understanding of the methods and their relations to the rest of statistical theory.
 
-\subsection{Why aren't more methods-users aware of the ``dark side'' of PCMs?}
+% Do we need more explicit comments showing we're not the only people to think this, nor the first to say it?
+
+One major issue is that two groups of people are involved with PCMs. 
+At one extreme, methods-developers (wookies) are involved with developing new methods and implementing them. They are aware of the limitations of their methods, and the assumptions that underly them. 
+% Bit of a stretch but we can pretend right? :)
+At the other extreme, naive methods-users (ewoks) have no knowledge of these complexities, they just want to use PCMs on their data. 
+They may be graduate students or more established scientists who have been asked to apply a phylogenetic correction by a reviewer. 
+Of course the majority of PCM users fall somewhere between these two extremes on the ``wookie-ewok'' spectrum; many methods-developers are developing methods with a specific empirical question in mind, while there are many advanced methods-users who have detailed knowledge of the limitations of the methods they use. 
+Although methods-developers (and advanced methods-users) are aware of the problems with PCMs, the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. 
+Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers, but who should take responsibility for such actions? And why has this gap developed in the first place? Here we explore these issues and make suggestions for improvements.\\ %needs some rewording
+
+\section{Why aren't more methods-users aware of the ``dark side'' of PCMs?}
 
 To apply a method correctly, methods-users must be aware of the assumptions and biases of the method in question, and know how to identify whether their model adequately meets these assumptions. If methods-users are unaware of these factors there are several possible explanations:
 
 \begin{enumerate}
-\item Assumptions and biases are not mentioned in the literature.
-\item Assumptions and biases are mentioned in the literature, but the literature is too technical for the novice user and/or pertinent details are hidden within the text.
+\item Not everything is mentioned in the literature.
+\item The literature is too technical for the novice user and/or pertinent details are hidden within the text.
 \item Methods users have bypassed the literature gone straight to the implementation of the method.
 \end{enumerate}
 
-Note that we assume that methods-users ignore assumptions and biases because they are unaware of them. Of course, there may be methods-users who are perfectly aware of these issues but choose to sweep them under the carpet to get their work published. Although we believe there is no excuse for doing this, we also recognize that the ``publish or perish'' culture of academia may pressurize nontenured scientists into this. Hopefully some of the changes we suggest below will also help with this problem.
+%Note that we assume that methods-users ignore assumptions and biases because they are unaware of them. Of course, there may be methods-users who are perfectly aware of these issues but choose to sweep them under the carpet to get their work published. Although we believe there is no excuse for doing this, we also recognize that the ``publish or perish'' culture of academia may pressurize nontenured scientists into this. Hopefully some of the changes we suggest below will also help with this problem.
 
-\subsubsection{1. Assumptions and biases are not mentioned in the literature}
+\subsection{1. Not everything is mentioned in the literature}
+
+
+
+Program defaults are another thing which become folklore although tey are often arbitrary.
 
 %Distinction between "warning" papers, and papers that just mention assumptions in passing. 
 
@@ -114,11 +144,13 @@ Note that we assume that methods-users ignore assumptions and biases because the
 %Notes on how citation counts were extracted:
 %We extracted yearly citation counts from the Web of Science on 22nd May 2013 for the following papers: We also obtained citation counts for \citet{harvey1991comparative} using Google Scholar, as Web of Science does not provide citation counts for books.
 
-\subsubsection{2. Literature is too technical or dense}
+\subsubsection{2. Literature is technical, dense and numerous}
 
 %OK maybe a fair point. Can we expect methods users to read every paper before using a method? (Yes – wouldn’t let someone work on your microscope unless you were sure they knew what they were doing!!!). Perhaps some work to be done in summarizing this – needs incentives – no benefits to wikis and workshop teaching cf to writing high impact papers, or papers at all. However, people willing to share skills are the people we really want as colleagues, not the selfish high achievers! Collaborate with someone who does know this stuff? Again problematic as highly skilled technical people end up with too much to do and still end up only being middle author. Maybe something like in physics with “theoretical lead” and “technical lead” authors??? Perhaps write a less technical summary for methods papers, or a “Caveats box” to put this up front – i.e. will only work if you have X taxa and this kind of data. Check these assumptions. Incentivize accompanying blogs to explain this stuff? Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish. Speed up publication by archiving. Put code on github so knowledgeable users can access at an earlier stage if they want to. Helpful for finding bugs etc. Methods developers could also benefit from collaboration with methods users who could help them find corner cases and make their methods more useful with real data? [Again I’m torn with some of these ideas because is it really the developer’s job to stop people from being fuckwits? But if this info isn’t included here, *where* would it come from and *who* would provide it? Users can’t be trusted.]
 
-\subsubsection{3. Users jump straight to the implementation of the method}
+\subsubsection{3. Important information is hard to locate}
+
+\subsubsection{4. Users jump straight to the implementation of the method}
 
 %This increase in use is at least partially the result of the number of available R packages to run these analyses (for example ape, GEIGER, diversitree, caper - citations) and the community's increasing familiarity with R \citep{R-Core-Team:2014aa}. Unfortunately with this increase in popularity, comes an increase in misuse! % need to work on this paragraph
 
@@ -127,6 +159,15 @@ Note that we assume that methods-users ignore assumptions and biases because the
 %I’m torn as to what I think here – part of me thinks there should be a mention of assumptions in the manual/vignette (though not if this replicates an accompanying blog or book or something) but part of me thinks it’s the users responsibility to not be a fuckwit. Caper, diversitree and CAIC are good examples where assumptions are clearly laid out and methods for testing assumptions are available in caper and CAIC (not sure about diversitree ...). Ape book has none of this in it at all!
 
 %Again this needs to be incentivized as it’s adding work for already hard working and underappreciated methods developers. Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish.
+
+
+\subsection{An example using contrasts}
+Probably the most well-known, PCM is Felsenstein's \citeyearpar{felsenstein1985phylogenies} phylogenetically independent contrasts (PIC). shortly afterwards Grafen introduced the phylogenetic regression also known as phylogenetic generalised least squares (PGLS). Later papers confirmed that these methods are actually equivalent if a model of Brownian motion evolution is assumed (although the mathematical proof for this is "awkward"; \citet{rohlf2001comparative,blomberg2012independent})- with PIC being a special case of PGLS \citet{blomberg2012independent,rohle2006comment,rohlf2001comparative,garland2000using}.
+
+Many papers have discussed the assumptions of this method at length.\citealp{diaz1996testing} list these assumptions as 1) topology is perfect; 2) branch lengths are perfect and 3) the model of evolution is Brownian. Felsenstein points out the assumption of Brownian motion may not be very useful in his original paper \citet[p.13]{felsenstein1985phylogenies}. This was followed up by numerous publications in the 1990s discussing this assumption and providing multiple tests to see if the assumption was correct. Many of these papers are extremely explicit about the need to investigate these assumptions. 
+
+Assumptions of tree accuracy are less commonly discussed, partly because evidence suggests they make very little difference. Polytomies are dealt with though.
+
 
 \subsection{Recommendations}
 
@@ -154,12 +195,13 @@ Note that we assume that methods-users ignore assumptions and biases because the
 
 %Users need to take responsibility too. Work harder to understand. Read widely. Don't take results at face value. Become less trusting! Simulate data to check method does what you think it should do. Don't be afraid to question standard practice - sometimes it's just folklore.
 
+%A New Hope joke...
 
 \section{Funding}
-This work was supported by The European Commission CORDIS Seventh Framework Program (FP7) Marie Curie CIG grant, proposal number: 321696 (NC)
+This work was supported by The European Commission CORDIS Seventh Framework Program (FP7) Marie Curie CIG grant, proposal number: 321696 (NC). 
 
 \section{Acknowledgments}
-Thanks to Star Wars for the ``hilarious'' jokes.
+Thanks to the Society of Systematic Biologists for funding our symposium at Evolution 2014. We also thank George Lucas for the ``hilarious'' Star Wars jokes.
 
 \bibliographystyle{sysbio}
 \bibliography{darkside}
