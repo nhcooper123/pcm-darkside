@@ -166,11 +166,18 @@ This places an additional burden on methods-users who must read every paper very
 
 \subsection{3. Users jump straight to the implementation of the method}
 
-In the early days of PCMs there was
+In the early days of PCMs, some methods-developers provided stand alone packages to run their methods, others provided code in whichever language they were comfortable programming in, and still others provided no way of implementing their methods at all. 
+This resulted in many frustrating hours (and days and months!) trying to implement any new method you wanted to use.\\
 
+More recently however, the PCM community has moved towards mostly implementing their methods in R (cite), and code sharing has become almost ubiquitous. 
+The number of R packages for PCMs has increased exponentially since 2005 when ape (A=P=E=, cite) was released, and has increased particularly sharply since 2008 (Figure \ref{x}).
+Simultaneously, more and more methods-users are able to use R, thus when a new method is published they can now take an R package ``off the shelf'' and use it to run the method immediately.
+We are all big proponents of Open Science so we think this is a wonderful thing for the field, and we do not mean to criticize 
+However, this has led to an increasing number of methods-users jumping straight to the implementation of a method, without really carefully trying to understand what the method is doing, or what it's assumptions might be. 
+Additionally, many methods-users seem to try to retrofit a question so they can use the newest shiniest methods available. 
+All of us regularly review papers where the authors have clearly not read the original papers very carefully.
 
-Increasingly new PCMs are published with an accompanying R package, or at least some code
-
+This problem is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit
 
 %This increase in use is at least partially the result of the number of available R packages to run these analyses (for example ape, GEIGER, diversitree, caper - citations) and the community's increasing familiarity with R \citep{R-Core-Team:2014aa}. Unfortunately with this increase in popularity, comes an increase in misuse! % need to work on this paragraph
 
