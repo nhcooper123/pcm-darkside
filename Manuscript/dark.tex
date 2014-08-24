@@ -102,28 +102,28 @@ With new methods being published almost weekly, there has never been a better ti
 Unfortunately, PCMs also have a ``dark side''; they make various assumptions and suffer from biases in exactly the same way as any other statistical method \citep{freckleton2009seven,boettiger2012your}. 
 The more popular these methods become, the less awareness methods-users seem to have of this dark side. Increasingly assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and misinterpreted results. 
 Additionally, little consideration is given to whether using a PCM is really appropriate for the question at hand \citep{losos2011seeing}. 
-To paraphrase \citet{blomberg2012independent}, the enthusiastic application of PCMs has greatly outpaced our theoretical understanding of the methods and their relations to the rest of statistical theory.
+To paraphrase \citet{blomberg2012independent}, the enthusiastic application of PCMs has greatly outpaced our theoretical understanding of the methods and their relations to the rest of statistical theory.\\
 
 % Do we need more explicit comments showing we're not the only people to think this, nor the first to say it?
 
 One major issue is that two groups of people are involved with PCMs. 
-At one extreme, methods-developers (``wookies'') are involved with developing new methods and implementing them. They are aware of the limitations of their methods, and the assumptions that underly them. 
+At one extreme, methods-developers (``wookies'') develop new methods and implement them. They are (generally) aware of the limitations of their methods, and the assumptions that underly them. 
 % Bit of a stretch but we can pretend right? :)
-At the other extreme, naive methods-users (``ewoks'') have no knowledge of these complexities, they just want to use PCMs on their data. 
-They may be graduate students or more established scientists who have been asked to apply a phylogenetic correction by a reviewer. 
-Of course the majority of PCM users fall somewhere between these two extremes on the ``wookie-ewok'' spectrum; many methods-developers are developing methods with a specific empirical question in mind, while there are many advanced methods-users who have detailed knowledge of the limitations of the methods they use. 
-Although methods-developers (and advanced methods-users) are aware of the problems with PCMs, the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. 
-Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers, but who should take responsibility for such actions? And why has this gap developed in the first place? Here we explore these issues and make suggestions for improvements.\\ %needs some rewording
+At the other extreme, na\"{i}ve methods-users (``ewoks'') just want to use PCMs to answer empirical questions with their data, and may not be aware of issues with the methods. 
+Of course the majority of people fall somewhere between these two extremes on the ``wookie-ewok'' spectrum; many methods-developers are developing methods with a specific empirical question in mind, while there are many advanced methods-users who have detailed knowledge of the limitations of the methods they use. 
+The problem is that although methods-developers (and advanced methods-users) are aware of the problems with PCMs, this information is not being effectively transferred to methods-users. Additionally, the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. 
+Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers. Here we explore the causes of this communication gap and suggest some potential solutions. %still not happy with this writing
 
-\section{Why don't all methods-users know about the ``Dark Side'' of PCMs?}
-% Or something related to the break down in communication
+\section{What impedes information transfer from methods-developers to methods-users?}
+% Or something similar
 
-To apply a method correctly, methods-users must be aware of the assumptions and biases of the method in question, and know how to identify whether their model adequately meets these assumptions. If methods-users are unaware of these factors there are several possible explanations:
+As scientists we mainly communicate our ideas and through the literature. Therefore, any difficulty transferring information between methods-developers and methods-users must begin with the literature. If this is the case we suggest three possible reasons:
+%Yuk fix this
 
 \begin{enumerate}
 \item Not everything is mentioned in the literature.
-\item The literature is too technical for the novice user and/or important details are hidden within the text.
-\item Methods users have bypassed the literature gone straight to the implementation of the method.
+\item The literature is too technical and/or important details are hidden within the text.
+\item Methods-users have bypassed the literature and gone straight to the implementation of the method.
 \end{enumerate}
 
 %Note that we assume that methods-users ignore assumptions and biases because they are unaware of them. Of course, there may be methods-users who are perfectly aware of these issues but choose to sweep them under the carpet to get their work published. Although we believe there is no excuse for doing this, we also recognize that the ``publish or perish'' culture of academia may pressurize nontenured scientists into this. Hopefully some of the changes we suggest below will also help with this problem. 
@@ -132,36 +132,45 @@ To apply a method correctly, methods-users must be aware of the assumptions and 
 \subsection{1. Not everything is mentioned in the literature}
 
 A lot of the information needed to properly apply PCMs is not found in the literature. 
-We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students and over time these myths and rules-of-thumb become set in stone. 
+We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students.
+Sometimes the folklore includes tricks to get methods working, or useful rules-of-thumb. 
+Other times folklore is more opinion-based, but over time these myths become set in stone. 
 One example of such folklore is in the defaults of programs that perform PCMs. 
 These often start out as arbitrary starting points for data exploration with no justification for their use, but over time become the way the analysis is always performed.
+Useful PCM folklore is often shared among methods-developers, and among collaborating groups, but is rarely shared outside of these circles. 
+When it is shared, it tends to be in the form of email exchanges between methods-developers and struggling methods-users.
+This advice is extremely useful to the methods-user in question, but forms a kind of ``dark advice'' that isn't accessible to the rest of the community.\\
 
 % Do we want a specific example here? Theta estimation in OU models? 
 % Could mention ±3 from Jones&Purvis97 - totally unjustified rule of thumb now = canon.
 % Mention hidden assumptions?
 
 Other information about the limitations of a method may be absent from the literature due to the time lag between a new method being published and others having time to test and critique it. 
-For example, \citealp{felsenstein1985phylogenies} published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published %add citations.
-This time lag is shorter with more recent methods because more simulations testing the method are now required by journals.
+For example, \citet{felsenstein1985phylogenies} published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published. %add citations.
+This time lag is shorter with more recent methods because simulations testing the method are now required by journals.
+However, we suspect there are still many hidden assumptions and biases in virtually all PCMs.
 
-\subsection{2. The literature is technical, dense and important information is hidden}
+\subsection{2. The literature is too technical and/or important details are hidden}
 
-Although a lot of information is not found in the literature (see above), the majority of assumptions and biases are documented somewhere. 
-A big issue for novice methods-users is that this information is often extremely technical and dense. 
+Although a lot of information is not found in the literature (see above), the majority of assumptions and biases of PCMs are documented somewhere. 
+A big issue for novice methods-users is that this information is often extremely technical and dense.
 It is not unusual for papers to be full of equations, over 20 pages long, and written in a way that gives even advanced users a headache. 
 Additionally there is a lot of literature to wade through before getting all of the required information. 
-For example, one of us (NC) reviewed papers discussing the assumptions and limitations of the most commonly used PCM, phylogenetic independent contrasts \citep{felsenstein1985phylogenies}. 
-Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book.
+For example, one of us (NC) recently reviewed papers discussing the assumptions and limitations of the most commonly used PCM, phylogenetic independent contrasts \citep{felsenstein1985phylogenies}. 
+Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book to read. 
+This seems like an excessive amount of reading to expect from a methods-user trying to run a simple empirical analysis.\\
 
-Another issue is that it can sometimes be hard to find the information required. Assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. They are rarely neatly corralled. 
-
-
-
-%Distinction between "warning" papers, and papers that just mention assumptions in passing. 
-
-%Yes they are! Pictures of warnings papers and some highlighted text from Harvey and Pagel. Seems to be disconnect between users and literature, esp older stuff – graph for Felsenstein 85 showing increased citations but without caveats papers cited. Caveats papers often cited as but(t) see or fly by citations with no depth.
+Another issue is that it can sometimes be hard to find the information required. Assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. 
+They are rarely neatly corralled in one place, making it really easy to miss pertinent details. 
+This places an additional burden on methods-users who must read every paper very carefully.
 
 \subsection{3. Users jump straight to the implementation of the method}
+
+In the early days of PCMs there was
+
+
+Increasingly new PCMs are published with an accompanying R package, or at least some code
+
 
 %This increase in use is at least partially the result of the number of available R packages to run these analyses (for example ape, GEIGER, diversitree, caper - citations) and the community's increasing familiarity with R \citep{R-Core-Team:2014aa}. Unfortunately with this increase in popularity, comes an increase in misuse! % need to work on this paragraph
 
