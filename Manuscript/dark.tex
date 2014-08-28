@@ -184,33 +184,63 @@ The truly sad thing about this state of affairs is that by making science more o
 
 \section{How can we solve some of these problems?}
 
-The problems described above require action by methods-developers, methods-users and the community as a whole. %Can't expect empiricists to be an expert in every method, but do want to add to workload of overloaded developers.
+%The problems described above require action by methods-developers, methods-users and the community as a whole. %Can't expect empiricists to be an expert in every method, but do want to add to workload of overloaded developers.
+%Can we expect methods users to read every paper before using a method? (Yes – wouldn’t let someone work on your microscope unless you were sure they knew what they were doing!!!). 
 
 \subsection{1. Simplify, summarize and share}
 
-a) dealing with 
+Many of the problems above are caused by methods papers being difficult to read. 
+This isn't entirely the fault of methods-developers; most journals have strict word limits so it's often easier to use a one line equation rather than a paragraph of description. 
+However, it's hard to complain about novice users failing to understand a method when the paper is incomprehensible. %cough cough Hansen. Ow my eyes are bleeding.
+One solution is to prepare an accompanying blog post or video explaining the method in less technical terms. 
+Some journals already encourage this (e.g. Methods in Ecology and Evolution), and even if they do not, there is no harm in doing this and hosting it on a personal website. 
+The ability to share ideas with a non-technical audience is a key skill to develop, and it may even encourage more people to use the method. 
+%Another more %knitr reports in supp mat (e.g. cite that nice paper )
+At the very least, having a simple list of the main assumptions, biases and caveats of the method somewhere would reduce misuse and provide a place to point methods-users to when they begin using a method.
+Of course this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible.\\
 
-%Grouping assumptions, biases and caveats more carefully in papers. Caveats box???
+%Want to mention adding ways of testing assumptions to packages
+%follow up papers (hard to publish coz they are incremental - see incentives)
+%or should this go in incentives...?
 
-%Accompanying blogs with methods papers to explain to non-technical audience. Could be Supp Matt too. Lavin et al 2008 is a beautiful example.
+The glut of literature that already exists for established methods is a bigger problem. 
+One solution would be to establish a wiki-style website where methods-developers and advanced methods-users could post summaries of commonly used methods, along with lists of key papers to read. 
+The community would be responsible for peer reviewing these summaries to ensure all opinions are covered. 
+Eric Matsen's Phylobabble discourse page (link) is an excellent example of a similar approach for phylogenetics. Unfortunately this would be hard to arrange as there is little incentive for methods-developers and advanced methods-users to contribute to such a project at the cost of time pursuing their own research.\\
 
-%Some website with a list of key papers, and key summary points, for each method. Who would host? Who would write? Who would peer review?
-
-May not be doable... List too many assumptions...
-Discourse pages – forums for particular things. Dark “advice”.
-Reduces time needed. 
-Phylobabble
+One solution we believe will be of use is establishing a discourse page for providing R help. 
+Currently most methods-users either email the R-sig-phylo help list or the package developer for assistance. 
+Both approaches are suboptimal. 
+R-sig-phylo is impossible to search effectively, leading to the same questions being dealt with repeatedly. 
+The same is true in email exchanges between methods-users and package developers with the added issue of this being ``dark advice'' that isn't shared. 
+A discourse page would collate all of this information and reduce pressure on package developers by allowing advanced methods-users to help novice users. 
+This would be a valuable resource for methods-users and also reduce the amount of time methods-developers spend dealing with queries.
+We floated this idea at Evolution 2014 and hope to have a version of the discourse page up and running soon.
 
 \subsection{2. Read, think and learn}
+%This section is currently a bit personal. You should do this and that, rather than methods-users should do this and that.
+If methods-developers are going to put time and effort into making their methods easier to understand, then methods-users need to take advantage of this and work harder to understand the methods they are using. 
+At a minimum, methods-users should read the original papers describing a method, and any recent updates. 
+Jumping straight in to an R implementation is a fine way to start a project, but it needs to be followed up by careful reading and thought. 
+Playing with shiny new methods is always fun, but don't retrofit your question to the new method. 
+Think carefully about the question you want to ask, and whether the method really answers that question. 
+Also consider whether you really need to use a phylogeny for your analysis at all \citep{losos2011seeing}.\\
 
-%Users need to take responsibility too. Work harder to understand. Read widely. Don't take results at face value. Become less trusting! Simulate data to check method does what you think it should do. Don't be afraid to question standard practice - sometimes it's just folklore. My pglm vs pgls example.
+Another key skill to develop is distrust! 
+Never take results from PCMs (or any other statistical analysis) at face value. 
+Always think carefully about whether there may be hidden assumptions or biases that have not been explored in the accompanying papers. 
+A good way to check this is to simulate some data and see if you get the results you expect. 
+Also consider whether the method will work on your dataset; how many species does it need to have reasonable power, how does it deal with polytomies, can it cope with non-ultrametric trees etc.
+Finally, never be afraid to question standard practice, sometimes it's just PCM folklore
+%Could add my pglm vs pgls example.
 
 \subsection{3. Collaboration}
 
-A obvious solution to all these problems is for methods-developers and methods-users to collaborate more. The benefits to methods-users is obvious, but methods-developers can gain extra datasets to test their ideas on, people who will discover corner cases and bugs in their software before it get released, and gain an appreciation of . 
-A big difficulty with collaboration 
-
-%Collaborate! But make collaboration valuable to non first authors somehow
+A obvious solution to all these problems is for methods-developers and methods-users to collaborate more. 
+The benefits to methods-users are obvious, but methods-developers can also benefit by gaining extra datasets to test their ideas on and people who will discover corner cases and bugs in their software before it get released. 
+A big difficulty with collaboration is that it is often asymmetrical in terms of benefit to methods-users and methods-developers. 
+Methods-developers and advanced methods-users can often put a lot of time and effort into running analyses for less experienced colleagues, yet at best they come out of the experience with a middle authored paper. 
+Until these author positions are considered equal to first and last author positions, there is little incentive to collaborate extensively.
 
 \subsection{4. Incentives}
 
@@ -229,18 +259,30 @@ A big difficulty with collaboration
 
 
 Encourage quality over quantity % this is how I'm apparently allowed to justify my publication record
-Additionally, many methods-users seem to try to retrofit a question so they can use the newest shiniest methods available. 
+Discourage retrofitting a question so they can use the newest shiniest methods available. 
 
 
-%Can we expect methods users to read every paper before using a method? (Yes – wouldn’t let someone work on your microscope unless you were sure they knew what they were doing!!!). Perhaps some work to be done in summarizing this – needs incentives – no benefits to wikis and workshop teaching cf to writing high impact papers, or papers at all. However, people willing to share skills are the people we really want as colleagues, not the selfish high achievers! Collaborate with someone who does know this stuff? Again problematic as highly skilled technical people end up with too much to do and still end up only being middle author. Maybe something like in physics with “theoretical lead” and “technical lead” authors??? Perhaps write a less technical summary for methods papers, or a “Caveats box” to put this up front – i.e. will only work if you have X taxa and this kind of data. Check these assumptions. Incentivize accompanying blogs to explain this stuff? Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish. Speed up publication by archiving. Put code on github so knowledgeable users can access at an earlier stage if they want to. Helpful for finding bugs etc. Methods developers could also benefit from collaboration with methods users who could help them find corner cases and make their methods more useful with real data? [Again I’m torn with some of these ideas because is it really the developer’s job to stop people from being fuckwits? But if this info isn’t included here, *where* would it come from and *who* would provide it? Users can’t be trusted.]
+%
 
-%A New Hope joke...
+%Perhaps some work to be done in summarizing this – needs incentives – no benefits to wikis and workshop teaching cf to writing high impact papers, or papers at all. However, people willing to share skills are the people we really want as colleagues, not the selfish high achievers! 
+
+
+
+%Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish. 
+%Speed up publication by archiving. 
+%Put code on github so knowledgeable users can access at an earlier stage if they want to. Helpful for finding bugs etc. 
+
+\section{Conclusion}
+
+Hopefully we can banish the ``Dark Side'' of PCMs and create a ``New Hope'' for the whole PCM community, whether they be wookies, ewoks or somewhere in between.
 
 \section{Funding}
 This work was supported by The European Commission CORDIS Seventh Framework Program (FP7) Marie Curie CIG grant, proposal number: 321696 (NC). 
 
 \section{Acknowledgments}
-Thanks to the Society of Systematic Biologists for funding our symposium at Evolution 2014. We also thank George Lucas for the ``hilarious'' Star Wars jokes.
+Thanks to the Society of Systematic Biologists for funding our symposium at Evolution 2014. 
+We also thank George Lucas for the ``hilarious'' Star Wars jokes.
+%Should possible thank Brian O'Meara for funding discourse page
 
 \bibliographystyle{sysbio}
 \bibliography{darkside}
