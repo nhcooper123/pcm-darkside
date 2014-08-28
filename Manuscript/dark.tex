@@ -109,15 +109,17 @@ To paraphrase \citet{blomberg2012independent}, the enthusiastic application of P
 One major issue is that two groups of people are involved with PCMs. 
 At one extreme, methods-developers (``wookies'') develop new methods and implement them. They are (generally) aware of the limitations of their methods, and the assumptions that underly them. 
 % Bit of a stretch but we can pretend right? :)
-At the other extreme, na\"{i}ve methods-users (``ewoks'') just want to use PCMs to answer empirical questions with their data, and may not be aware of issues with the methods. 
-Of course the majority of people fall somewhere between these two extremes on the ``wookie-ewok'' spectrum; many methods-developers are developing methods with a specific empirical question in mind, while there are many advanced methods-users who have detailed knowledge of the limitations of the methods they use. 
-The problem is that although methods-developers (and advanced methods-users) are aware of the problems with PCMs, this information is not being effectively transferred to methods-users. Additionally, the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. 
+At the other extreme, na\"{i}ve methods-users (``ewoks'') just want to use PCMs to answer empirical questions with their data, and may not be aware of issues with the methods 
+%when the next sentence is not in brackets it breaks the flow. But needs to be here. Brackets feel wrong too. Will Syst Biol allow footnotes
+(of course the majority of people fall somewhere between these two extremes on the ``wookie-ewok'' spectrum; many methods-developers are developing methods with a specific empirical question in mind, while there are many advanced methods-users who have detailed knowledge of the limitations of the methods they use). 
+The problem is that although methods-developers (and advanced methods-users) are aware of the problems with PCMs, this information is not being effectively transferred to methods-users. 
+Additionally, the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. 
 Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers. Here we explore the causes of this communication gap and suggest some potential solutions. %still not happy with this writing
 
 \section{What impedes information transfer from methods-developers to methods-users?}
 % Or something similar
 
-As scientists we mainly communicate our ideas and through the literature. Therefore, any difficulty transferring information between methods-developers and methods-users must begin with the literature. If this is the case we suggest three possible reasons:
+As scientists we mainly communicate our ideas through the literature. Therefore, any difficulty transferring information between methods-developers and methods-users must begin there. If this is the case we suggest three possible reasons:
 %Yuk fix this
 
 \begin{enumerate}
@@ -132,9 +134,9 @@ As scientists we mainly communicate our ideas and through the literature. Theref
 \subsection{1. Not everything is mentioned in the literature}
 
 A lot of the information needed to properly apply PCMs is not found in the literature. 
-We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students.
+We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students, and it is occasionally closer to fiction than fact.
 Sometimes the folklore includes tricks to get methods working, or useful rules-of-thumb. 
-Other times folklore is more opinion-based, but over time these myths become set in stone. 
+Other times folklore is more opinion-based, but over time these opinions become rules. 
 One example of such folklore is in the defaults of programs that perform PCMs. 
 These often start out as arbitrary starting points for data exploration with no justification for their use, but over time become the way the analysis is always performed.
 Useful PCM folklore is often shared among methods-developers, and among collaborating groups, but is rarely shared outside of these circles. 
@@ -146,9 +148,10 @@ This advice is extremely useful to the methods-user in question, but forms a kin
 % Mention hidden assumptions?
 
 Other information about the limitations of a method may be absent from the literature due to the time lag between a new method being published and others having time to test and critique it. 
-For example, \citet{felsenstein1985phylogenies} published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published. %add citations.
+For example, Felsenstein published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published. %add citations.
 This time lag is shorter with more recent methods because simulations testing the method are now required by journals.
-However, we suspect there are still many hidden assumptions and biases in virtually all PCMs.
+However, we suspect there are still many hidden assumptions and biases in virtually all new PCMs that have yet to be properly explored in the literature. 
+%We can cite your paper on Pagel 1994 here if you like - as an example of old methods that are still being investigated.
 
 \subsection{2. The literature is too technical and/or important details are hidden}
 
@@ -170,45 +173,22 @@ In the early days of PCMs, some methods-developers provided stand alone packages
 This resulted in many frustrating hours (and days and months!) trying to implement any new method you wanted to use.\\
 
 More recently however, the PCM community has moved towards mostly implementing their methods in R (cite), and code sharing has become almost ubiquitous. 
-The number of R packages for PCMs has increased exponentially since 2005 when ape (A=P=E=, cite) was released, and has increased particularly sharply since 2008 (Figure \ref{x}).
+The number of R packages for PCMs has increased exponentially since 2005 when APE (cite) was released, and has increased particularly sharply since 2008 (Figure \ref{x}).
 Simultaneously, more and more methods-users are able to use R, thus when a new method is published they can now take an R package ``off the shelf'' and use it to run the method immediately.
-We are all big proponents of Open Science so we think this is a wonderful thing for the field, and we do not mean to criticize 
-However, this has led to an increasing number of methods-users jumping straight to the implementation of a method, without really carefully trying to understand what the method is doing, or what it's assumptions might be. 
-Additionally, many methods-users seem to try to retrofit a question so they can use the newest shiniest methods available. 
-All of us regularly review papers where the authors have clearly not read the original papers very carefully.
-
-This problem is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit
-
-%This increase in use is at least partially the result of the number of available R packages to run these analyses (for example ape, GEIGER, diversitree, caper - citations) and the community's increasing familiarity with R \citep{R-Core-Team:2014aa}. Unfortunately with this increase in popularity, comes an increase in misuse! % need to work on this paragraph
-
-%Huge increase in number of PCM packages since 1980s, and especially since 2008 [Graph]. Now people familiar with R they can just jump in and try stuff on their data with very little knowledge of what is going on or what the results mean [Though code sharing is cool and I’m not dissing that]. 
-
-%I’m torn as to what I think here – part of me thinks there should be a mention of assumptions in the manual/vignette (though not if this replicates an accompanying blog or book or something) but part of me thinks it’s the users responsibility to not be a fuckwit. Caper, diversitree and CAIC are good examples where assumptions are clearly laid out and methods for testing assumptions are available in caper and CAIC (not sure about diversitree ...). Ape book has none of this in it at all!
-
-%Again this needs to be incentivized as it’s adding work for already hard working and underappreciated methods developers. Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish.
+This has led to an increasing number of methods-users jumping straight to the implementation of a method, without really carefully trying to understand what the method is doing, what its assumptions might be, or what the results they extract really mean in a biological context.
+This problem is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
+The APE book (cite) for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see CAIC and caper documentation - cite).\\
+We believe this issue is probably one of the biggest currently facing phylogenetic comparative biology. It is extremely frustrating reading/reviewing papers where the authors have clearly not carefully read or understood the primary literature on the method they are using. 
+Additionally, many methods-users seem to try to retrofit a question so they can use the newest shiniest methods available. This is all driven by our ``publish or perish'' culture, and the pressure to produce as many papers as possible out of a dataset.
+The truly sad thing about this state of affairs is that by making science more open and sharing code (something we are all passionate about and strongly support) we seem to have made the situation worse rather than better (\citealp{freckleton2009seven}, for example, mentions R as a way of improving things). %needs a bit of finessing
 
 \section{How can we solve some of these problems?}
 
+The problems described above require action by methods-developers, methods-users and the community as a whole. %Can't expect empiricists to be an expert in every method, but do want to add to workload of overloaded developers.
+
 \subsection{1. Simplify, summarize and share}
-\subsection{2. Read, think and learn}
-\subsection{3. Collaboration}
-\subsection{4. Incentives}
 
-%Such issues are the responsibility of end users but also of methods developers: the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. To address these issues, we propose this symposium to discuss issues in both classical and recent PCMs, along with new research on detecting for these issues and accounting for them.  We hope that this will both increase awareness of these problems and encourage further research and careful thought in the area, along with better dialogue between method developers and method users.
-
-%Big issue = who is responsible? Can't expect empiricists to be an expert in every method, but do want to add to workload of overloaded developers.
-
-%Improvements in methods, and ways of detecting biases etc should be sufficient for publication (rather than MEE's weird focus on novelty now it has a huge IF)
-
-%Incentives - funding for pure methods. Different authorship rules. 
-
-%Change the definition of success in academia. Quality not quantity. Remove rush to publish. This would help WOMEN too!
-
-%Collaborate! But make collaboration valuable to non first authors somehow
-
-%We really *do not* want to lose all the technical people from science. We need them more than ever as evo bio becomes more and more computationally intensive. Need to make it worth their while (can't match wages of industry)
-
-%Add methods to test assumptions as standard to packages. 
+a) dealing with 
 
 %Grouping assumptions, biases and caveats more carefully in papers. Caveats box???
 
@@ -216,7 +196,41 @@ This problem is exacerbated by the fact that manuals, vignettes and help files f
 
 %Some website with a list of key papers, and key summary points, for each method. Who would host? Who would write? Who would peer review?
 
+May not be doable... List too many assumptions...
+Discourse pages – forums for particular things. Dark “advice”.
+Reduces time needed. 
+Phylobabble
+
+\subsection{2. Read, think and learn}
+
 %Users need to take responsibility too. Work harder to understand. Read widely. Don't take results at face value. Become less trusting! Simulate data to check method does what you think it should do. Don't be afraid to question standard practice - sometimes it's just folklore. My pglm vs pgls example.
+
+\subsection{3. Collaboration}
+
+A obvious solution to all these problems is for methods-developers and methods-users to collaborate more. The benefits to methods-users is obvious, but methods-developers can gain extra datasets to test their ideas on, people who will discover corner cases and bugs in their software before it get released, and gain an appreciation of . 
+A big difficulty with collaboration 
+
+%Collaborate! But make collaboration valuable to non first authors somehow
+
+\subsection{4. Incentives}
+
+%Improvements in methods, and ways of detecting biases etc should be sufficient for publication (rather than MEE's weird focus on novelty now it has a huge IF)
+
+%Incentives - funding for pure methods. Different authorship rules. 
+%Change the definition of success in academia. Quality not quantity. Remove rush to publish. This would help WOMEN too!
+
+%We really *do not* want to lose all the technical people from science. We need them more than ever as evo bio becomes more and more computationally intensive. Need to make it worth their while (can't match wages of industry)
+
+%Add methods to test assumptions as standard to packages. 
+%I’m torn as to what I think here – part of me thinks there should be a mention of assumptions in the manual/vignette (though not if this replicates an accompanying blog or book or something) but part of me thinks it’s the users responsibility to not be a fuckwit. Caper, diversitree and CAIC are good examples where assumptions are clearly laid out and methods for testing assumptions are available in caper and CAIC (not sure about diversitree ...). Ape book has none of this in it at all!
+
+%Again this needs to be incentivized as it’s adding work for already hard working and underappreciated methods developers. Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish.
+
+
+
+Encourage quality over quantity % this is how I'm apparently allowed to justify my publication record
+Additionally, many methods-users seem to try to retrofit a question so they can use the newest shiniest methods available. 
+
 
 %Can we expect methods users to read every paper before using a method? (Yes – wouldn’t let someone work on your microscope unless you were sure they knew what they were doing!!!). Perhaps some work to be done in summarizing this – needs incentives – no benefits to wikis and workshop teaching cf to writing high impact papers, or papers at all. However, people willing to share skills are the people we really want as colleagues, not the selfish high achievers! Collaborate with someone who does know this stuff? Again problematic as highly skilled technical people end up with too much to do and still end up only being middle author. Maybe something like in physics with “theoretical lead” and “technical lead” authors??? Perhaps write a less technical summary for methods papers, or a “Caveats box” to put this up front – i.e. will only work if you have X taxa and this kind of data. Check these assumptions. Incentivize accompanying blogs to explain this stuff? Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish. Speed up publication by archiving. Put code on github so knowledgeable users can access at an earlier stage if they want to. Helpful for finding bugs etc. Methods developers could also benefit from collaboration with methods users who could help them find corner cases and make their methods more useful with real data? [Again I’m torn with some of these ideas because is it really the developer’s job to stop people from being fuckwits? But if this info isn’t included here, *where* would it come from and *who* would provide it? Users can’t be trusted.]
 
