@@ -4,15 +4,12 @@
 \usepackage[osf]{mathpazo} % palatino
 \usepackage{ms}            % load the template
 \usepackage[round]{natbib} % author-year citations
-\usepackage{graphicx}      
+\usepackage{graphicx}
+\usepackage{parskip}      
 \pagenumbering{arabic}    
 
 % From Syst Biol template
 \linespread{1.66}
-\raggedright
-\setlength{\parindent}{0.5in}
-
-%\pagestyle{empty}
 
 \renewcommand{\section}[1]{
   \bigskip
@@ -52,16 +49,16 @@
 }
 \date{}
 \affiliation{\noindent{\footnotesize
-$^1$ Department of Biological Sciences, Macquarie University, Sydney, NSW 2109, Australia. \\
-$^2$ Wisconsin\\
-$^3$ UBC\\
-$^4$ Institute for Bioinformatics and Evolutionary Studies, University
-of Idaho, Moscow, ID 83844, U.S.A.\\
-$^5$ Sheffield\\
-$^6$ Austin\\
-$^7$ School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland.\\ 
-$^8$ Trinity Centre for Biodiversity Research, Trinity College Dublin, Dublin 2, Ireland.\\
-$^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland. Fax: +353 1 677 8094; Tel: +353 1 896 1926.\\
+  $^1$ Department of Biological Sciences, Macquarie University, Sydney, NSW 2109, Australia. \\
+  $^2$ Wisconsin\\
+  $^3$ UBC\\
+  $^4$ Institute for Bioinformatics and Evolutionary Studies, University of Idaho, Moscow, ID 83844, U.S.A.\\
+  $^5$ Sheffield\\
+  $^6$ Austin\\
+  $^7$ School of Natural Sciences, Trinity College Dublin, Dublin 2, Ireland.\\ 
+  $^8$ Trinity Centre for Biodiversity Research, Trinity College Dublin, Dublin 2, Ireland.\\
+  $^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland. 
+       Fax: +353 1 677 8094; Tel: +353 1 896 1926.\\
 }}
 
 \vfill
@@ -85,8 +82,11 @@ $^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dub
 \newpage
 \raggedright
 \doublespacing
+\setlength{\parindent}{1cm}
+
 %\section{Introduction} % No intro heading for Syst Biol
 
+\noindent
 A long time ago in a galaxy far, far away - also known as the 1980s - phylogenetic comparative methods (PCMs) were developed to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}). 
 Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, the tempo and mode of trait evolution, and models of speciation and extinction (see reviews in \citealp{o2012evolutionary, pennell2013integrative}). 
 PCMs have also become extremely popular over recent years; the number of papers containing the phrase `phylogenetic comparative' has increased exponentially since the 1980s (Figure \ref{PCMCitations}). 
@@ -118,7 +118,6 @@ Clearly more effort is needed to bridge the widening gap between methods-users a
 
 \section{What impedes information transfer from methods-developers to methods-users?}
 % Or something similar
-
 As scientists we mainly communicate our ideas through the literature. Therefore, any difficulty transferring information between methods-developers and methods-users must begin there. If this is the case we suggest three possible reasons:
 %Yuk fix this
 
@@ -132,7 +131,6 @@ As scientists we mainly communicate our ideas through the literature. Therefore,
 %This could be a footnote, or left out!
 
 \subsection{1. Not everything is mentioned in the literature}
-
 A lot of the information needed to properly apply PCMs is not found in the literature. 
 We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students, and it is occasionally closer to fiction than fact.
 Sometimes the folklore includes tricks to get methods working, or useful rules-of-thumb. 
@@ -154,7 +152,6 @@ However, we suspect there are still many hidden assumptions and biases in virtua
 %We can cite your paper on Pagel 1994 here if you like - as an example of old methods that are still being investigated.
 
 \subsection{2. The literature is too technical and/or important details are hidden}
-
 Although a lot of information is not found in the literature (see above), the majority of assumptions and biases of PCMs are documented somewhere. 
 A big issue for novice methods-users is that this information is often extremely technical and dense.
 It is not unusual for papers to be full of equations, over 20 pages long, and written in a way that gives even advanced users a headache. 
@@ -168,12 +165,11 @@ They are rarely neatly corralled in one place, making it really easy to miss per
 This places an additional burden on methods-users who must read every paper very carefully.
 
 \subsection{3. Users jump straight to the implementation of the method}
-
 In the early days of PCMs, some methods-developers provided stand alone packages to run their methods, others provided code in whichever language they were comfortable programming in, and still others provided no way of implementing their methods at all. 
 This resulted in many frustrating hours (and days and months!) trying to implement any new method you wanted to use.\\
 
 More recently however, the PCM community has moved towards mostly implementing their methods in R (cite), and code sharing has become almost ubiquitous. 
-The number of R packages for PCMs has increased exponentially since 2005 when APE (cite) was released, and has increased particularly sharply since 2008 (Figure \ref{x}).
+The number of R packages for PCMs has increased exponentially since 2005 when APE (cite) was released, and has increased particularly sharply since 2008 (Figure \ref{PCMRpackages}).
 Simultaneously, more and more methods-users are able to use R, thus when a new method is published they can now take an R package ``off the shelf'' and use it to run the method immediately.
 This has led to an increasing number of methods-users jumping straight to the implementation of a method, without really carefully trying to understand what the method is doing, what its assumptions might be, or what the results they extract really mean in a biological context.
 This problem is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
@@ -182,13 +178,19 @@ We believe this issue is probably one of the biggest currently facing phylogenet
 Additionally, many methods-users seem to try to retrofit a question so they can use the newest shiniest methods available. This is all driven by our ``publish or perish'' culture, and the pressure to produce as many papers as possible out of a dataset.
 The truly sad thing about this state of affairs is that by making science more open and sharing code (something we are all passionate about and strongly support) we seem to have made the situation worse rather than better (\citealp{freckleton2009seven}, for example, mentions R as a way of improving things). %needs a bit of finessing
 
+\begin{figure}[h]
+\centering
+\includegraphics[width = 10cm]{PCMRpackages.png}
+\caption{Increase in R packages through time}
+\label{PCMRpackages}
+\end{figure}
+
 \section{How can we solve some of these problems?}
 
 %The problems described above require action by methods-developers, methods-users and the community as a whole. %Can't expect empiricists to be an expert in every method, but do want to add to workload of overloaded developers.
 %Can we expect methods users to read every paper before using a method? (Yes – wouldn’t let someone work on your microscope unless you were sure they knew what they were doing!!!). 
 
 \subsection{1. Simplify, summarize and share}
-
 Many of the problems above are caused by methods papers being difficult to read. 
 This isn't entirely the fault of methods-developers; most journals have strict word limits so it's often easier to use a one line equation rather than a paragraph of description. 
 However, it's hard to complain about novice users failing to understand a method when the paper is incomprehensible. %cough cough Hansen. Ow my eyes are bleeding.
@@ -235,7 +237,6 @@ Finally, never be afraid to question standard practice, sometimes it's just PCM 
 %Could add my pglm vs pgls example.
 
 \subsection{3. Collaboration}
-
 A obvious solution to all these problems is for methods-developers and methods-users to collaborate more. 
 The benefits to methods-users are obvious, but methods-developers can also benefit by gaining extra datasets to test their ideas on and people who will discover corner cases and bugs in their software before it get released. 
 A big difficulty with collaboration is that it is often asymmetrical in terms of benefit to methods-users and methods-developers. 
@@ -244,7 +245,13 @@ Until these author positions are considered equal to first and last author posit
 
 \subsection{4. Incentives}
 
-%Improvements in methods, and ways of detecting biases etc should be sufficient for publication (rather than MEE's weird focus on novelty now it has a huge IF)
+For any of the solutions above to work we need to incentivize more thoughtful methods development and use.
+
+First we need to stop insisting that methods papers must be entirely novel. Improvements to existing methods, and ways of detecting biases or testing model fit should be sufficient for publication. These kinds of papers are arguably more useful to the community than constantly publishing new methods as this encourages methods-users to use the shiniest new methods, rather than carefully thinking about the question they are trying to answer. Journals also have a part to play in encouraging methods-developers to develop ways of testing the assumptions of their methods and building this into the original publications.
+
+Second we need to fund pure methods development, including incremental methods. Currently it is difficult to get funding for purely methods driven research; and empirical component is always needed and methods development is often seen as part of the bigger empirical picture, rather than the reverse. This unfairly prejudices funding bodies, and hiring committees, away from methods-developers. Our ability to do science often relies on methods-developers we can't lose them!!!
+
+Finally we need to re-evaluate our criteria for success in academia. The ``publish or perish'' mentality is not conducive to careful method use or attempts to fully understand a method prior
 
 %Incentives - funding for pure methods. Different authorship rules. 
 %Change the definition of success in academia. Quality not quantity. Remove rush to publish. This would help WOMEN too!
