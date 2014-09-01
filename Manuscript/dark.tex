@@ -143,11 +143,11 @@ This advice is extremely useful to the methods-user in question, but forms a kin
 % NC: Could mention ±3 from Jones&Purvis97 - totally unjustified rule of thumb now = canon.
 % NC: Mention hidden assumptions? I mention them later
 
-Other information about the limitations of a method may be absent from the literature due to the time lag between a new method being published and others having time to test and critique it. 
-For example, Felsenstein published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published. %add citations.
-This time lag is shorter with more recent methods because simulations testing the method are now required by journals.
-However, we suspect there are still many hidden assumptions and biases in virtually all new PCMs that have yet to be properly explored in the literature. 
-% NC: We can cite your paper on Pagel 1994 here if you like - as an example of old methods that are still being investigated.
+Other information about the limitations of a method may be absent from the literature due to the time-lag between a new method being published and others having time to test and critique it. 
+For example, Felsenstein published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published (e.g. \citealp{garland1992procedures})
+This time-lag is shorter with more recent methods because simulations testing the method are now required by journals.
+However, we suspect there are still many hidden assumptions and biases in all new PCMs that have yet to be properly explored in the literature. 
+% NC: Rich, we can cite your paper on Pagel 1994 here if you like - as an example of old methods that are still being investigated.
 
 \subsection{2. The literature is too technical and/or important details are hidden}
 Although a lot of information is not found in the literature (see above), the majority of assumptions and biases of PCMs are documented somewhere. 
@@ -155,7 +155,7 @@ A big issue for novice methods-users is that this information is often extremely
 It is not unusual for papers to be full of equations, over 20 pages long, and written in a way that gives even advanced users a headache. 
 Additionally there is a lot of literature to wade through before getting all of the required information. 
 For example, one of us (NC) recently reviewed papers discussing the assumptions and limitations of the most commonly used PCM, phylogenetic independent contrasts \citep{felsenstein1985phylogenies}. 
-Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book to read. % add numbers
+Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book to read. % NC: add numbers
 This seems like an excessive amount of reading to expect from a methods-user trying to run a simple empirical analysis.\\
 
 Another issue is that it can sometimes be hard to find the information required. Assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. 
@@ -169,12 +169,13 @@ This resulted in many frustrating hours (and days and months!) trying to impleme
 More recently however, the PCM community has moved towards mostly implementing their methods in R \citep{R-Core-Team:2014aa}, and code sharing has become almost ubiquitous. 
 The number of R packages for PCMs has increased exponentially since 2005 when APE \citep{Paradis:2004aa} was released, and has increased particularly sharply since 2008 (Figure \ref{PCMRpackages}).
 Simultaneously, more and more methods-users are able to use R, thus when a new method is published they can now take an R package ``off the shelf'' and use it to run the method immediately.
-This has led to an increasing number of methods-users jumping straight to the implementation of a method, without understanding what the method is doing, what its assumptions might be, or what the results they extract mean in a biological context.
+\citet{freckleton2009seven} suggested that the ability to to conduct PCMs in flexible computing environments such as R would improve the ability of methods-users to implement methods correctly. 
+However, this has instead led to an increasing number of methods-users jumping straight to the implementation of a method, without understanding what the method is doing, what its assumptions might be, or what the results mean in a biological context.
 This problem is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
-The APE book \citep{paradis2011analysis} for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see CAIC and caper documentation; \citep{purvis1995comparative,Orme:2013aa}).\\
-We believe this issue is probably one of the biggest currently facing phylogenetic comparative biology. It is extremely frustrating reading/reviewing papers where the authors have clearly not carefully read or understood the primary literature on the method they are using. 
+The APE book \citep{paradis2011analysis} for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see CAIC and caper documentation; \citep{purvis1995comparative,Orme:2013aa}.\\
+We believe this issue is probably one of the biggest currently facing phylogenetic comparative biology. It is extremely frustrating reading/reviewing papers where the authors have clearly failed to carefully read or understand the primary literature on the method they are using. 
 Additionally, many methods-users seem to try to retrofit a question so they can use the shiniest new methods available. This is all driven by our ``publish or perish'' culture, and the pressure to produce as many papers as possible out of a dataset.
-The truly sad thing about this state of affairs is that by making science more open and sharing code (something we are all passionate about and strongly support) we seem to have made the situation worse rather than better. Particularly when the flexibility of R should improve the abilit methods \citealp{freckleton2009seven}. %check Freck
+The truly sad thing about this state of affairs is that by making science more open and sharing code (something we are all passionate about and strongly support) we seem to have made the situation worse rather than better.
 
 \begin{figure}[h]
 \centering
@@ -192,43 +193,36 @@ However, it's hard to complain about novice users failing to understand a method
 One solution is to prepare an accompanying blog post or video explaining the method in less technical terms. 
 Some journals already encourage this (e.g. Methods in Ecology and Evolution), and even if they do not, there is no harm in doing this and hosting it on a personal website. 
 The ability to share ideas with a non-technical audience is a key skill to develop, and it may even encourage more people to use the method. 
-% NC: Another more %knitr reports in supp mat (e.g. cite that nice paper )
+% NC: Perhaps add something about having reproducible %knitr reports in supp mat (e.g. cite that nice recent paper)
 At the very least, having a simple list of the main assumptions, biases and caveats of the method somewhere would reduce misuse and provide a place to point methods-users to when they begin using a method.
 Of course this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible.\\
-
-%Want to mention adding ways of testing assumptions to packages
-%follow up papers (hard to publish coz they are incremental - see incentives)
-%or should this go in incentives...?
 
 The glut of literature that already exists for established methods is a bigger problem. 
 One solution would be to establish a wiki-style website where methods-developers and advanced methods-users could post summaries of commonly used methods, along with lists of key papers to read. 
 The community would be responsible for peer reviewing these summaries to ensure all opinions are covered. 
-Erick Matsen's Phylobabble discourse page (link) is an excellent example of a similar approach for phylogenetics. Unfortunately this would be hard to arrange as there is little incentive for methods-developers and advanced methods-users to contribute to such a project at the cost of time pursuing their own research.\\
+Erick Matsen's Phylobabble discourse page (http://phylobabble.org/) is an excellent example of a similar approach for phylogenetics. Unfortunately there is currently little incentive for methods-developers and advanced methods-users to contribute to such a project at the cost of time pursuing their own research.\\
 
-One solution we believe will be of use is establishing a discourse page for providing R help. 
+One solution is to establish a discourse page for providing R help. 
 Currently most methods-users either email the R-sig-phylo help list or the package developer for assistance. 
 Both approaches are suboptimal. 
 R-sig-phylo is impossible to search effectively, leading to the same questions being dealt with repeatedly. 
 The same is true in email exchanges between methods-users and package developers with the added issue of this being ``dark advice'' that isn't shared. 
-A discourse page would collate all of this information and reduce pressure on package developers by allowing advanced methods-users to help novice users. 
-This would be a valuable resource for methods-users and also reduce the amount of time methods-developers spend dealing with queries.
-We floated this idea at Evolution 2014 and hope to have a version of the discourse page up and running soon.
+A discourse page would collate all of this information and reduce pressure on package developers by allowing advanced methods-users to help novice users with simple queries. 
+We are in the process of setting up a discourse page for this purpose (it will be called ``phyloBootstrap'' because it will provide ``support'' for PCMs). At Evolution 2014 many methods-developers agreed to move their R package help to this forum.
 
 \subsection{2. Read, think and learn}
 If methods-developers are going to put time and effort into making their methods easier to understand, then methods-users need to take advantage of this and work harder to understand the methods they are using. 
 At a minimum, methods-users should read the original papers describing a method, and any recent updates. 
-Jumping straight in to an R implementation is a fine way to start a project, but it needs to be followed up by careful reading and thought. 
-Playing with shiny new methods is always fun, but don't retrofit your question to the new method. 
-Think carefully about the question you want to ask, and whether the method really answers that question. 
-Also consider whether you really need to use a phylogeny for your analysis at all \citep{losos2011seeing}.\\
+Jumping straight into an R implementation is a tolerable way to start a project, but it needs to be followed up by careful reading and thought. 
+Methods-users also need to avoid retrofitting their question to shiny new methods, instead they should think carefully about the question they want to ask, whether the method is appropriate for the question, and whether PCMs are
+needed at all \citep{losos2011seeing}.\\
 
-Another key skill to develop is distrust! 
-Never take results from PCMs (or any other statistical analysis) at face value. 
-Always think carefully about whether there may be hidden assumptions or biases that have not been explored in the accompanying papers. 
-A good way to check this is to simulate some data and see if you get the results you expect. 
-Also consider whether the method will work on your dataset; how many species does it need to have reasonable power, how does it deal with polytomies, can it cope with non-ultrametric trees etc.
-Finally, never be afraid to question standard practice, sometimes it's just PCM folklore
-%Could add my pglm vs pgls example.
+Another key skill to develop is distrust; never take results from PCMs (or any other statistical analysis) at face value. 
+A good way to check a method is to simulate some data and see if the results are as expected. 
+This can expose hidden assumptions or biases that have not been explored in the papers accompanying the method, or reveal a lack of understanding of the the mechanics of the method being used. 
+It is also important for methods-users to consider whether the method will work on their dataset; for example, how many species does it need to have reasonable power, how does it deal with polytomies, can it cope with non-ultrametric trees etc.
+Finally, methods-users should never be afraid to question standard practice, sometimes it's just PCM folklore!
+% NC: Could add my pglm vs pgls example.
 
 \subsection{3. Collaboration}
 A obvious solution to all these problems is for methods-developers and methods-users to collaborate more. 
@@ -269,7 +263,7 @@ This work was supported by The European Commission CORDIS Seventh Framework Prog
 \section{Acknowledgments}
 Thanks to the Society of Systematic Biologists for funding our symposium at Evolution 2014. 
 We also thank George Lucas for the ``hilarious'' Star Wars jokes.
-%Should possible thank Brian O'Meara for funding discourse page
+%NC: Should possibly thank Brian O'Meara for funding discourse page
 
 \bibliographystyle{sysbio}
 \bibliography{darkside}
