@@ -43,7 +43,7 @@
 
 % Title page information
 
-\title{The ``Dark Side'' of Phylogenetic Comparative Methods}
+\title{The ``Dark Side'' of Phylogenetic Comparative Methods$^\dag$}
 \author{
   Richard G. FitzJohn$^{1}$, Cecile An\'{e}$^{2}$, Wayne Maddison$^{3}$,\\ Matthew W. Pennell$^{4}$, Gavin H. Thomas$^{5}$, April Wright$^{6}$,\\ and Natalie Cooper$^{7,8,*}$
 }
@@ -59,6 +59,7 @@
   $^8$ Trinity Centre for Biodiversity Research, Trinity College Dublin, Dublin 2, Ireland.\\
   $^*$ Corresponding author: ncooper@tcd.ie; Zoology Building, Trinity College Dublin, Dublin 2, Ireland. 
        Fax: +353 1 677 8094; Tel: +353 1 896 1926.\\
+  $^\dag$This paper is based on a Society of Systematic Biologists symposium at Evolution 2014, in Raleigh NC.\\
 }}
 
 \vfill
@@ -155,7 +156,7 @@ A big issue for novice methods-users is that this information is often extremely
 It is not unusual for papers to be full of equations, over 20 pages long, and written in a way that gives even advanced users a headache. 
 Additionally there is a lot of literature to wade through before getting all of the required information. 
 For example, one of us (NC) recently reviewed papers discussing the assumptions and limitations of the most commonly used PCM, phylogenetic independent contrasts \citep{felsenstein1985phylogenies}. 
-Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book to read. % NC: add numbers
+Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book to read. % NC: I will add numbers at some point!
 This seems like an excessive amount of reading to expect from a methods-user trying to run a simple empirical analysis.\\
 
 Another issue is that it can sometimes be hard to find the information required. Assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. 
@@ -193,7 +194,7 @@ However, it's hard to complain about novice users failing to understand a method
 One solution is to prepare an accompanying blog post or video explaining the method in less technical terms. 
 Some journals already encourage this (e.g. Methods in Ecology and Evolution), and even if they do not, there is no harm in doing this and hosting it on a personal website. 
 The ability to share ideas with a non-technical audience is a key skill to develop, and it may even encourage more people to use the method. 
-% NC: Perhaps add something about having reproducible %knitr reports in supp mat (e.g. cite that nice recent paper)
+% NC: Perhaps add something about having reproducible knitr reports in supp mat (e.g. cite that nice recent paper)
 At the very least, having a simple list of the main assumptions, biases and caveats of the method somewhere would reduce misuse and provide a place to point methods-users to when they begin using a method.
 Of course this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible.\\
 
@@ -232,30 +233,29 @@ Methods-developers and advanced methods-users can often put a lot of time and ef
 Until these author positions are considered equal to first and last author positions, there is little incentive to collaborate extensively.
 
 \subsection{4. Incentives}
-
-Our ability to do science often relies on methods-developers and other highly-skilled technical people, especially as evolutionary biology becomes ever more computationally intensive. 
-We cannot afford to lose these people to industry, nor can we pay industry wages, thus we need to make it worthwhile for methods-developers to remain in (or at least interact with) academia.
+It is important to recognize that our ability to do rigorous quantitative science often relies on highly-skilled methods-developers, especially as evolutionary biology becomes ever more computationally intensive. 
+We cannot afford to lose these people to industry, nor can we afford to pay industry wages, thus we need to make it worthwhile for methods-developers to remain in (or at least interact with) academia.
 
 First we need to stop insisting that methods papers must be entirely novel. 
 Improvements to existing methods, and ways of detecting biases or testing model fit should be sufficient for publication. 
-These kinds of papers are arguably more useful to the community than constantly publishing new methods as this encourages methods-users to retrofit questions so they can use the newest shiniest methods available, rather than carefully thinking about the question they are trying to answer. 
-Journals also have a part to play in encouraging methods-developers to develop ways of testing the assumptions of their methods and building this into the original publications and implementations.
+This is fairly standard in other fields, e.g. phylogenetics, and these kinds of papers are arguably more useful to the community than constantly publishing new methods.
+When novel methods are published, journals should encourage methods-developers to include ways of testing the assumptions of their methods within the original publications and packages, and request simplified summaries to accompany technical papers.
 
 Second we need to fund pure methods development, including incremental methods. 
 Currently it is difficult to get funding for purely methods driven research; an empirical component is always needed and methods development is often seen as part of the bigger empirical picture, rather than the reverse. 
-This unfairly prejudices funding bodies, and hiring committees, away from methods-developers. 
+This unfairly prejudices funding bodies (and hiring committees) away from methods-developers. 
 
 Finally we need to re-evaluate our criteria for success in academia. 
-The ``publish or perish'' mentality is not conducive to careful method use or attempts to fully understand a method prior to using it. 
-Nor does it encourage methods-developers to spend more time summarizing their work and making their methods more user-friendly. 
-If publication quality were considered more important that quantity this would improve career prospects for methods-developers, careful methods-users and also for groups that traditionally publish fewer papers, including women. 
-This is particularly important as the people willing to take the time to share their skills are the people we really want as colleagues, not the selfish high achievers with hundreds of papers! 
+The ``publish or perish'' mentality does not encourage methods-developers to spend more time on their methods than necessary. 
+Thus there is little incentive to summarize, simplify and share, or to collaborate with methods-users, as we suggest above. 
+This mentality is also not conducive to methods-users attempting to fully understand a method prior to using it. 
+Instead we need to value quality over quantity when it comes to publications.
+This would improve career prospects for both methods-developers and careful methods-users.
 
 \section{Conclusion}
+% NC: Still need a couple of lines of conclusion but I'm drawing a blank. Final sentence is fine I think. We could just skip the conclusion heading and have this as a standalone sentence at the end.
 
-We feel that phylogenetic comparative methods have fallen into a bit of a rut in recent years. Their increased popularity and easier implementation have led to numerous sloppy publications.
-
-Hopefully we can banish the ``Dark Side'' of PCMs and create a ``New Hope'' for the whole PCM community, whether they be wookies, ewoks or somewhere in between.
+Hopefully by trying to implement some of these solutions we can banish the ``Dark Side'' of PCMs and create a ``New Hope'' for the whole PCM community, whether they be wookies, ewoks or somewhere in between.
 
 \section{Funding}
 This work was supported by The European Commission CORDIS Seventh Framework Program (FP7) Marie Curie CIG grant, proposal number: 321696 (NC). 
