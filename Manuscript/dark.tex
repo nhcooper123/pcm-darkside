@@ -39,7 +39,7 @@
 
 \bibpunct{(}{)}{;}{a}{}{,}  % this is a citation format command for natbib
 
-% Ignoring their title page setup as I like Rich's template better :)
+% NC: Ignoring their title page setup as I like Rich's template better :)
 
 % Title page information
 
@@ -77,14 +77,15 @@
 \addtolength{\parskip}{.3em}
 
 %\section{abstract}
-% If Syst Biol "Point of View" there's no abstract
+% NC: If Syst Biol "Point of View" there's no abstract
 
 \newpage
 \raggedright
 \doublespacing
 \setlength{\parindent}{1cm}
 
-%\section{Introduction} % No intro heading for Syst Biol
+%\section{Introduction} 
+% NC: No intro heading for Syst Biol
 
 \noindent
 A long time ago in a galaxy far, far away - also known as the 1980s - phylogenetic comparative methods (PCMs) were developed to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}). 
@@ -104,22 +105,19 @@ The more popular these methods become, the less awareness methods-users seem to 
 Additionally, little consideration is given to whether using a PCM is really appropriate for the question at hand \citep{losos2011seeing}. 
 To paraphrase \citet{blomberg2012independent}, the enthusiastic application of PCMs has greatly outpaced our theoretical understanding of the methods and their relations to the rest of statistical theory.\\
 
-% Do we need more explicit comments showing we're not the only people to think this, nor the first to say it?
+% NC: Do we need more explicit comments showing we're not the only people to think this, nor the first to say it?
 
 One major issue is that two groups of people are involved with PCMs. 
 At one extreme, methods-developers (``wookies'') develop new methods and implement them. They are (generally) aware of the limitations of their methods, and the assumptions that underly them. 
-% Bit of a stretch but we can pretend right? :)
-At the other extreme, na\"{i}ve methods-users (``ewoks'') just want to use PCMs to answer empirical questions with their data, and may not be aware of issues with the methods 
-%when the next sentence is not in brackets it breaks the flow. But needs to be here. Brackets feel wrong too. Will Syst Biol allow footnotes
-(of course the majority of people fall somewhere between these two extremes on the ``wookie-ewok'' spectrum; many methods-developers are developing methods with a specific empirical question in mind, while there are many advanced methods-users who have detailed knowledge of the limitations of the methods they use). 
+At the other extreme, na\"{i}ve methods-users (``ewoks'') just want to use PCMs to answer empirical questions with their data, and may not be aware of issues with the methods (of course the majority of people fall somewhere between these two extremes on the ``wookie-ewok'' spectrum; many methods-developers are developing methods with a specific empirical question in mind, while there are many advanced methods-users who have detailed knowledge of the limitations of the methods they use). 
 The problem is that although methods-developers (and advanced methods-users) are aware of the problems with PCMs, this information is not being effectively transferred to methods-users. 
 Additionally, the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. 
-Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers. Here we explore the causes of this communication gap and suggest some potential solutions. %still not happy with this writing
+Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers. Here we explore the causes of this communication gap and suggest some potential solutions. % NC: still not happy with this final line or two.
 
 \section{What impedes information transfer from methods-developers to methods-users?}
-% Or something similar
-As scientists we mainly communicate our ideas through the literature. Therefore, any difficulty transferring information between methods-developers and methods-users must begin there. If this is the case we suggest three possible reasons:
-%Yuk fix this
+% NC: Or something similar
+As scientists we mainly communicate our ideas through the literature. 
+Below we propose three possible reasons for difficulties transferring information between methods-developers and methods-users via the literature.
 
 \begin{enumerate}
 \item Not everything is mentioned in the literature.
@@ -128,7 +126,7 @@ As scientists we mainly communicate our ideas through the literature. Therefore,
 \end{enumerate}
 
 %Note that we assume that methods-users ignore assumptions and biases because they are unaware of them. Of course, there may be methods-users who are perfectly aware of these issues but choose to sweep them under the carpet to get their work published. Although we believe there is no excuse for doing this, we also recognize that the ``publish or perish'' culture of academia may pressurize nontenured scientists into this. Hopefully some of the changes we suggest below will also help with this problem. 
-%This could be a footnote, or left out!
+% NC: This could be left out!
 
 \subsection{1. Not everything is mentioned in the literature}
 A lot of the information needed to properly apply PCMs is not found in the literature. 
@@ -141,15 +139,15 @@ Useful PCM folklore is often shared among methods-developers, and among collabor
 When it is shared, it tends to be in the form of email exchanges between methods-developers and struggling methods-users.
 This advice is extremely useful to the methods-user in question, but forms a kind of ``dark advice'' that isn't accessible to the rest of the community.\\
 
-% Do we want a specific example here? Theta estimation in OU models? 
-% Could mention ±3 from Jones&Purvis97 - totally unjustified rule of thumb now = canon.
-% Mention hidden assumptions?
+% NC: Do we want a specific example here? Theta estimation in OU models? 
+% NC: Could mention ±3 from Jones&Purvis97 - totally unjustified rule of thumb now = canon.
+% NC: Mention hidden assumptions? I mention them later
 
 Other information about the limitations of a method may be absent from the literature due to the time lag between a new method being published and others having time to test and critique it. 
 For example, Felsenstein published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published. %add citations.
 This time lag is shorter with more recent methods because simulations testing the method are now required by journals.
 However, we suspect there are still many hidden assumptions and biases in virtually all new PCMs that have yet to be properly explored in the literature. 
-%We can cite your paper on Pagel 1994 here if you like - as an example of old methods that are still being investigated.
+% NC: We can cite your paper on Pagel 1994 here if you like - as an example of old methods that are still being investigated.
 
 \subsection{2. The literature is too technical and/or important details are hidden}
 Although a lot of information is not found in the literature (see above), the majority of assumptions and biases of PCMs are documented somewhere. 
@@ -157,7 +155,7 @@ A big issue for novice methods-users is that this information is often extremely
 It is not unusual for papers to be full of equations, over 20 pages long, and written in a way that gives even advanced users a headache. 
 Additionally there is a lot of literature to wade through before getting all of the required information. 
 For example, one of us (NC) recently reviewed papers discussing the assumptions and limitations of the most commonly used PCM, phylogenetic independent contrasts \citep{felsenstein1985phylogenies}. 
-Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book to read. 
+Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book to read. % add numbers
 This seems like an excessive amount of reading to expect from a methods-user trying to run a simple empirical analysis.\\
 
 Another issue is that it can sometimes be hard to find the information required. Assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. 
@@ -171,12 +169,12 @@ This resulted in many frustrating hours (and days and months!) trying to impleme
 More recently however, the PCM community has moved towards mostly implementing their methods in R \citep{R-Core-Team:2014aa}, and code sharing has become almost ubiquitous. 
 The number of R packages for PCMs has increased exponentially since 2005 when APE \citep{Paradis:2004aa} was released, and has increased particularly sharply since 2008 (Figure \ref{PCMRpackages}).
 Simultaneously, more and more methods-users are able to use R, thus when a new method is published they can now take an R package ``off the shelf'' and use it to run the method immediately.
-This has led to an increasing number of methods-users jumping straight to the implementation of a method, without really carefully trying to understand what the method is doing, what its assumptions might be, or what the results they extract really mean in a biological context.
+This has led to an increasing number of methods-users jumping straight to the implementation of a method, without understanding what the method is doing, what its assumptions might be, or what the results they extract mean in a biological context.
 This problem is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
 The APE book \citep{paradis2011analysis} for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see CAIC and caper documentation; \citep{purvis1995comparative,Orme:2013aa}).\\
 We believe this issue is probably one of the biggest currently facing phylogenetic comparative biology. It is extremely frustrating reading/reviewing papers where the authors have clearly not carefully read or understood the primary literature on the method they are using. 
-Additionally, many methods-users seem to try to retrofit a question so they can use the newest shiniest methods available. This is all driven by our ``publish or perish'' culture, and the pressure to produce as many papers as possible out of a dataset.
-The truly sad thing about this state of affairs is that by making science more open and sharing code (something we are all passionate about and strongly support) we seem to have made the situation worse rather than better (\citealp{freckleton2009seven}, for example, mentions R as a way of improving things). %needs a bit of finessing
+Additionally, many methods-users seem to try to retrofit a question so they can use the shiniest new methods available. This is all driven by our ``publish or perish'' culture, and the pressure to produce as many papers as possible out of a dataset.
+The truly sad thing about this state of affairs is that by making science more open and sharing code (something we are all passionate about and strongly support) we seem to have made the situation worse rather than better. Particularly when the flexibility of R should improve the abilit methods \citealp{freckleton2009seven}. %check Freck
 
 \begin{figure}[h]
 \centering
@@ -187,9 +185,6 @@ The truly sad thing about this state of affairs is that by making science more o
 
 \section{How can we solve some of these problems?}
 
-%The problems described above require action by methods-developers, methods-users and the community as a whole. %Can't expect empiricists to be an expert in every method, but do want to add to workload of overloaded developers.
-%Can we expect methods users to read every paper before using a method? (Yes – wouldn’t let someone work on your microscope unless you were sure they knew what they were doing!!!). 
-
 \subsection{1. Simplify, summarize and share}
 Many of the problems above are caused by methods papers being difficult to read. 
 This isn't entirely the fault of methods-developers; most journals have strict word limits so it's often easier to use a one line equation rather than a paragraph of description. 
@@ -197,7 +192,7 @@ However, it's hard to complain about novice users failing to understand a method
 One solution is to prepare an accompanying blog post or video explaining the method in less technical terms. 
 Some journals already encourage this (e.g. Methods in Ecology and Evolution), and even if they do not, there is no harm in doing this and hosting it on a personal website. 
 The ability to share ideas with a non-technical audience is a key skill to develop, and it may even encourage more people to use the method. 
-%Another more %knitr reports in supp mat (e.g. cite that nice paper )
+% NC: Another more %knitr reports in supp mat (e.g. cite that nice paper )
 At the very least, having a simple list of the main assumptions, biases and caveats of the method somewhere would reduce misuse and provide a place to point methods-users to when they begin using a method.
 Of course this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible.\\
 
@@ -208,7 +203,7 @@ Of course this will be difficult as there are often hidden assumptions in a meth
 The glut of literature that already exists for established methods is a bigger problem. 
 One solution would be to establish a wiki-style website where methods-developers and advanced methods-users could post summaries of commonly used methods, along with lists of key papers to read. 
 The community would be responsible for peer reviewing these summaries to ensure all opinions are covered. 
-Eric Matsen's Phylobabble discourse page (link) is an excellent example of a similar approach for phylogenetics. Unfortunately this would be hard to arrange as there is little incentive for methods-developers and advanced methods-users to contribute to such a project at the cost of time pursuing their own research.\\
+Erick Matsen's Phylobabble discourse page (link) is an excellent example of a similar approach for phylogenetics. Unfortunately this would be hard to arrange as there is little incentive for methods-developers and advanced methods-users to contribute to such a project at the cost of time pursuing their own research.\\
 
 One solution we believe will be of use is establishing a discourse page for providing R help. 
 Currently most methods-users either email the R-sig-phylo help list or the package developer for assistance. 
@@ -220,7 +215,6 @@ This would be a valuable resource for methods-users and also reduce the amount o
 We floated this idea at Evolution 2014 and hope to have a version of the discourse page up and running soon.
 
 \subsection{2. Read, think and learn}
-%This section is currently a bit personal. You should do this and that, rather than methods-users should do this and that.
 If methods-developers are going to put time and effort into making their methods easier to understand, then methods-users need to take advantage of this and work harder to understand the methods they are using. 
 At a minimum, methods-users should read the original papers describing a method, and any recent updates. 
 Jumping straight in to an R implementation is a fine way to start a project, but it needs to be followed up by careful reading and thought. 
@@ -245,41 +239,27 @@ Until these author positions are considered equal to first and last author posit
 
 \subsection{4. Incentives}
 
-For any of the solutions above to work we need to incentivize more thoughtful methods development and use.
+Our ability to do science often relies on methods-developers and other highly-skilled technical people, especially as evolutionary biology becomes ever more computationally intensive. 
+We cannot afford to lose these people to industry, nor can we pay industry wages, thus we need to make it worthwhile for methods-developers to remain in (or at least interact with) academia.
 
-First we need to stop insisting that methods papers must be entirely novel. Improvements to existing methods, and ways of detecting biases or testing model fit should be sufficient for publication. These kinds of papers are arguably more useful to the community than constantly publishing new methods as this encourages methods-users to use the shiniest new methods, rather than carefully thinking about the question they are trying to answer. Journals also have a part to play in encouraging methods-developers to develop ways of testing the assumptions of their methods and building this into the original publications.
+First we need to stop insisting that methods papers must be entirely novel. 
+Improvements to existing methods, and ways of detecting biases or testing model fit should be sufficient for publication. 
+These kinds of papers are arguably more useful to the community than constantly publishing new methods as this encourages methods-users to retrofit questions so they can use the newest shiniest methods available, rather than carefully thinking about the question they are trying to answer. 
+Journals also have a part to play in encouraging methods-developers to develop ways of testing the assumptions of their methods and building this into the original publications and implementations.
 
-Second we need to fund pure methods development, including incremental methods. Currently it is difficult to get funding for purely methods driven research; and empirical component is always needed and methods development is often seen as part of the bigger empirical picture, rather than the reverse. This unfairly prejudices funding bodies, and hiring committees, away from methods-developers. Our ability to do science often relies on methods-developers we can't lose them!!!
+Second we need to fund pure methods development, including incremental methods. 
+Currently it is difficult to get funding for purely methods driven research; an empirical component is always needed and methods development is often seen as part of the bigger empirical picture, rather than the reverse. 
+This unfairly prejudices funding bodies, and hiring committees, away from methods-developers. 
 
-Finally we need to re-evaluate our criteria for success in academia. The ``publish or perish'' mentality is not conducive to careful method use or attempts to fully understand a method prior
-
-%Incentives - funding for pure methods. Different authorship rules. 
-%Change the definition of success in academia. Quality not quantity. Remove rush to publish. This would help WOMEN too!
-
-%We really *do not* want to lose all the technical people from science. We need them more than ever as evo bio becomes more and more computationally intensive. Need to make it worth their while (can't match wages of industry)
-
-%Add methods to test assumptions as standard to packages. 
-%I’m torn as to what I think here – part of me thinks there should be a mention of assumptions in the manual/vignette (though not if this replicates an accompanying blog or book or something) but part of me thinks it’s the users responsibility to not be a fuckwit. Caper, diversitree and CAIC are good examples where assumptions are clearly laid out and methods for testing assumptions are available in caper and CAIC (not sure about diversitree ...). Ape book has none of this in it at all!
-
-%Again this needs to be incentivized as it’s adding work for already hard working and underappreciated methods developers. Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish.
-
-
-
-Encourage quality over quantity % this is how I'm apparently allowed to justify my publication record
-Discourage retrofitting a question so they can use the newest shiniest methods available. 
-
-
-%
-
-%Perhaps some work to be done in summarizing this – needs incentives – no benefits to wikis and workshop teaching cf to writing high impact papers, or papers at all. However, people willing to share skills are the people we really want as colleagues, not the selfish high achievers! 
-
-
-
-%Funding of pure methods to encourage methods developers to make methods more user friendly, and to take the time to add methods for detecting deviations from assumptions rather than rushing to publish. 
-%Speed up publication by archiving. 
-%Put code on github so knowledgeable users can access at an earlier stage if they want to. Helpful for finding bugs etc. 
+Finally we need to re-evaluate our criteria for success in academia. 
+The ``publish or perish'' mentality is not conducive to careful method use or attempts to fully understand a method prior to using it. 
+Nor does it encourage methods-developers to spend more time summarizing their work and making their methods more user-friendly. 
+If publication quality were considered more important that quantity this would improve career prospects for methods-developers, careful methods-users and also for groups that traditionally publish fewer papers, including women. 
+This is particularly important as the people willing to take the time to share their skills are the people we really want as colleagues, not the selfish high achievers with hundreds of papers! 
 
 \section{Conclusion}
+
+We feel that phylogenetic comparative methods have fallen into a bit of a rut in recent years. Their increased popularity and easier implementation have led to numerous sloppy publications.
 
 Hopefully we can banish the ``Dark Side'' of PCMs and create a ``New Hope'' for the whole PCM community, whether they be wookies, ewoks or somewhere in between.
 
