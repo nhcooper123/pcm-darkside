@@ -4,4 +4,8 @@
 
 Code, figures, etc for our symposium talk and associated paper.
 
+Compile the paper:
 
+```
+make -C Manuscript
+```
