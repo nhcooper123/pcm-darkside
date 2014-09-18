@@ -92,9 +92,11 @@
 % NC: No intro heading for Syst Biol
 
 \noindent
-A long time ago in a galaxy far, far away - also known as the 1980s - phylogenetic comparative methods (PCMs) were developed to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}). 
+A long time ago in a galaxy far, far away - also known as the 1980s - phylogenetic comparative methods (PCMs) were developed to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}).  
+% RF: I think we need a definition of PCMs here, around the second sentence?
+% NC: I can't fit one in here without totally breaking the flow of the paragraph...
 Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, the tempo and mode of trait evolution, and models of speciation and extinction (see reviews in \citealp{o2012evolutionary, pennell2013integrative}). 
-PCMs have also become extremely popular over recent years; the number of papers containing the phrase `phylogenetic comparative' has increased exponentially since the 1980s (Figure \ref{PCMCitations}). 
+PCMs have also become extremely popular over recent years; the number of papers containing the phrase ``phylogenetic comparative'' has increased exponentially since the 1980s (Figure \ref{PCMCitations}). 
 With new methods being published almost weekly, there has never been a better time to be a comparative biologist.
 
 \begin{figure}[h]
@@ -104,8 +106,8 @@ With new methods being published almost weekly, there has never been a better ti
 \label{PCMCitations}
 \end{figure}
 
-Unfortunately, PCMs also have a ``dark side''; they make various assumptions and suffer from biases in exactly the same way as any other statistical method \citep{freckleton2009seven,boettiger2012your}. 
-The more popular these methods become, the less awareness methods-users seem to have of this dark side. Increasingly assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and misinterpreted results. 
+Unfortunately, PCMs also have a ``dark side''; they make various assumptions and suffer from biases in exactly the same way as any other statistical method \citep{freckleton2009seven,boettiger2012your}.
+The more popular these methods become, the less awareness methods-users seem to have of these issues. Increasingly assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and misinterpreted results. 
 Additionally, little consideration is given to whether using a PCM is really appropriate for the question at hand \citep{losos2011seeing}. 
 To paraphrase \citet{blomberg2012independent}, the enthusiastic application of PCMs has greatly outpaced our theoretical understanding of the methods and their relations to the rest of statistical theory.\\
 
@@ -113,7 +115,7 @@ To paraphrase \citet{blomberg2012independent}, the enthusiastic application of P
 
 One major issue is that two groups of people are involved with PCMs. 
 At one extreme, methods-developers (``wookies'') develop new methods and implement them. They are (generally) aware of the limitations of their methods, and the assumptions that underly them. 
-At the other extreme, na\"{i}ve methods-users (``ewoks'') just want to use PCMs to answer empirical questions with their data, and may not be aware of issues with the methods (of course the majority of people fall somewhere between these two extremes on the ``wookie-ewok'' spectrum; many methods-developers are developing methods with a specific empirical question in mind, while there are many advanced methods-users who have detailed knowledge of the limitations of the methods they use). 
+At the other extreme, na\"{i}ve methods-users (``ewoks'') just want to use PCMs to answer empirical questions with their data and, although they have expertise in other biological domains, they may not be aware of issues with the methods (of course the majority of people fall somewhere between these two extremes on the ``wookie-ewok'' spectrum; many methods-developers are developing methods with a specific empirical question in mind, while there are many advanced methods-users who have detailed knowledge of the limitations of the methods they use). 
 The problem is that although methods-developers (and advanced methods-users) are aware of the problems with PCMs, this information is not being effectively transferred to methods-users. 
 Additionally, the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. 
 Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers. Here we explore the causes of this communication gap and suggest some potential solutions. % NC: still not happy with this final line or two.
@@ -149,9 +151,8 @@ This advice is extremely useful to the methods-user in question, but forms a kin
 
 Other information about the limitations of a method may be absent from the literature due to the time-lag between a new method being published and others having time to test and critique it. 
 For example, Felsenstein published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published (e.g. \citealp{garland1992procedures})
-This time-lag is shorter with more recent methods because simulations testing the method are now required by journals.
-However, we suspect there are still many hidden assumptions and biases in all new PCMs that have yet to be properly explored in the literature. 
-% NC: Rich, we can cite your paper on Pagel 1994 here if you like - as an example of old methods that are still being investigated.
+This time-lag is shorter with more recent methods because simulations testing the method are now required by journals (although simulations only show that the method behaves appropriately under ideal conditions).
+However, we suspect there are still many hidden assumptions and biases in all PCMs, even established methods, that have yet to be properly explored in the literature (for example, see Maddison and FitzJohn's (\citeyear{maddison2014unsolved}) recent critique of Pagel's (\citeyear{pagel1994detecting}) correlated evolution method).
 
 \subsection{2. The literature is too technical and/or important details are hidden}
 Although a lot of information is not found in the literature (see above), the majority of assumptions and biases of PCMs are documented somewhere. 
@@ -171,15 +172,17 @@ In the early days of PCMs, some methods-developers provided stand alone packages
 This resulted in many frustrating hours (and days and months!) trying to implement any new method you wanted to use.\\
 
 More recently however, the PCM community has moved towards mostly implementing their methods in R \citep{R-Core-Team:2014aa}, and code sharing has become almost ubiquitous. 
-The number of R packages for PCMs has increased exponentially since 2005 when APE \citep{Paradis:2004aa} was released, and has increased particularly sharply since 2008 (Figure \ref{PCMRpackages}).
+The number of R packages for PCMs has increased sharply since 2005 when APE \citep{Paradis:2004aa} was released, and has increased particularly sharply since 2008 (Figure \ref{PCMRpackages}).
 Simultaneously, more and more methods-users are able to use R, thus when a new method is published they can now take an R package ``off the shelf'' and use it to run the method immediately.
 \citet{freckleton2009seven} suggested that the ability to to conduct PCMs in flexible computing environments such as R would improve the ability of methods-users to implement methods correctly. 
 However, this has instead led to an increasing number of methods-users jumping straight to the implementation of a method, without understanding what the method is doing, what its assumptions might be, or what the results mean in a biological context.
 This problem is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
-The APE book \citep{paradis2011analysis} for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see CAIC and caper documentation; \citep{purvis1995comparative,Orme:2013aa}.\\
+The APE book \citep{paradis2011analysis} for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see CAIC and caper documentation; \citealp{purvis1995comparative,Orme:2013aa}).\\
 We believe this issue is probably one of the biggest currently facing phylogenetic comparative biology. It is extremely frustrating reading/reviewing papers where the authors have clearly failed to carefully read or understand the primary literature on the method they are using. 
-Additionally, many methods-users seem to try to retrofit a question so they can use the shiniest new methods available. This is all driven by our ``publish or perish'' culture, and the pressure to produce as many papers as possible out of a dataset.
-The truly sad thing about this state of affairs is that by making science more open and sharing code (something we are all passionate about and strongly support) we seem to have made the situation worse rather than better.
+Unfortunately, when methods-users are chastised for making errors it is often just via an assertion that they have used the method ``incorrectly'' and to ``please see the following references''.
+This makes it very difficult for methods-users to fully understand where they went wrong.
+More cynically one could accuse some methods-users of trying to retrofit a question so they can use the newest methods available. This is all driven by our ``publish or perish'' culture, and the pressure to produce as many papers as possible out of a dataset.
+The truly sad thing about this state of affairs is that by making science more open and sharing code (something we are all passionate about and strongly support) we seem to have caused additional problems (though on balance, many things have been greatly improved).
 
 \begin{figure}[h]
 \centering
@@ -218,7 +221,7 @@ We are in the process of setting up a discourse page for this purpose (it will b
 If methods-developers are going to put time and effort into making their methods easier to understand, then methods-users need to take advantage of this and work harder to understand the methods they are using. 
 At a minimum, methods-users should read the original papers describing a method, and any recent updates. 
 Jumping straight into an R implementation is a tolerable way to start a project, but it needs to be followed up by careful reading and thought. 
-Methods-users also need to avoid retrofitting their question to shiny new methods, instead they should think carefully about the question they want to ask, whether the method is appropriate for the question, and whether PCMs are
+Methods-users also need to avoid retrofitting their question to the newest methods, instead they should think carefully about the question they want to ask, whether the method is appropriate for the question, and whether PCMs are
 needed at all \citep{losos2011seeing}.\\
 
 Another key skill to develop is distrust; never take results from PCMs (or any other statistical analysis) at face value. 
@@ -241,7 +244,7 @@ We cannot afford to lose these people to industry, nor can we afford to pay indu
 
 First we need to stop insisting that methods papers must be entirely novel. 
 Improvements to existing methods, and ways of detecting biases or testing model fit should be sufficient for publication. 
-This is fairly standard in other fields, e.g. phylogenetics, and these kinds of papers are arguably more useful to the community than constantly publishing new methods.
+This is fairly standard in other fields, e.g. statistical phylogenetics, and these kinds of papers are arguably more useful to the community than constantly publishing new methods.
 When novel methods are published, journals should encourage methods-developers to include ways of testing the assumptions of their methods within the original publications and packages, and request simplified summaries to accompany technical papers.
 
 Second we need to fund pure methods development, including incremental methods. 
