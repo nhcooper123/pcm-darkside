@@ -1,7 +1,7 @@
 library(ggplot2)
 library(reshape)
 
-ds <- read.csv("PackagesThruTime.csv")
+ds <- read.csv("Data/PackagesThruTime.csv")
 
 # Group packages by year using aggregate then fix names
 dsYear <- with(ds, aggregate(Program, by = list(YearReleased, RPackage), 
@@ -18,7 +18,7 @@ dsYear <- dsYear[order(dsYear$YearReleased), ]
 dsYear$TotalPkg[dsYear$R == "other"] <- cumsum(dsYear$NPackages[dsYear$R == "other"])
 dsYear$TotalPkg[dsYear$R == "R"] <- cumsum(dsYear$NPackages[dsYear$R == "R"])
 
-# pdf("PackagesPerYear.pdf")
+# pdf("Manuscript/Figures/PackagesPerYear.pdf")
 
 # Plot cumulative number of packages through time
 myplot <- ggplot(data = dsYear,

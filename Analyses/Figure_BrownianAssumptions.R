@@ -1,7 +1,7 @@
 library(reshape)
 
-ds <- read.csv("CitesThruTime.csv")
-type <- read.csv("PaperContents.csv")
+ds <- read.csv("Data/CitesThruTime.csv")
+type <- read.csv("Data/PaperContents.csv")
 
 # Reshape the data so it's in long format
 data_long <- melt(ds, id = "Year")
@@ -28,7 +28,7 @@ newred <- rgb(red = 235, green = 81, blue = 83, maxColorValue = 255)
 newblue <- rgb(red = 75, green = 213, blue = 238, maxColorValue = 255)
 newyellow <- rgb(red = 229, green = 177, blue = 58, maxColorValue = 255)
 
-png("BrownianAssumptionCitations.png")
+png("Manuscript/Figures/BrownianAssumptionCitations.png")
 
 par(bg = "black")
 

@@ -1,12 +1,12 @@
 library(ggplot2)
 library(reshape)
 
-ds <- read.csv("CitesThruTime.csv")
+ds <- read.csv("Data/CitesThruTime.csv")
 
 # Reshape the data so it's in long format
 data_long <- melt(ds, id = "Year")
 
-pdf("CitationsPerYear_AllPapers")
+pdf("Manuscript/Figures/CitationsPerYear_AllPapers")
 
 # Graph showing how citations change through time
 # for key PCM papers
