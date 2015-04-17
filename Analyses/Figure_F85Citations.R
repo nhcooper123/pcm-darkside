@@ -1,6 +1,6 @@
 library(reshape)
 
-ds <- read.csv("CitesThruTime.csv")
+ds <- read.csv("Data/CitesThruTime.csv")
 
 # Reshape the data so it's in long format
 data_long <- melt(ds, id = "Year")
@@ -9,7 +9,7 @@ data_long <- melt(ds, id = "Year")
 
 newcol <- rgb(red = 235, green = 81, blue = 83, maxColorValue = 255)
 
-png("Felsenstein85Citations.png")
+png("Manuscript/Figures/Felsenstein85Citations.png")
 
 # Add black background
 par(bg = "black")
@@ -22,7 +22,7 @@ dev.off()
 
 newblue <- rgb(red = 75, green = 213, blue = 238, maxColorValue = 255)
 
-png("HarveyPagel91Citations.png")
+png("Manuscript/Figures/HarveyPagel91Citations.png")
 
 # Add black background
 par(bg = "black")

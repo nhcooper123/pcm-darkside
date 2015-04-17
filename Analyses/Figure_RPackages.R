@@ -1,4 +1,3 @@
-library(ggplot2)
 library(reshape)
 
 ds <- read.csv("Data/PackagesThruTime.csv")
@@ -18,16 +17,12 @@ dsYear <- dsYear[order(dsYear$YearReleased), ]
 dsYear$TotalPkg[dsYear$R == "other"] <- cumsum(dsYear$NPackages[dsYear$R == "other"])
 dsYear$TotalPkg[dsYear$R == "R"] <- cumsum(dsYear$NPackages[dsYear$R == "R"])
 
-# pdf("Manuscript/Figures/PackagesPerYear.pdf")
+png("Manuscript/Figures/PackagesThruTime.png")
 
-# Plot cumulative number of packages through time
-myplot <- ggplot(data = dsYear,
-                 aes(x = YearReleased, y = TotalPkg, color = R))
-    
-# Modifications to graph including legend, y-axis label etc.
-myplot + 
-geom_smooth(method = "loess", se = FALSE) + 
-ylab("Cumulative number of packages") +
-xlab("Year released")
+par(bty = "l")
+plot(TotalPkg[R == "R"] ~ YearReleased[R == "R"], 
+	 data = dsYear, type = "l", ylim = c(0, 80), 
+	 las = 1, lwd = 2, cex.lab = 1.2, cex.axis = 1.2,
+	 ylab = "Total R packages", xlab = "Year Released", xlim = c(2000,2014))
 
-# dev.off()
+dev.off()

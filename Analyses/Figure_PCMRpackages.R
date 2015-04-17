@@ -1,6 +1,6 @@
 library(reshape)
 
-ds <- read.csv("PackagesThruTime.csv")
+ds <- read.csv("Data/PackagesThruTime.csv")
 
 # Group packages by year using aggregate then fix names
 dsYear <- with(ds, aggregate(Program, by = list(YearReleased, RPackage), 
@@ -17,7 +17,7 @@ dsYear <- dsYear[order(dsYear$YearReleased), ]
 dsYear$TotalPkg[dsYear$R == "other"] <- cumsum(dsYear$NPackages[dsYear$R == "other"])
 dsYear$TotalPkg[dsYear$R == "R"] <- cumsum(dsYear$NPackages[dsYear$R == "R"])
 
-png("PCMRpackages.png")
+png("Manuscript/Figures/PCMRpackages.png")
 
 par(bty = "l")
 plot(TotalPkg[R == "R"] ~ YearReleased[R == "R"], data = dsYear, 

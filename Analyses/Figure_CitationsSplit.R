@@ -1,8 +1,8 @@
 library(ggplot2)
 library(reshape)
 
-ds <- read.csv("CitesThruTime.csv")
-type <- read.csv("PaperContents.csv")
+ds <- read.csv("Data/CitesThruTime.csv")
+type <- read.csv("Data/PaperContents.csv")
 
 # Reshape the data so it's in long format
 data_long <- melt(ds, id = "Year")
@@ -43,5 +43,3 @@ points(x ~ Group.1, data = dsBrownian, col = "red", type = "l")
 points(x ~ Group.1, data = dsBrownianTest, col = "green", type = "l")
 points(x ~ Group.1, data = dsTree, col = "blue", type = "l")
 points(x ~ Group.1, data = dsTreeTest, col = "orange", type = "l")
-
-# dev.off()

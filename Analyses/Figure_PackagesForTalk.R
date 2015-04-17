@@ -1,6 +1,6 @@
 library(reshape)
 
-ds <- read.csv("PackagesThruTime.csv")
+ds <- read.csv("Data/PackagesThruTime.csv")
 
 # Group packages by year using aggregate then fix names
 dsYear <- with(ds, aggregate(Program, by = list(YearReleased, RPackage), 
@@ -23,7 +23,7 @@ newred <- rgb(red = 235, green = 81, blue = 83, maxColorValue = 255)
 newblue <- rgb(red = 75, green = 213, blue = 238, maxColorValue = 255)
 newyellow <- rgb(red = 229, green = 177, blue = 58, maxColorValue = 255)
 
-png("PackagesThruTime.png", bg = "transparent")
+png("Manuscript/Figures/PackagesThruTime_Talk.png", bg = "transparent")
 
 # Plot cumulative number of non-R packages through time
 # plot(TotalPkg[R == "other"] ~ YearReleased[R == "other"], 
