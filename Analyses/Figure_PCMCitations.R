@@ -1,11 +1,12 @@
 ds <- read.csv("Data/PCMCitesThruTime.csv", )
 
-png("Manuscript/Figures/PCMCitations.png", bg = "transparent")
+png("Manuscript/Figures/PCMCitations.png", height = 1200, width = 1200, res = 300)
 
 # Plot citations
 par(bty = "l")
+par(mar = c(4, 4, 2, 2))
 plot(Citations ~ Year, data = ds, type = "l", ylim = c(0, 800), 
 	 las = 1, lwd = 2, cex.lab = 1.2, cex.axis = 1.2,
-	 ylab = "Papers", xlab = "Year")
+	 ylab = "Number of papers", xlab = "Year")
 
 dev.off()
