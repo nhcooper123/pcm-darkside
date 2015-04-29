@@ -23,7 +23,7 @@ par(bty = "l")
 par(mar = c(4, 4, 2, 2))
 
 plot(TotalPkg[R == "R"] ~ YearReleased[R == "R"], data = dsYear, 
-     type = "l" , las = 1, lwd = 2, cex.lab = 1.2, cex.axis = 1.2,
+     type = "l" , las = 1, lwd = 2, 
 	 xlim = c(2000, 2015), ylim = c(0, 80), 
 	 xlab = "Year released", ylab = "Total number of R packages")
 
