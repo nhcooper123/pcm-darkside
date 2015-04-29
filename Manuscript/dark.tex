@@ -68,7 +68,7 @@
 \keywords{PCM, assumption, etc.}
 
 % End of preamble
-
+%----------------------------
 \begin{document}
 \modulolinenumbers[1]   % Line numbering on every line
 
@@ -84,23 +84,25 @@
 \doublespacing
 \setlength{\parindent}{1cm}
 
+%----------------------------
 %\section{Introduction} 
 % NC: No intro heading for Syst Biol
 
 \noindent
-A long time ago in a galaxy far, far away - also known as the 1980s - phylogenetic comparative methods (PCMs) were developed to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}).  
+A long time ago in a galaxy far, far away - also known as the 1980s - phylogenetic comparative methods (PCMs) were first developed. 
+These methods use information on the evolutionary relationships of organisms to compare species \citep{harvey1991comparative}, and were initially designed to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}).  
 % RF: I think we need a definition of PCMs here, around the second sentence?
-% NC: I can't fit one in here without totally breaking the flow of the paragraph...
+% NC: I've had a go, see what you think...
 Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, the tempo and mode of trait evolution, and models of speciation and extinction (see reviews in \citealp{o2012evolutionary, pennell2013integrative}). 
 PCMs have also become extremely popular over recent years; the number of papers containing the phrase ``phylogenetic comparative'' has increased exponentially since the 1980s (Figure \ref{PCMCitations}). 
 With new methods being published almost weekly, there has never been a better time to be a comparative biologist.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width = 10cm]{Figures/PCMCitations.png}
-\caption{PCM papers through time}
-\label{PCMCitations}
-\end{figure}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=12cm]{Figures/PCMCitations.png}
+    \caption{PCM papers through time}
+    \label{PCMCitations}
+  \end{figure}
 
 Unfortunately, PCMs also have a ``dark side''; they make various assumptions and suffer from biases in exactly the same way as any other statistical method \citep{freckleton2009seven,boettiger2012your}.
 The more popular these methods become, the less awareness methods-users seem to have of these issues. Increasingly assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and misinterpreted results. 
@@ -179,7 +181,7 @@ The truly sad thing about this state of affairs is that by making science more o
 
 \begin{figure}[h]
 \centering
-\includegraphics[width = 10cm]{Figures/PCMRpackages.png}
+\includegraphics[width=12cm]{Figures/PackagesThruTime.png}
 \caption{Increase in R packages through time}
 \label{PCMRpackages}
 \end{figure}
