@@ -122,28 +122,33 @@ Here we explore the causes of this communication gap and suggest some potential 
 
   \subsection{1. Not everything is mentioned in the literature}
     A lot of the information needed to properly apply PCMs is not found in the literature. 
-    We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students, and it is occasionally closer to fiction than fact.
+    We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students (and it is occasionally closer to fiction than fact!).
     Sometimes the folklore includes tricks to get methods working, or useful rules-of-thumb. 
     Other times folklore is more opinion-based, but over time these opinions become rules. 
-    One example of such folklore is in the defaults of programs that perform PCMs. 
+    % actually this is a bad example as it is in the literature
+    One example of such folklore is the suggestion in \citet{jones1997optimum} that to avoid outliers overly influencing the results of regressions using phylogenetically independent contrasts, species with phylogenetic residuals $\pm 3$ should be omitted from the analyses. % check exact wording
+    The $\pm 3$ cut-off is arbitrary, but has become a rule-of-thumb for running these kinds of analyses (the paper has been cited \textgreater 100 times, mostly as a justification of this procedure).
+    
+    Another example is in the defaults of programs that perform PCMs. 
     These often start out as arbitrary starting points for data exploration with no justification for their use, but over time become the way the analysis is always performed.
-Useful PCM folklore is often shared among methods-developers, and among collaborating groups, but is rarely shared outside of these circles. 
-When it is shared, it tends to be in the form of email exchanges between methods-developers and struggling methods-users.
-This advice is extremely useful to the methods-user in question, but forms a kind of ``dark advice'' that isn't accessible to the rest of the community.\\
+
+    Useful PCM folklore is often shared among methods-developers, and among collaborating groups, but is rarely shared outside of these circles. 
+    When it is shared, it tends to be in the form of email exchanges between methods-developers and struggling methods-users.
+    This advice is extremely useful to the methods-user in question, but forms a kind of ``dark advice'' that isn't accessible to the rest of the community.\\
 
 % NC: Do we want a specific example here? Theta estimation in OU models? 
 % NC: Could mention ±3 from Jones&Purvis97 - totally unjustified rule of thumb now = canon.
 % NC: Mention hidden assumptions? I mention them later
 
-Other information about the limitations of a method may be absent from the literature due to the time-lag between a new method being published and others having time to test and critique it. 
-For example, Felsenstein published the phylogenetic independent contrasts method in 1985, but it wasn't until the early 1990s that real critiques of the method and its assumptions began to be published (e.g. \citealp{garland1992procedures})
-This time-lag is shorter with more recent methods because simulations testing the method are now required by journals (although simulations only show that the method behaves appropriately under ideal conditions).
-However, we suspect there are still many hidden assumptions and biases in all PCMs, even established methods, that have yet to be properly explored in the literature (for example, see Maddison and FitzJohn's (\citeyear{maddison2014unsolved}) recent critique of Pagel's (\citeyear{pagel1994detecting}) correlated evolution method).
+    Other information about the limitations of a method may be absent from the literature due to the time-lag between a new method being published and others having time to test and critique it. 
+    For example, Felsenstein published the phylogenetic independent contrasts method in 1985, but it was not until the early 1990s that thorough critiques of the method and its assumptions began to be published \citep[e.g.][]{garland1992procedures}.
+    This time-lag is shorter with more recent methods because simulations testing the method are now required by journals (although simulations only show that the method behaves appropriately under ideal conditions).
+    However, we suspect there are still many hidden assumptions and biases in all PCMs, even established methods, that have yet to be properly explored in the literature (for example, see Maddison and FitzJohn's (\citeyear{maddison2014unsolved}) recent critique of Pagel's (\citeyear{pagel1994detecting}) correlated evolution method).
 
 \subsection{2. The literature is too technical and/or important details are hidden}
 Although a lot of information is not found in the literature (see above), the majority of assumptions and biases of PCMs are documented somewhere. 
 A big issue for novice methods-users is that this information is often extremely technical and dense.
-It is not unusual for papers to be full of equations, over 20 pages long, and written in a way that gives even advanced users a headache. 
+It is not unusual for papers to be full of equations, \textgreater 20 pages long, and written in a way that gives even advanced users a headache. 
 Additionally there is a lot of literature to wade through before getting all of the required information. 
 For example, one of us (NC) recently reviewed papers discussing the assumptions and limitations of the most commonly used PCM, phylogenetic independent contrasts \citep{felsenstein1985phylogenies}. 
 Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book to read. % NC: I will add numbers at some point!
