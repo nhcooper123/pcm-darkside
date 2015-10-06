@@ -7,43 +7,11 @@
 \usepackage{graphicx}
 \usepackage{parskip}      
 \pagenumbering{arabic}    
-
-% From Syst Biol template
 \linespread{1.66}
-
-\renewcommand{\section}[1]{
-  \bigskip
-  \begin{center}
-  \begin{Large}
-  \normalfont\scshape #1
-  \medskip
-  \end{Large}
-  \end{center}
-}
-
-\renewcommand{\subsection}[1]{
-  \bigskip
-  \begin{center}
-  \begin{large}
-  \normalfont\itshape #1
-  \end{large}
-  \end{center}
-}
-
-\renewcommand{\subsubsection}[1]{%
-\vspace{2ex}
-\noindent
-\textit{#1.}---}
-
-\renewcommand{\tableofcontents}{}
-
-\bibpunct{(}{)}{;}{a}{}{,}  % this is a citation format command for natbib
-
-% NC: Ignoring their title page setup as I like Rich's template better :)
 
 % Title page information
 
-\title{The ``Dark Side'' of Phylogenetic Comparative Methods$^\dag$}
+\title{The ``Dark Side'' of Phylogenetic Comparative Methods}
 \author{
   Natalie Cooper$^{1,2,*}$, Gavin H. Thomas$^{3}$\\ and Richard G. FitzJohn$^{4}$
 }
@@ -54,16 +22,15 @@
   $^3$ Department of Animal and Plant Sciences, University of Sheffield, Sheffield, S10 2TN, UK.\\
   $^4$ Department of Biological Sciences, Macquarie University, Sydney, NSW 2109, Australia. \\
   $^*$ Corresponding author: natalie.cooper@nhm.ac.uk; Department of Life Sciences, Natural History Museum, Cromwell Road, London, SW7 5BD, UK. Fax: +353 1 677 8094; Tel: +353 1 896 5083.\\
-  $^\dag$This paper is based on a Society of Systematic Biologists symposium at Evolution 2014, in Raleigh NC.\\
 }}
 
 \vfill
 
 \runninghead{The ``Dark Side'' of PCMs}
-\keywords{PCM, assumption, etc.}
+\keywords{PCM, assumption,}
 
 % End of preamble
-%----------------------------
+
 \begin{document}
 \modulolinenumbers[1]   % Line numbering on every line
 
@@ -71,8 +38,10 @@
 \parindent = 1.5em
 \addtolength{\parskip}{.3em}
 
-%\section{abstract}
-% NC: If Syst Biol "Point of View" there's no abstract
+% Abstract
+\section{Abstract}
+
+% Need to call it summary
 
 \newpage
 \raggedright
@@ -80,10 +49,8 @@
 \setlength{\parindent}{1cm}
 
 %----------------------------
-%\section{Introduction} 
-% NC: No intro heading for Syst Biol
+\section{Introduction} 
 
-\noindent
 A long time ago in a galaxy far, far away - also known as the 1980s - phylogenetic comparative methods (PCMs) were first developed. 
 These methods use information on the evolutionary relationships of organisms to compare species \citep{harvey1991comparative}, and were initially designed to deal with the statistical non-independence of species in comparative analyses (e.g. \citealp{felsenstein1985phylogenies,grafen1989phylogenetic}).  
 Since then PCMs have been extended to investigate evolutionary pattern and process, and include methods for investigating drivers of diversification, the tempo and mode of trait evolution, and models of speciation and extinction (see reviews in \citealp{o2012evolutionary, pennell2013integrative}). 
@@ -245,12 +212,10 @@ This would improve career prospects for both methods-developers and careful meth
 \section{Conclusion}
 % NC: Still need a couple of lines of conclusion but I'm drawing a blank. Final sentence is fine I think. We could just skip the conclusion heading and have this as a standalone sentence at the end.
 
-\section{Funding}
-This work was supported by The European Commission CORDIS Seventh Framework Program (FP7) Marie Curie CIG grant, proposal number: 321696 (NC). 
 
 \section{Acknowledgments}
-Thanks to the Society of Systematic Biologists for funding our symposium at Evolution 2014. 
-%NC: Should possibly thank Brian O'Meara for funding discourse page
+
+Thanks to the Society of Systematic Biologists for funding the symposium at Evolution 2014, in Raleigh, NC, where the ideas in this paper were first consolidated. This work was supported by The European Commission CORDIS Seventh Framework Program (FP7) Marie Curie CIG grant, proposal number: 321696 (NC).
 
 \bibliographystyle{mee}
 \bibliography{darkside}
