@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,seq-yr,nm-rvvc,keyxyr,dt-beg,yr-par,yrp-x,note-yr,vol-bf,vnum-x,volp-com,num-xser,ed,xedn,amper,and-xcom,etal-xc,etal-it,url,url-blk,nfss,')
+%% merlin.mbs  (with options: `ay,nat,nm-rvvc,keyxyr,dt-beg,yr-par,yrp-x,note-yr,vol-bf,vnum-x,volp-com,num-xser,edby-par,edbyx,pp,ed,xedn,amper,and-xcom,etal-xc,nfss,')
 %% ----------------------------------------
 %% ***  ***
 %% 
@@ -73,7 +73,6 @@ ENTRY
     series
     title
     type
-    url
     volume
     year
   }
@@ -242,10 +241,10 @@ FUNCTION {bbl.in}
 { "in" }
 
 FUNCTION {bbl.pages}
-{ "pages" }
+{ "pp." }
 
 FUNCTION {bbl.page}
-{ "page" }
+{ "p." }
 
 FUNCTION {bbl.chapter}
 { "chapter" }
@@ -359,15 +358,6 @@ FUNCTION {bibinfo.warn}
     }
   if$
 }
-FUNCTION {format.url}
-{
-  url
-  duplicate$ empty$
-    { pop$ "" }
-    { "\urlprefix\url{" swap$ * "}" * }
-  if$
-}
-
 INTEGERS { nameptr namesleft numnames }
 
 
@@ -398,7 +388,7 @@ FUNCTION {format.names}
               if$
               t "others" =
                 {
-                  " " * bbl.etal emphasize *
+                  " " * bbl.etal *
                 }
                 {
                   "\&"
@@ -443,7 +433,7 @@ FUNCTION {format.names.ed}
               t "others" =
                 {
 
-                  " " * bbl.etal emphasize *
+                  " " * bbl.etal *
                 }
                 {
                   "\&"
@@ -531,7 +521,7 @@ FUNCTION {format.full.names}
               if$
               t "others" =
                 {
-                  " " * bbl.etal emphasize *
+                  " " * bbl.etal *
                 }
                 {
                   "\&"
@@ -827,11 +817,11 @@ FUNCTION {format.in.ed.booktitle}
     {
       editor "editor" format.names.ed duplicate$ empty$ 'pop$
         {
-          "," *
-          " " *
           get.bbl.editor
-          ", " *
-          * swap$
+          " " * swap$ *
+          "(" swap$ * ")" *
+          swap$
+          " " * swap$
           * }
       if$
       word.in swap$ *
@@ -928,8 +918,6 @@ FUNCTION {article}
     }
   if$
   new.block
-  format.url output
-  new.block
   format.note output
   fin.entry
 }
@@ -963,8 +951,6 @@ FUNCTION {book}
   if$
   format.edition output
   new.block
-  format.url output
-  new.block
   format.note output
   fin.entry
 }
@@ -978,8 +964,6 @@ FUNCTION {booklet}
   new.block
   howpublished "howpublished" bibinfo.check output
   address "address" bibinfo.check output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1018,8 +1002,6 @@ FUNCTION {inbook}
   if$
   format.edition output
   new.block
-  format.url output
-  new.block
   format.note output
   fin.entry
 }
@@ -1045,8 +1027,6 @@ FUNCTION {incollection}
       format.chapter.pages output
     }
   if$
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1077,8 +1057,6 @@ FUNCTION {inproceedings}
     }
   if$
   new.block
-  format.url output
-  new.block
   format.note output
   fin.entry
 }
@@ -1094,8 +1072,6 @@ FUNCTION {manual}
   organization "organization" bibinfo.check output
   address "address" bibinfo.check output
   format.edition output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1114,8 +1090,6 @@ FUNCTION {mastersthesis}
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
   new.block
-  format.url output
-  new.block
   format.note output
   fin.entry
 }
@@ -1129,8 +1103,6 @@ FUNCTION {misc}
   format.title output
   new.block
   howpublished "howpublished" bibinfo.check output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1147,8 +1119,6 @@ FUNCTION {phdthesis}
   bbl.phdthesis format.thesis.type output.nonnull
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1171,8 +1141,6 @@ FUNCTION {proceedings}
     }
   if$
   new.block
-  format.url output
-  new.block
   format.note output
   fin.entry
 }
@@ -1190,8 +1158,6 @@ FUNCTION {techreport}
   institution "institution" bibinfo.warn output
   address "address" bibinfo.check output
   new.block
-  format.url output
-  new.block
   format.note output
   fin.entry
 }
@@ -1203,8 +1169,6 @@ FUNCTION {unpublished}
   format.date "year" output.check
   date.block
   format.title "title" output.check
-  new.block
-  format.url output
   new.block
   format.note "note" output.check
   fin.entry
@@ -1232,13 +1196,13 @@ FUNCTION {format.lab.names}
   s num.names$ duplicate$
   #2 >
     { pop$
-      " " * bbl.etal emphasize *
+      " " * bbl.etal *
     }
     { #2 <
         'skip$
         { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
             {
-              " " * bbl.etal emphasize *
+              " " * bbl.etal *
             }
             { " \& " * s #2 "{vv~}{ll}" format.name$
               * }
@@ -1410,8 +1374,11 @@ FUNCTION {presort}
   'sort.label :=
   sort.label
   *
-  "    " * year field.or.null *
-  "    " * cite$ *
+  "    "
+  *
+  title field.or.null
+  sort.format.title
+  *
   #1 entry.max$ substring$
   'sort.key$ :=
 }
@@ -1473,9 +1440,12 @@ FUNCTION {bib.sort.order}
   "    "
   *
   year field.or.null sortify
-  swap$
   *
-  "    " * cite$ *
+  "    "
+  *
+  title field.or.null
+  sort.format.title
+  *
   #1 entry.max$ substring$
   'sort.key$ :=
 }
@@ -1489,10 +1459,6 @@ FUNCTION {begin.bib}
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
-  write$ newline$
-  "\providecommand{\url}[1]{\texttt{#1}}"
-  write$ newline$
-  "\providecommand{\urlprefix}{URL }"
   write$ newline$
 }
 EXECUTE {begin.bib}
