@@ -40,16 +40,17 @@
 \addtolength{\parskip}{.3em}
 
 % Abstract 350 words max
-\abstract
+\section{Abstract}
 
 Phylogenetic comparative methods are becoming increasingly popular for investigating evolutionary patterns and processes.
 However, these methods are not infallible - they suffer from biases and make assumptions like all other statistical methods.
 Unfortunately, although these limitations are often well-known in the phylogenetic comparative methods community, they are often inadequately assessed in empirical studies leading to misinterpreted results and poor model fits.
 Here we explore reasons for this communication gap between those developing new methods and those using them. 
 We suggest that some important pieces of information are missing from the literature, and that others are difficult to extract from long, technical papers.
-We also highlight problems with users jumping straight into implementations (e.g. in R) that may lack documentation of biases and assumptions that are mentioned in the original papers.
-To help solve these problems we propose...
-
+We also highlight problems with users jumping straight into software implementations of the methods (e.g. in R) that may lack documentation of biases and assumptions that are mentioned in the original papers.
+To help solve these problems we make a number of suggestions including providing
+blog posts or videos to explain new methods in less technical terms, encouraging reproducibility and code sharing, wiki-style pages summarising the literature on popular methods, more careful consideration and testing of whether a method is appropriate for a given question/dataset, incentives for collaboration, and a shift from publishing purely novel methods to publishing improvements to existing methods, and ways of detecting biases or testing model fit.
+Many of these points are applicable across methods in ecology and evolution, not just phylogenetic comparative methods.
 
 \newpage
 \raggedright
@@ -65,13 +66,13 @@ Since then PCMs have been extended to investigate evolutionary pattern and proce
 PCMs have also become extremely popular over recent years; the number of papers containing the phrase ``phylogenetic comparative'' has increased dramatically since the 1980s (Figure \ref{PCMCitations}). 
 With new methods being published almost weekly, there has never been a better time to be a comparative biologist.
 
-Unfortunately, PCMs also have a ``dark side''; they make various assumptions and suffer from biases in exactly the same way as any other statistical method, and this is well established in the literature \citep[e.g.][]{freckleton2009seven,boettiger2012your,losos2011seeing,blomberg2012independent}.
+Unfortunately, PCMs also have a ``dark side''; they make various assumptions and suffer from biases in exactly the same way as any other statistical method - a fact that is well established in the literature \citep[e.g.][]{freckleton2009seven,boettiger2012your,losos2011seeing,blomberg2012independent}.
 Increasingly however, assumptions and biases are inadequately assessed in empirical studies, leading to poor model fits and misinterpreted results (see examples below).
 Additionally, little consideration is given to whether using a PCM is really appropriate for the question at hand \citep{losos2011seeing,westoby1995misinterpreting}. 
 
-We suggest that one cause of this problem is that although people developing and implementing new methods are aware of the limitations of their methods and the assumptions that underly them, this information is not always being effectively transferred to methods-users.
+We suggest that one cause of this problem is that although researchers developing and implementing new methods are aware of the limitations of their methods and the assumptions that underly them, this information is not always being effectively transferred to end-users.
 Additionally, the tools and approaches used to fit models are often far more user-friendly and better documented than the methods used to to assess whether that model fit is reasonable. 
-Clearly more effort is needed to bridge the widening gap between methods-users and methods-developers. 
+Clearly more effort is needed to bridge the widening gap between those developing methods and end-users. 
 Here we explore the causes of this communication gap and suggest some potential solutions.
 Note that many of these issues are applicable across methods in ecology and evolution, not just PCMs.
 
@@ -109,20 +110,20 @@ Unfortunately, these limitations are rarely taken into account in empirical stud
 \subsubsection{Phylogenetically independent contrasts} % FINISH!!!
 Even the most commonly used phylogenetic comparative method, phylogentically independent contrasts has weel-known assumptions that are rarely tested.
 
-\subsection{What impedes information transfer about the limitations of phylogenetic comparative  methods?}
-These three brief examples illustrate that although the field as a whole is aware of the limitations of PCMs, this information is not filtering through to everyone using the methods. 
+\subsection{What impedes information transfer about the limitations of PCMs?}
+These three brief examples illustrate that although the PCM community is aware of the limitations of PCMs, this information is not filtering through to everyone using the methods. 
 Why might this be the case?
 
   \subsubsection{1. Not everything is mentioned in the literature}
     As scientists we mainly communicate our ideas through the literature. 
     Unfortunately, some of the information needed to properly apply PCMs is not found in the literature. 
     We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students (and it is occasionally closer to fiction than fact!).
-    Sometimes the folklore includes tricks to get methods working, or useful rules-of-thumb, other times it is more opinion-based, but over time these opinions become rules. 
-    Useful PCM folklore is often shared among methods-developers, and among collaborating groups, but is not always shared outside of these circles. 
-    When it is shared, it tends to be in the form of email exchanges that form a kind of ``dark advice'' that is not accessible to the rest of the community.
+    Sometimes the folklore includes tricks to get methods working, or useful rules-of-thumb; other times it is more opinion-based, but over time these opinions become rules. 
+    Useful PCM folklore is often shared among developers, and among collaborating groups, but is not always shared outside of these circles. 
+    When it is shared, it tends to be as email exchanges of ``dark advice'' that is not accessible to the rest of the community.
 
-    One example of PCM folklore is the suggestion in \citet{jones1997optimum} that to avoid outliers overly influencing the results of regressions using phylogenetically independent contrasts, species with phylogenetic residuals $\pm 3$ should be omitted from the analyses. % check exact wording
-    The $\pm 3$ cut-off is arbitrary, but has become a rule-of-thumb for running these kinds of analyses (the paper has been cited \textgreater 100 times, mostly as a justification of this procedure).
+    One example of PCM folklore is that species with Studentized residuals $\pm 3$ are often omitted from regressions of phylogenetic independent contrasts, to avoid highly influential outliers affecting the results \citep[e.g.][]{GEB:GEB355}. 
+    The rationale for this comes from \citet{jones1997optimum}, however, the $\pm 3$ cut-off is arbitrary, and barely mentioned in the original paper, but has become a rule-of-thumb for running these analyses (the paper has been cited \textgreater 100 times, mostly as a justification of this procedure).
     Another example is in the defaults of programs that perform PCMs. 
     These often start out as arbitrary starting points for data exploration with no justification for their use, but over time become the way the analysis is always performed.
     For example, % Anyone got a good example here?
@@ -130,30 +131,30 @@ Why might this be the case?
     Other information about the limitations of a method may be absent from the literature due to the time-lag between a new method being published and others having time to test it. 
     For example, Felsenstein published the phylogenetic independent contrasts method in 1985 \citep{felsenstein1985phylogenies}, but it was not until the early 1990s that thorough critiques of the method and its assumptions began to be published \citep[e.g.][]{garland1992procedures}.
     This time-lag is shorter with more recent methods because simulations testing the method are now required by journals (although simulations only show that the method behaves appropriately under ideal conditions).
-    However, we suspect there are still many hidden assumptions and biases in all PCMs, even established methods, that have yet to be properly explored in the literature
-    For example, see Maddison \& FitzJohn's (\citeyear{maddison2014unsolved}) recent critique of Pagel's (\citeyear{pagel1994detecting}) correlated evolution method, and Rabosky \& Goldberg's (\citeyear{rabosky2015model}) discussion of trait-dependent speciation modelss \citep{maddison2007estimating,nee1994reconstructed}.
+    However, we suspect there are still many hidden assumptions and biases in all PCMs, even established methods, that have yet to be properly explored in the literature.
+    For example, see Maddison \& FitzJohn's (\citeyear{maddison2014unsolved}) recent critique of Pagel's (\citeyear{pagel1994detecting}) correlated evolution method, and Rabosky \& Goldberg's (\citeyear{rabosky2015model}) discussion of trait-dependent speciation models \citep{maddison2007estimating,nee1994reconstructed}.
 
   \subsection{2. The literature is too technical and/or important details are difficult to locate}
     Although some information is not found in the literature (see above), the majority of assumptions and biases of PCMs are documented somewhere. 
     A big issue for novice methods-users (and often for advanced users too) is that this information can be extremely technical and dense.
     It is not unusual for papers to be full of equations, \textgreater 20 pages long, and written in a way that gives one a headache. 
     Additionally there is a lot of literature to wade through before getting all of the required information. 
-    For example, one of us (NC) recently reviewed papers discussing the assumptions and limitations of the most commonly used PCM, phylogenetic independent contrasts \citep{felsenstein1985phylogenies}. 
-    Even with prior knowledge of the key papers and authors to focus on, this resulted in XX pages, XX papers and a book to read. % NC: I will add numbers at some point!
-    This seems like an excessive amount of reading to expect from someone trying to run a simple empirical analysis.
+    For example, one of us (NC) recently reviewed papers discussing the assumptions and limitations of the most commonly used PCM, phylogenetic independent contrasts \citep{felsenstein1985phylogenies} (including how they are related to phylogenetic generalised least squares models; \citealp{blomberg2012independent,rohle2006comment}). 
+    Even with prior knowledge of the key papers and authors to focus on, this resulted in $\approx 300$ pages, 23 papers and a book to read.
+    This seems like an excessive amount of reading to run a simple empirical analysis.
     Another issue is that it can sometimes be hard to find the information required. 
     Assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. 
     They are rarely neatly corralled in one place, making it easy to miss pertinent details. 
 
   \subsection{3. Users jump straight to the implementation of the method}
-    In the early days of PCMs, some methods-developers provided stand alone packages to run their methods, others provided code in whichever language they were comfortable programming in, and still others provided no way of implementing their methods at all. 
+    In the early days of PCMs, some researchers provided stand alone packages to run their methods (e.g. PDAP; \citealp{diaz1996testing}), others provided code in whichever language they chose to program in (e.g. MATLAB code; \citealp{rohlf2001comparative}), and still others provided no way of implementing their methods at all. 
     This resulted in many frustrating hours (and days and months!) trying to implement any new method you wanted to use.\\
 
-    More recently however, the community has moved towards mostly implementing methods in R \citep{R-Core-Team:2014aa}, and code sharing has become almost ubiquitous. 
+    More recently however, the community has moved towards mostly implementing methods in R (\citealp{R-Core-Team:2014aa}; for a list of packages see Brian O'Meara's ``CRAN Task View: Phylogenetics, Especially Comparative Methods'' http://ftp.iitm.ac.in/cran/web/views/Phylogenetics.html), and code sharing has become almost ubiquitous. 
     The number of R packages for PCMs has increased sharply since 2005 when APE \citep{Paradis:2004aa} was released, and has increased particularly sharply since 2008 (Figure \ref{PCMRpackages}).
-    Simultaneously, more people are able to use R, thus when a new method is published it is now possible to take an R package ``off the shelf'' and use it to run the method immediately.
+    Simultaneously, more people are able to use R thanks to workshops and changes in student training, thus when a new method is published it is now possible to take an R package ``off the shelf'' and use it to run the method immediately.
     \citet{freckleton2009seven} suggested that the ability to to conduct PCMs in flexible computing environments such as R would improve our ability to implement methods correctly. 
-    However, this has instead led to an increasing number of people (myself included) jumping straight to the implementation of a method, without fully understanding what the method is doing, what its assumptions might be, or what the results mean in a biological context.
+    However, this has instead led to an increasing number of people (including the authors) jumping straight to the implementation of a method, without fully understanding what the method is doing, what its assumptions might be, or what the results mean in a biological context.
     This problem is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
     The APE book \citep{paradis2011analysis} for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see CAIC and caper documentation; \citealp{purvis1995comparative,Orme:2013aa}).\\
     
@@ -172,9 +173,10 @@ Why might this be the case?
     Some journals already encourage this (including the British Ecological Society journals; see https://soundcloud.com/besjournals, https://www.youtube.com/user/MethodsEcolEvol), and even if they do not, there is no harm in doing this and hosting it on a personal website. 
     The ability to share ideas with a non-technical audience is a key skill to develop, and may encourage more people to use the method.
     Encouraging increased efforts at reproducibility would also help, by including knitR \citep{Xie:2015aa} reports in Supplementary Material showing exactly how each analysis was run \citep[e.g.][]{fitzjohn2014much}, or by requiring all analyses and code to be available on GitHub or Bitbucket. 
-    At the very least, having a list of the main assumptions, biases and caveats of the method somewhere would reduce misuse and provide a place to point people to when they begin using a method (this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible in some cases).\\
+    At the very least, having a list of the main assumptions, biases and caveats of the method somewhere obvious would reduce misuse and provide a place to point people to when they begin using a method (this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible in some cases).\\
 
-    The glut of literature that already exists for established methods is a bigger problem. 
+    The glut of literature that already exists for established methods is a bigger problem.
+    The Oxford Bibliographies Evolutionary biology pages have lists of key papers (http://www.oxfordbibliographies.com/obo/page/evolutionary-biology), but these are curated by just a few individuals and tend to contain a lot of papers. 
     One solution would be to establish a wiki-style website where people could post summaries of commonly used methods, along with lists of key papers to read. 
     The community would be responsible for peer reviewing these summaries to ensure all opinions are covered. 
     Erick Matsen's Phylobabble discourse page (http://phylobabble.org/) is an excellent example of a similar approach for phylogenetics. 
@@ -189,24 +191,15 @@ Why might this be the case?
 %A discourse page would collate all of this information and reduce pressure on package developers by allowing advanced methods-users to help novice users with simple queries. 
 %We are in the process of setting up a discourse page for this purpose (it will be called ``phyloBootstrap'' because it will provide ``support'' for PCMs). At Evolution 2014 many methods-developers agreed to move their R package help to this forum.
 
-  \subsubsection{2. Be more cynical about the methods you use}
-    A key skill to develop in science is cynicism - never take results from PCMs (or any other statistical analysis) at face value.
+  \subsubsection{2. Be more cynical about methods}
+    A key skill to develop in science is cynicism, i.e., never take results from PCMs (or any other statistical analysis) at face value.
     At a minimum, it is worth reading the original papers describing a method, plus any recent updates, and looking carefully for assumptions and caveats that may affect the analyses at hand.
     A good way to check a method is to simulate some data and see if the results are as expected \citep[e.g.][]{boettiger2012your}. 
     This can expose hidden assumptions or biases that have not been explored in the papers accompanying the method, or reveal a lack of understanding of the the mechanics of the method being used. 
-    It is also important to consider whether the method will work on a particular dataset for example.
-    \begin{itemize}
-      \item How many species does it need to have reasonable power? 
-      Often methods require more species than are generally available. 
-      For example, the new trait-dependent diversification method of \citet{rabosky2015robust} is ``primarily be applicable to phylogenies that include at least several thousand tips'' although the authors suggest that most such analyses have \textless 1000 tips.
-      \item How does it deal with polytomies?
-      Many methods arbitrarily resolve polytomies using zero length branches, thus polytomies can inflate rates of evolution, and bias models of evolution \citep{cooper2010body}.
-      \item Can the method use non-ultrametric trees? 
-      Not all PCMs can use non-ultrametric trees. 
-      For example, some current implementations of the OU model should not be used with non-ultrametric trees because they are based on transforming the tree directly, rather than transforming the variance co-variance matrix (e.g. MOTMOT; \citealp{Thomas:2011aa}), and non-ultrametric trees cause variance-covariance matrices to become non-tree like \citep{slater2014correction}. 
-    \end{itemize}
-    It is also important to avoid retrofitting questions to the newest methods, instead think carefully about the question, whether the method is appropriate for the question, and whether PCMs are needed at all \citep{losos2011seeing}.
-    Finally, methods-users should never be afraid to question standard practice, sometimes it's just PCM folklore!
+    It is also important to consider whether the method will work on a particular dataset.
+    For example it is worth considering how many species are required for reasonable power (often methods require more species than are usually available, e.g. the new trait-dependent diversification method of \citet{rabosky2015robust} is ``primarily be applicable to phylogenies that include at least several thousand tips'' although the authors suggest that most empirical analyses have \textless 1000 tips), whether the method is influenced by polytomies (many methods arbitrarily resolve polytomies using zero length branches, thus polytomies can inflate rates of evolution, and bias models of evolution \citealp{cooper2010body}), and if the method can use non-ultrametric trees (some current implementations of the OU model should not be used with non-ultrametric trees because they are based on transforming the tree directly, rather than transforming the variance co-variance matrix, e.g. MOTMOT; \citealp{Thomas:2011aa}, and non-ultrametric trees cause variance-covariance matrices to become non-tree like \citealp{slater2014correction}). 
+    It is also important to avoid retrofitting questions to the newest methods, instead we should think carefully about the question, whether the method is appropriate for the question, and whether PCMs are needed at all \citep{losos2011seeing,westoby1995misinterpreting}.
+    Finally, end-users should never be afraid to question standard practice, sometimes it is just PCM folklore!
 
 %\subsubsection{3. Collaboration}
 %A obvious solution to all these problems is for methods-developers and methods-users to collaborate more. 
@@ -228,14 +221,18 @@ Why might this be the case?
     Currently it is difficult to get funding for purely methods driven research; an empirical component is always needed and methods development is often seen as part of the bigger empirical picture, rather than the reverse. 
     This unfairly prejudices funding bodies (and hiring committees) away from this kind of research. 
 
-    Finally, an obvious solution to many of these problems is for methods-developers and methods-users to collaborate more. 
-    The benefits to methods-users are obvious, but methods-developers can also benefit by gaining extra datasets to test their ideas on and people who will discover corner cases and bugs in their software before it get released. 
-    A big difficulty with collaboration is that it is often asymmetrical in terms of benefit; some researchers can put a lot of time and effort into running analyses for less experienced colleagues, yet at best they come out of the experience with a middle authored paper. 
-    Until these author positions are considered equal to first and last author positions, there is little incentive to collaborate extensively.
+    Finally, an obvious solution to many of these problems is for methods-developers and end-users to collaborate more. 
+    The benefits to end-users are obvious, but methods-developers can also benefit by gaining extra datasets to test their ideas on and people who will discover corner cases and bugs in their software before it get released. 
+    A big difficulty with collaboration is that it is often asymmetrical in terms of benefit; some researchers can put a lot of time and effort into running analyses for less experienced colleagues, yet at best they gain a middle authored paper. 
+    Until these author positions are considered equal to first and last author positions, there is little incentive for methods-developers to collaborate extensively in this way.
 
   \subsection{Conclusion}
-
-%I guess I’d close by saying it’s our responsbilitiy as part of the methods developing and using community to find innovative ways to tackle these challenges. 
+    We are currently in an exciting period for phylogenetic comparative methods research.
+    New methods are being published with increasing regularity, and we are also beginning to question older methods and classical ways of looking at comparative questions. 
+    In addition, the field is becoming more Open, with code being shared before analyses are even submitted for publication, and collaborative software development across groups and even continents becoming more and more common.
+    However, while embracing these changes, we also need to ensure that we do not forget that our methods have assumptions, caveats and biases like every other. 
+    These need to be highlighted so they can be accounted for in empirical analyses, and we need to be more active at providing ways of assessing these issues when publishing new methods.
+    As members of the phylogenetic comparative methods community, we have a responsibility to find innovative ways to tackle these challenges. 
 
 \subsection{Acknowledgments}
 This paper is based on a talk given by NC at the Methods in Ecology and Evolution 5th Anniversary Symposium.
@@ -253,7 +250,7 @@ All data are available on GitHub at https://github.com/nhcooper123/pcm-darkside.
 
   \begin{figure}[!htbp]
     \centering
-      \includegraphics[width=12cm]{Figures/PCMCitations.pdf}
+      %\includegraphics[width=12cm]{Figures/PCMCitations.pdf}
       \caption{The number of papers containing the phrase ``phylogenetic comparative'' published each year from 1980-2014 (Google Scholar search April 13th 2015).}
       \label{PCMCitations}
   \end{figure}
