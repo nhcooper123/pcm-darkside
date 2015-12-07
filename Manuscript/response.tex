@@ -109,6 +109,10 @@ Thanks for the helpful and encouraging comments. :)
 
 \textcolor{blue}{line 339-340: It's just not true that, "non-ultrametric trees cause variance-covariance matrices to become non-tree like". You can jump back and forth between a tree representation and a matrix representation, and it is just not affected by ultrametricity. In the ape package, there is vcv.phylo to convert a tree to a matrix, and vcv2phylo to convert a matrix back to a tree. (I wrote the latter.)}
 
+We believe that this is a misunderstanding of our point and reflects a lack of clarity in our writing. We now write: 
+
+"Some current implementations of the OU model should not be used with non-ultrametric trees (e.g. MOTMOT; \citealp{Thomas:2011aa}) because they are based on transforming the tree directly, rather than transforming the variance co-variance matrix. The problem is that where at least one tip does not survive to the present the expected covariances relating each of those two tips with any other tip in the tree are not identical. Worked examples and explanations are provided in \citep{slater2014correction}. Although this is not a problem with applying the OU model to non-ultrametric trees per se, it is an example of different implementations of a common model that some users may not be aware of. "
+
 Let us know if you require any further information,
 
 \closing{Yours sincerely,}
