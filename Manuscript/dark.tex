@@ -81,7 +81,7 @@ Because the aim of this paper is to provide positive ways to move forward, rathe
 \subsubsection{Phylogenetic independent contrasts}
 The phylogenetic independent contrasts method uses phylogenetic information to account for the fact that species in a comparative analysis are related to each other and thus may share similarities because they inherit them from their ancestors, not because of independent evolution \citep{felsenstein1985phylogenies,harvey1991comparative}. 
 This is the most commonly used phylogenetic comparative method (\citet{felsenstein1985phylogenies} has been cited nearly 6000 times; Google Scholar search 10th October 2015), and a great deal of literature exists on the assumptions underlying the method, and ways of testing whether these assumptions are met. 
-The method has three major assumptions (\citealp{diaz1996testing}; although there are many more assumptions than these three), (1) that the topology of the phylogeny is accurate; (2) that the branch lengths of the phylogeny are correct; and (3) that traits evolve in the manner of the Brownian constant variance model, a simple model of trait evolution where trait variance accrues as a linear function of time \citep{cavalli1967,felsenstein1973maximum}.
+The method has three major assumptions (\citealp{diaz1996testing}; although there are many more assumptions than these three), (1) that the topology of the phylogeny is accurate; (2) that the branch lengths of the phylogeny are correct; and (3) that traits evolve in the manner of the Brownian motion model, a simple model of trait evolution where trait variance accrues as a linear function of time \citep{cavalli1967,felsenstein1973maximum}.
 The third assumption is stated in \citet{felsenstein1985phylogenies} though the other two are not explicitly mentioned. 
 However each assumption is explored in many subsequent papers \citep[e.g.][]{felsenstein1988phylogenies,grafen1989phylogenetic,harvey1991comparative,garland1992procedures,purvis1995comparative,diaz1996testing,hansen1996translating,martins1997phylogenies,freckleton2000phylogenetic,garland2000using,hansen2005assessing,freckleton2006detecting,rohle2006comment}.
 There are several ways of testing these assumptions, including looking for relationships among standardised contrasts and node heights \citep{grafen1989phylogenetic,freckleton2006detecting}, absolute values of standardised contrasts and their standard deviations \citep{garland1992procedures,diaz1996testing}, and heteroscedasticity in model residuals \citep{purvis1995mammal}.
@@ -90,7 +90,7 @@ However, the majority of studies using phylogenetic independent contrasts do not
 In addition, because phylogenetic independent contrasts are identical to phylogenetic generalised least squares models \citep{garland2000using,rohle2006comment,blomberg2012independent}, these models also have the same assumptions that are equally rarely addressed. 
 
 \subsubsection{Ornstein-Uhlenbeck (single stationary peak) models of trait evolution}
-Most models of trait evolution are based on the Brownian constant variance model \citep{cavalli1967,felsenstein1973maximum}.
+Most models of trait evolution are based on the Brownian motion model \citep{cavalli1967,felsenstein1973maximum}.
 The Ornstein-Uhlenbeck (OU) model can be thought of as a modification of the Brownian model with an additional parameter that measures the strength of return towards a theoretical optimum shared across a clade or subset of species \citep{hansen1997stabilizing,Butler:2004aa}.
 OU models have become increasingly popular as they tend to fit the data better than Brownian motion models, and have attractive biological interpretations \citep{cooper2016}.
 For example, fit to an OU model has been seen as evidence of evolutionary constraints, stabilising selection, niche conservatism, and selective regimes \citep{Wiens:2010aa,beaulieu2012modeling,christin2013anatomical,mahler2013exceptional}.
@@ -136,32 +136,42 @@ Why might this be the case?
   \subsection{2. The literature is too technical and/or important details are difficult to locate}
     Although some information is not found in the literature (see above), the majority of assumptions and biases of PCMs are documented somewhere. 
     A big issue for novice methods-users (and often for advanced users too) is that this information can be extremely technical and dense.
-    It is not unusual for papers to be full of equations, \textgreater 20 pages long, and written in a way that gives one a headache. 
-    Additionally there is a lot of literature to wade through before getting all of the required information. 
-    For example, we recently reviewed papers discussing the assumptions and limitations of phylogenetic independent contrasts \citep{felsenstein1985phylogenies}, including how they are related to phylogenetic generalised least squares models \citep{garland2000using,rohle2006comment,blomberg2012independent}. 
+    It is not unusual for papers to be full of equations, \textgreater 20 pages long. 
+    Such detail and mathematical literacy is critical in describing methods and facilitates testing/assessment, implementation and future developments of the method.
+    In most cases equations could not simply be replaced with text.
+   However, from the end user perspective it may more helpful to understand the assumptions and caveats.
+   Within many comparative methods assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. 
+    They are rarely neatly corralled in one place.
+    When combined with the vast literature on comparative methods it becomes easy to miss pertinent details. 
+     We recently reviewed papers discussing the assumptions and limitations of phylogenetic independent contrasts \citep{felsenstein1985phylogenies}, including how they are related to phylogenetic generalised least squares models \citep{garland2000using,rohle2006comment,blomberg2012independent}. 
     Even with prior knowledge of the key papers and authors to focus on, this resulted in $\approx 300$ manuscript pages and a book to read.
-    This seems like an excessive amount of reading to run a simple empirical analysis.
-    Another issue is that it can sometimes be hard to find the information required. 
-    Assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. 
-    They are rarely neatly corralled in one place, making it easy to miss pertinent details. 
+    Methods developers are not responsible for users conducting due diligence or reading the literature. 
+    The onus is, quite rightly in our opinion, on the reader/user to ensure that they have a clear understanding of the methods and caveats prior to using them. 
+    However, simple steps, such as subheadings that point to caveats and assumptions could add clarity and limit method misuse. 
 
   \subsection{3. Users jump straight to the implementation of the method}
     In the early days of PCMs, some researchers provided stand alone packages to run their methods (e.g. PDAP; \citealp{diaz1996testing}), others provided code in whichever language they chose to program in (e.g. MATLAB code; \citealp{rohlf2001comparative}), and still others provided no way of implementing their methods at all. 
-    This resulted in many frustrating hours (and days and months) trying to implement any new method you wanted to use.\\
+    This resulted in many frustrating hours (and days and months) trying to implement any new method you wanted to use.
+    Writing your own implementation may be the best way to learn the intricacies of a method but is a major hurdle and would necessarily dissuade many potential users.  \\
 
     More recently however, the community has moved towards mostly implementing methods in R (\citealp{R-Core-Team:2014aa}; for a list of packages see Brian O'Meara's ``CRAN Task View: Phylogenetics, Especially Comparative Methods'' http://ftp.iitm.ac.in/cran/web/views/Phylogenetics.html), and code sharing has become almost ubiquitous. 
     The number of R packages for PCMs has increased markedly since 2005 when APE \citep{Paradis:2004aa} was released, and has increased particularly sharply since 2008 (Figure \ref{PCMRpackages}).
     Simultaneously, more people are able to use R thanks to workshops and changes in student training, thus when a new method is published it is now possible to take an R package ``off the shelf'' and use it to run the method immediately.
-    \citet{freckleton2009seven} suggested that the ability to to conduct PCMs in flexible computing environments such as R would improve our ability to implement methods correctly. 
+    The benefits of R are clear. 
+    It is available to all, has a wide and engaged support community, and perhaps most importantly the source code for new methods is accessible.
+    Users can, if they choose to, fully explore any new method by examining the source code and running their own simulations. 
+    Indeed, \citet{freckleton2009seven} suggested that the ability to to conduct PCMs in flexible computing environments such as R would improve our ability to implement methods correctly. 
     However, this has instead led to an increasing number of people (including the authors of this paper) jumping straight to the implementation of a method, without fully understanding what the method is doing, what its assumptions might be, or what the results mean in a biological context.
-    This is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
+    This is again an example of where users can and should conduct due diligence but also where developers and experienced users can help.
+    Manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
     The APE book \citep{paradis2011analysis} for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see CAIC and caper documentation; \citealp{purvis1995comparative,Orme:2013aa}).
 
 \subsection{How can we solve some of these problems?}
   \subsubsection{1. Simplify, summarise and share}
     Many of the problems above are caused by methods papers being difficult to read. 
     This is not entirely the fault of those writing these papers; most journals have strict word limits so it is often easier to use a one line equation rather than a paragraph of description. 
-    However, it is hard to complain about novice users failing to understand a method when the paper is incomprehensible.
+    As we note above, the onus is on the reader to read extensively and to do due diligence.
+    Nonetheless, due diligence is a responsibility at all levels of research and that includes ensuring clarity to all target readers, especially in describing assumptions and limitations.
     One solution is to prepare an accompanying blog post or video explaining the method in less technical terms. 
     Some journals already encourage this (including the British Ecological Society journals; see https://soundcloud.com/besjournals, https://www.youtube.com/user/MethodsEcolEvol), and even if they do not, there is no harm in doing this and hosting it on a personal website. 
     The ability to share ideas with a non-technical audience is a key skill to develop, and may encourage more people to use the method.

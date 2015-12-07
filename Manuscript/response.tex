@@ -89,9 +89,15 @@ Thanks for the helpful and encouraging comments. :)
 
 \textcolor{blue}{My main issue is with sections 2 (beginning line 218) and 3 (beginning line 238). The fact that the literature is too difficult and opaque for some readers is not the fault of the literature. These statistical methods are NOT easy, so researchers will need to do due diligence and take the time to learn this stuff properly (including caveats and assumptions, when they are known and described in the literature). In any statistical analysis, the buck stops with the authors. It is your responsibility to get it right. You can't complain that you are using methods that you don't understand. If that is the case you should go back and learn more about the methods. Complaining that there is too much maths and it gives you a headache (lines 224-225) is not a reason to castigate the authors of methods. Mathematics is the language of modern evolutionary biology and the sooner people get used to that, the better. Don't like maths? Don't do quantitative science. Complaining that the literature is too big and difficult and going ahead with an analysis anyway is just academic laziness. Don't want to get to grips with the literature? Collaborate with someone who knows it, like a statistician. The authors appear to be promoting a new section for such papers, as assumptions and caveats can be in the Intro, Methods, Results and/or Discussion (lines 235-237). Well how about this: read the papers properly! Again, laziness here.}
 
+We have removed reference to 
+
 \textcolor{blue}{The authors complain that researchers often jump straight into using a method (line 259-263) without knowing its limitations. Well this is just a problem with due diligence again. It's not the method developer's fault. The authors complain that this seems to be particularly a problem with methods implemented in R. Well, R is free software. You have the source code. If you really want to know how a method works, study the source code! You can't do that for other, proprietary software. You have to trust the company/lab that produces the software that it does what is claimed on the box. Using free software like R is thus more scientific than using proprietary software. It \_allows\_ researchers to do due diligence.}
 
+We agree. However, we also argue that doing due diligence is a responsibility of both the users (in reading widely and deeply) and the developers (in writing clearly and stating assumptions, limitations etc). 
+
 \textcolor{blue}{The authors claim that novice users may fail to understand a method because the accompanying paper is incomprehensible (lines 277-279). Well, that novice needs to do more work. Usually that involves reading around the topic, reading the source code, and maybe running some simulations. Students should be doing this all the time: it's called \_learning\_. It's their job. In fact it is every researcher's job.}
+
+We absolutely agree that readers must do the work to understand methods but reiterate the point above - due diligence is a responsibility for developers as well as users. We have revised lines 277-279 accordingly.
 
 \textcolor{blue}{And now for the positive points.}
 
@@ -104,6 +110,8 @@ Thanks for the helpful and encouraging comments. :)
 \textcolor{blue}{Minor criticisms:}
 
 \textcolor{blue}{line 124-125. "Brownian constant variance model" is a complete contradiction in terms. Brownian motion has infinite total variation and quadratic variation increasing with time. If a process has constant variance, it's not Brownian motion!}
+
+This was an unfortunate error on our part. Of course the variance is not constant in the Brownian motion model. We have replaced the two instances of "constant variance" with "motion".
 
 \textcolor{blue}{line 145-150. It may be that a particular data set cannot support more than one tree-wise set of parameters. But the authors are right. In general there is no reason to expect that a whole tree would be governed by just one process. Of course, you can fit more complicated models in different parts of the tree, but again the quality of the data may not make this feasible.}
 
