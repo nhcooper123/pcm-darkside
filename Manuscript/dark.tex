@@ -142,12 +142,15 @@ Why might this be the case?
    However, from the end user perspective it may more helpful to understand the assumptions and caveats.
    Within many comparative methods assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. 
     They are rarely neatly corralled in one place.
-    When combined with the vast literature on comparative methods it becomes easy to miss pertinent details. 
-     We recently reviewed papers discussing the assumptions and limitations of phylogenetic independent contrasts \citep{felsenstein1985phylogenies}, including how they are related to phylogenetic generalised least squares models \citep{garland2000using,rohle2006comment,blomberg2012independent}. 
+     The sheer volume of literature can become a barrier to understanding, even, and perhaps especially, for the best known methods.
+     For example, we recently reviewed papers discussing the assumptions and limitations of phylogenetic independent contrasts \citep{felsenstein1985phylogenies}, including how they are related to phylogenetic generalised least squares models \citep{garland2000using,rohle2006comment,blomberg2012independent}. 
     Even with prior knowledge of the key papers and authors to focus on, this resulted in $\approx 300$ manuscript pages and a book to read.
-    Methods developers are not responsible for users conducting due diligence or reading the literature. 
+    The volume of reading itself is perhaps not the key issue, rather it is assessing when you have reached sufficient understanding which may be easy for experienced users but not clear for new users.    
+    The combined effects of a vast literature and sometimes opaque assumptions make it easy to miss pertinent details.
+    Many of these problems relate to due diligence for both reader and developer. 
+    Methods developers are not responsible for making sure that all users read the literature. 
     The onus is, quite rightly in our opinion, on the reader/user to ensure that they have a clear understanding of the methods and caveats prior to using them. 
-    However, simple steps, such as subheadings that point to caveats and assumptions could add clarity and limit method misuse. 
+    However, simple steps, such as subheadings that point to caveats and assumptions, could add clarity and limit method misuse. 
 
   \subsection{3. Users jump straight to the implementation of the method}
     In the early days of PCMs, some researchers provided stand alone packages to run their methods (e.g. PDAP; \citealp{diaz1996testing}), others provided code in whichever language they chose to program in (e.g. MATLAB code; \citealp{rohlf2001comparative}), and still others provided no way of implementing their methods at all. 
@@ -168,16 +171,23 @@ Why might this be the case?
 
 \subsection{How can we solve some of these problems?}
   \subsubsection{1. Simplify, summarise and share}
-    Many of the problems above are caused by methods papers being difficult to read. 
-    This is not entirely the fault of those writing these papers; most journals have strict word limits so it is often easier to use a one line equation rather than a paragraph of description. 
+    Many of the problems above are the result of methods that are difficult to communicate in purely descriptive terms.
+    This is not entirely the fault of those writing these papers; most journals have strict word limits and a one line equation is generally a more succinct and precise descriptor of a method than a paragraph of text. 
     As we note above, the onus is on the reader to read extensively and to do due diligence.
     Nonetheless, due diligence is a responsibility at all levels of research and that includes ensuring clarity to all target readers, especially in describing assumptions and limitations.
     One solution is to prepare an accompanying blog post or video explaining the method in less technical terms. 
     Some journals already encourage this (including the British Ecological Society journals; see https://soundcloud.com/besjournals, https://www.youtube.com/user/MethodsEcolEvol), and even if they do not, there is no harm in doing this and hosting it on a personal website. 
+    Some package developers provide blog updates (e.g. phytools http://blog.phytools.org) that serve this function. 
     The ability to share ideas with a non-technical audience is a key skill to develop, and may encourage more people to use the method.
     Encouraging increased efforts at reproducibility would also help, by including knitR \citep{Xie:2015aa} reports in Supplementary Material showing exactly how each analysis was run \citep[e.g.][]{fitzjohn2014much}, or by requiring all analyses and code to be available on GitHub or Bitbucket. 
     At the very least, having a list of the main assumptions, biases and caveats of the method somewhere obvious would reduce misuse and provide a place to point people to when they begin using a method (this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible in some cases).
-
+    An important point here is that we do not see these possible solutions as entirely the responsibility of the method developer or package writer. 
+    The comparative methods community can help too and indeed often does via platforms such as r-sig-phylo.
+    However, the ability to find helpful replies to lists depends on the subject headings and details in the text.
+    A longer lasting solution would be to make published methods papers, and especially those that have a software focus, more readily updatable. 
+    It should not be necessary to publish a new paper for updates of method.
+    One example that gets around this problem is PLoS Currents where published papers can be updated relatively quickly with the full history of updated articles versioned.
+    
     The glut of literature that already exists for established methods is a bigger problem.
     The Oxford Bibliographies Evolutionary biology pages have lists of key papers (http://www.oxfordbibliographies.com/obo/page/evolutionary-biology), but these are curated by just a few individuals and tend to contain a lot of papers. 
     One solution would be to establish a wiki-style website where people could post summaries of commonly used methods, along with lists of key papers to read. 
