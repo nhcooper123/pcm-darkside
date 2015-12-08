@@ -40,7 +40,6 @@
 \addtolength{\parskip}{.3em}
 % Abstract 350 words max
 \section{Abstract}
-
 \begin{enumerate}
   \item Phylogenetic comparative methods are becoming increasingly popular for investigating evolutionary patterns and processes.
   However, these methods are not infallible - they suffer from biases and make assumptions like all other statistical methods.
@@ -49,7 +48,7 @@
   \item We suggest that some important pieces of information are missing from the literature, and that others are difficult to extract from long, technical papers.
   We also highlight problems with users jumping straight into software implementations of methods (e.g. in R) that may lack documentation on biases and assumptions that are mentioned in the original papers.
   \item To help solve these problems we make a number of suggestions including providing
-  blog posts or videos to explain new methods in less technical terms, encouraging reproducibility and code sharing, making wiki-style pages summarising the literature on popular methods, more careful consideration and testing of whether a method is appropriate for a given question/dataset, increased collaboration, and a shift from publishing purely novel methods to publishing improvements to existing methods, and ways of detecting biases or testing model fit.
+  blog posts or videos to explain new methods in less technical terms, encouraging reproducibility and code sharing, making wiki-style pages summarising the literature on popular methods, more careful consideration and testing of whether a method is appropriate for a given question/dataset, increased collaboration, and a shift from publishing purely novel methods to publishing improvements to existing methods and ways of detecting biases or testing model fit.
   Many of these points are applicable across methods in ecology and evolution, not just phylogenetic comparative methods.
 \end{enumerate}
 
@@ -138,21 +137,23 @@ Why might this be the case?
   \subsection{2. The literature is too technical and/or important details are difficult to locate}
     Although some information is not found in the literature (see above), the majority of assumptions and biases of PCMs are documented somewhere. 
     A big issue for novice methods-users (and often for advanced users too) is that this information can be extremely technical and dense.
-    It is not unusual for papers to be long, tedious and full of equations. 
-    Of course, such detail and mathematical literacy is critical in describing methods and facilitates testing/assessment, implementation and future developments of the method.
-    In most cases equations could not simply be replaced with text.
-   However, from the end user perspective it may more helpful to understand the assumptions and caveats.
-   Within many comparative methods papers, assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper. 
-    They are rarely neatly corralled in one place.
-     The sheer volume of literature can become a barrier to understanding, even, and perhaps especially, for the best known methods.
-     For example, we recently reviewed papers discussing the assumptions and limitations of phylogenetic independent contrasts \citep{felsenstein1985phylogenies}, including how they are related to phylogenetic generalised least squares models \citep{garland2000using,rohle2006comment,blomberg2012independent}. 
-    Even with prior knowledge of the key papers and authors to focus on, this resulted in $\approx 300$ manuscript pages and a book to read.
-    The volume of reading itself is perhaps not the key issue, rather it is assessing when you have reached sufficient understanding which may be easy for experienced users but not clear for new users.    
-    The combined effects of a vast literature and sometimes opaque assumptions make it easy to miss pertinent details.
-    Many of these problems relate to due diligence for both reader and developer. 
-    Methods developers are not responsible for making sure that all users read the literature. 
-    The onus is, quite rightly in our opinion, on the reader/user to ensure that they have a clear understanding of the methods and caveats prior to using them. 
-    However, simple steps, such as subheadings that point to caveats and assumptions, could add clarity and limit method misuse. 
+    It is not unusual for papers to be long and full of equations. 
+    Of course, such detail is critical for describing methods and facilitates testing/assessment, implementation and future developments of the method.
+    Additionally, in most cases equations could not simply be replaced with text.
+    There is evidence, however, that heavy use of equations impedes understanding and communication of concepts in biology \citep{fawcett2012heavy}.\\
+    
+    Another issue is that end-users need to understand the assumptions and caveats of methods.
+    Within many comparative methods papers, assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper - they are rarely neatly corralled in one place.
+    The sheer volume of literature can thus become a barrier to understanding, even, and perhaps especially, for the best known methods.
+    For example, we recently reviewed papers discussing the assumptions and limitations of phylogenetic independent contrasts \citep{felsenstein1985phylogenies}, including how they are related to phylogenetic generalised least squares models \citep{garland2000using,rohle2006comment,blomberg2012independent}. 
+    Even with prior knowledge of the key papers and authors to focus on, this resulted in $\approx 300$ manuscript pages and a book to read in order to fully understand the method.
+    The volume of reading itself is perhaps not the key issue, rather it is assessing when you have reached sufficient understanding which may not be clear to all users.\\
+
+    The combined effects of a vast literature and sometimes opaque assumptions make it easy to miss pertinent details in PCM papers.
+    These problems relate to due diligence for both end-users and developers. 
+    Methods developers are not responsible for making sure that end-users read the literature. 
+    Instead the onus is on the end-user to ensure that they have a clear understanding of the methods and caveats prior to using them. 
+    However, simple steps could be taken by methods developers, such as subheadings that point to caveats and assumptions, to add clarity and limit method misuse and misinterpretation. 
 
   \subsection{3. Users jump straight to the implementation of the method}
     In the early days of PCMs, some researchers provided stand alone packages to run their methods (e.g. PDAP; \citealp{diaz1996testing}), others provided code in whichever language they chose to program in (e.g. MATLAB code; \citealp{rohlf2001comparative}), and still others provided no way of implementing their methods at all. 
@@ -166,30 +167,33 @@ Why might this be the case?
     It is available to all, has a wide and engaged support community, and perhaps most importantly the source code for new methods is accessible.
     Users can, if they choose to, fully explore any new method by examining the source code and running their own simulations. 
     Indeed, \citet{freckleton2009seven} suggested that the ability to conduct PCMs in flexible computing environments such as R would improve our ability to implement methods correctly. 
-    However, this has instead led to an increasing number of people (including the authors of this paper) jumping straight to the implementation of a method, without fully understanding what the method is doing, what its assumptions might be, or what the results mean in a biological context.
-    This is again an example of where users can and should conduct due diligence but also where developers and experienced users can help.
-    Manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
-    The APE book \citep{paradis2011analysis} for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see CAIC and caper documentation; \citealp{purvis1995comparative,Orme:2013aa}).
+    However, the increasing use of R has instead led to more people (including the authors of this paper) jumping straight to the implementation of a method, without fully understanding what the method is doing, what its assumptions might be, or what the results mean in a biological context.
+    %This is again an example of where users can and should conduct due diligence but also where developers and experienced users can help.
+    This is not the fault of methods developers and users should conduct due diligence in understanding a method before using it. 
+    Unfortunately the problem is exacerbated by the fact that manuals, vignettes and help files for R packages rarely mention the assumptions of the method, or how to test model fit. 
+    The APE book \citep[an excellent resource;][]{paradis2011analysis} for example, provides no guidance on assumption testing in its chapter on phylogenetic independent contrasts, even though the methods needed to do this are well-established and very easily implemented in R (for a counter example see \texttt{CAIC} and \texttt{caper} documentation; \citealp{purvis1995comparative,Orme:2013aa}).
 
 \subsection{How can we solve some of these problems?}
   \subsubsection{1. Simplify, summarise and share}
     Many of the problems above are the result of methods that are difficult to communicate in purely descriptive terms.
     This is not entirely the fault of those writing these papers; most journals have strict word limits and a one line equation is generally a more succinct and precise descriptor of a method than a paragraph of text. 
     As we note above, the onus is on the reader to read extensively and to do due diligence.
-    Nonetheless, due diligence is a responsibility at all levels of research and that includes ensuring clarity to all target readers, especially in describing assumptions and limitations.
-    One solution is to prepare an accompanying blog post or video explaining the method in less technical terms. 
+    Nonetheless, due diligence is a responsibility at all levels of research and that includes ensuring clarity to all target readers, especially in describing assumptions and limitations.\\
+
+    One solution is to prepare an accompanying blog post or video for each new method, explaining it in less technical terms. 
     Some journals already encourage this (including the British Ecological Society journals; see https://soundcloud.com/besjournals, https://www.youtube.com/user/MethodsEcolEvol), and even if they do not, there are great benefits to doing this anyway and hosting it on a personal website. 
-    Some package developers provide blog updates (e.g. phytools http://blog.phytools.org) that serve this function. 
     The ability to share ideas with a non-technical audience is a key skill to develop, and may encourage more people to use the method.
+    Some package developers also provide blog updates (e.g. phytools http://blog.phytools.org) that serve this function. \\
+
     Encouraging increased efforts at reproducibility would also help make methods more accessible to new users, by providing fully worked examples that can act as a starting point for their analyses.
-    Reproducibility can be achieved by including knitR \citep{Xie:2015aa} reports in Supplementary Material showing exactly how each analysis was run \citep[e.g.][]{fitzjohn2014much}, or by requiring all analyses and code to be available on GitHub or Bitbucket. 
-    At the very least, having a list of the main assumptions, biases and caveats of the method somewhere obvious would reduce misuse and provide a place to point people to when they begin using a method (this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible in some cases).
+    Reproducibility can be achieved by including \texttt{knitR} \citep{Xie:2015aa} reports in Supplementary Material showing exactly how each analysis was run \citep[e.g.][]{fitzjohn2014much}, or by requiring all analyses and code to be available on GitHub or Bitbucket. 
+    At the very least, having a list of the main assumptions, biases and caveats of the method somewhere obvious would reduce misuse and provide a place to point people to when they begin using a method (this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible in some cases).\\
+
     An important point here is that we do not see these possible solutions as entirely the responsibility of the method developer or package writer. 
-    The comparative methods community can help too and indeed often does via platforms such as r-sig-phylo.
-    However, the ability to find helpful replies to lists depends on the subject headings and details in the text.
-    A longer lasting solution would be to make published methods papers, and especially those that have a software focus, more readily updatable. 
-    It should not be necessary to publish a new paper for updates of method.
-    One example that gets around this problem is PLoS Currents where published papers can be updated relatively quickly with the full history of updated articles versioned.
+    The comparative methods community can help too and indeed often does via platforms such as \texttt{r-sig-phylo}.
+    However, the ability to find helpful replies on a listserv depends on the subject headings and details in the text.
+    A longer lasting solution would be to make published methods papers, and especially those that have a software focus, more readily updatable, rather than requiring a new paper for each update.
+    One example that gets around this problem is PLoS Currents (currents.plos.org) where published papers can be updated relatively quickly with the full history of updated articles versioned.\\
     
     Summarising the glut of literature that already exists for established methods is a more difficult problem to solve.
     The Oxford Bibliographies Evolutionary biology pages have lists of key papers (http://www.oxfordbibliographies.com/obo/page/evolutionary-biology), but these are curated by just a few individuals and tend to contain a lot of papers. 
@@ -212,7 +216,7 @@ Why might this be the case?
     Other considerations include whether the method is influenced by polytomies and whether the method is applicable to both ultrametric and non-ultrametric trees. 
     Indeed, many methods arbitrarily resolve polytomies using zero length branches, thus polytomies can inflate rates of evolution, and bias models of evolution  \citep{cooper2010body}. 
     Some current implementations of the OU model should not be used with non-ultrametric trees (e.g. MOTMOT; \citealp{Thomas:2011aa}) because they are based on transforming the tree directly, rather than transforming the variance co-variance matrix. 
-    The problem is that where at least one tip does not survive to the present the expected covariances relating each of those two tips with any other tip in the tree are not identical. 
+    The problem is that where there is a pair of tips and at least one tip does not survive to the present, the expected covariances relating each of those two tips with any other tip in the tree are not identical. 
     Worked examples and explanations are provided in \citep{slater2014correction}. 
     Although this is not a problem with applying the OU model to non-ultrametric trees \textit{per se}, it is an example of different implementations of a common model that some users may not be aware of. 
 
@@ -221,7 +225,7 @@ Why might this be the case?
     Finally, end-users should never be afraid to question standard practice, sometimes it is just PCM folklore.
 
   \subsubsection{3. Solutions and incentives}
-    It is important to recognize that our ability to do rigorous quantitative science often relies on highly-skilled methods-developers, especially as evolutionary biology becomes ever more computationally intensive. 
+    It is important to recognise that our ability to do rigorous quantitative science often relies on highly-skilled methods-developers, especially as evolutionary biology becomes ever more computationally intensive. 
     We cannot afford to lose these people to industry, nor can we afford to pay industry wages, thus we need to make it worthwhile for such skilled researchers to remain in (or at least interact with) academia.
 
     First we need to stop insisting that methods papers are entirely novel. 
