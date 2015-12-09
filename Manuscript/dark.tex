@@ -81,7 +81,7 @@ Because the aim of this paper is to provide positive ways to move forward, rathe
 
 \subsubsection{Phylogenetic independent contrasts}
 The phylogenetic independent contrasts method uses phylogenetic information to account for the fact that species in a comparative analysis are related to each other and thus may share similarities because they inherit them from their ancestors, not because of independent evolution \citep{felsenstein1985phylogenies,harvey1991comparative}. 
-This is the most commonly used phylogenetic comparative method (\citet{felsenstein1985phylogenies} has been cited nearly 6000 times; Google Scholar search 10th October 2015), and a great deal of literature exists on the assumptions underlying the method, and ways of testing whether these assumptions are met. 
+This is the most commonly used phylogenetic comparative method (\citet{felsenstein1985phylogenies} has been cited over 6000 times; Google Scholar search 9th December 2015), and a great deal of literature exists on the assumptions underlying the method, and ways of testing whether these assumptions are met. 
 The method has three major assumptions (\citealp{diaz1996testing}; although there are many more assumptions than these three), (1) that the topology of the phylogeny is accurate; (2) that the branch lengths of the phylogeny are correct; and (3) that traits evolve in the manner of the Brownian motion model, a simple model of trait evolution where trait variance accrues as a linear function of time \citep{cavalli1967,felsenstein1973maximum}.
 The third assumption is stated in \citet{felsenstein1985phylogenies} though the other two are not explicitly mentioned. 
 However each assumption is explored in many subsequent papers \citep[e.g.][]{felsenstein1988phylogenies,grafen1989phylogenetic,harvey1991comparative,garland1992procedures,purvis1995comparative,diaz1996testing,hansen1996translating,martins1997phylogenies,freckleton2000phylogenetic,garland2000using,hansen2005assessing,freckleton2006detecting,rohle2006comment}.
@@ -104,7 +104,7 @@ Unfortunately, these limitations are rarely taken into account in empirical stud
 \subsubsection{3. Trait-dependent diversification} 
 Analyses of trait-dependent diversification are used to detect whether particular traits promote high rates of diversification, leading to some clades becoming more diverse than others \citep{nee1994reconstructed}. 
 These kinds of analyses have been applied extensively in recent years to a variety of taxa and traits \citep[e.g.][]{Goldberg22102010,Price01052012,Givnish201455,ELE:ELE12168}.
-Most use the binary-state speciation and extinction model (BiSSE) and related methods (the original BiSSE paper \citet{maddison2007estimating} has been cited 384 times; Google Scholar search 10th October 2015).
+Most use the binary-state speciation and extinction model (BiSSE) and related methods (the original BiSSE paper \citet{maddison2007estimating} has been cited 394 times; Google Scholar search 9th December 2015).
 However, \citet{rabosky2015model} recently reevaluated the method and its assumptions and showed via simulations that a strong correlation between a trait and diversification rate can be inferred from a single diversification rate shift within a tree, even if the shift is unrelated to the trait of interest.
 They suggest that many examples of trait-dependent diversification actually reflect this rate heterogeneity in trees, and thus are biologically meaningless.
 Interestingly, these caveats are mentioned in earlier papers \citep{maddison2007estimating,fitzjohn2010quantitative,FitzJohn:2012aa} but were seemingly not widely understood given the shock reaction to \citet{rabosky2015model}.
@@ -116,7 +116,7 @@ Why might this be the case?
   \subsubsection{1. Not everything is mentioned in the literature}
     As scientists we mainly communicate our ideas through the literature. 
     Unfortunately, some of the information needed to properly apply PCMs is not found in the literature. 
-    We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students, and within labs developing these methods (and it is occasionally closer to fiction than fact!).
+    We refer to this knowledge as ``PCM folklore'' because it tends to be passed down from PIs to graduate students, and within labs developing methods (and it is occasionally closer to fiction than fact!).
     Sometimes the folklore is based on best practice and includes tricks to get methods working, or useful rules-of-thumb; other times it is more opinion-based, but over time these opinions become rules. 
     Useful PCM folklore is often shared among developers, and among collaborating groups, but is not always shared outside of these circles. 
     When it is shared, it tends to be as email exchanges of ``dark advice'' that is not accessible to the rest of the community.
@@ -146,7 +146,7 @@ Why might this be the case?
     Within many comparative methods papers, assumptions and caveats can be found in the Introduction, Methods, Results and/or Discussion of a paper - they are rarely neatly corralled in one place.
     The sheer volume of literature can thus become a barrier to understanding, even, and perhaps especially, for the best known methods.
     For example, we recently reviewed papers discussing the assumptions and limitations of phylogenetic independent contrasts \citep{felsenstein1985phylogenies}, including how they are related to phylogenetic generalised least squares models \citep{garland2000using,rohle2006comment,blomberg2012independent}. 
-    Even with prior knowledge of the key papers and authors to focus on, this resulted in $\approx 300$ manuscript pages and a book to read in order to fully understand the method.
+    Even with prior knowledge of the key papers and authors to focus on, this resulted in $\approx 300$ manuscript pages and a book to read in order to fully understand the method and its caveats.
     The volume of reading itself is perhaps not the key issue, rather it is assessing when you have reached sufficient understanding which may not be clear to all users.\\
 
     The combined effects of a vast literature and sometimes opaque assumptions make it easy to miss pertinent details in PCM papers.
@@ -158,14 +158,14 @@ Why might this be the case?
   \subsection{3. Users jump straight to the implementation of the method}
     In the early days of PCMs, some researchers provided stand alone packages to run their methods (e.g. PDAP; \citealp{diaz1996testing}), others provided code in whichever language they chose to program in (e.g. MATLAB code; \citealp{rohlf2001comparative}), and still others provided no way of implementing their methods at all. 
     This resulted in many frustrating hours (and days and months) trying to implement any new method you wanted to use.
-    Writing your own implementation may be the best way to learn the intricacies of a method but is a major hurdle and would necessarily dissuade many potential users.  \\
+    Writing your own implementation may be the best way to learn the intricacies of a method but is a major hurdle and can dissuade many potential users.  \\
 
     More recently however, the community has moved towards mostly implementing methods in R (\citealp{R-Core-Team:2014aa}; for a list of packages see Brian O'Meara's ``CRAN Task View: Phylogenetics, Especially Comparative Methods'' http://ftp.iitm.ac.in/cran/web/views/Phylogenetics.html), and code sharing has become almost ubiquitous. 
     The number of R packages for PCMs has increased markedly since 2005 when APE \citep{Paradis:2004aa} was released, and has increased particularly sharply since 2008 (Figure \ref{PCMRpackages}).
     Simultaneously, more people are able to use R thanks to workshops and changes in student training, thus when a new method is published it is now possible to take an R package ``off the shelf'' and use it to run the method immediately.
     The benefits of R are clear. 
     It is available to all, has a wide and engaged support community, and perhaps most importantly the source code for new methods is accessible.
-    Users can, if they choose to, fully explore any new method by examining the source code and running their own simulations. 
+    Users can fully explore any new method by examining the source code and running their own simulations. 
     Indeed, \citet{freckleton2009seven} suggested that the ability to conduct PCMs in flexible computing environments such as R would improve our ability to implement methods correctly. 
     However, the increasing use of R has instead led to more people (including the authors of this paper) jumping straight to the implementation of a method, without fully understanding what the method is doing, what its assumptions might be, or what the results mean in a biological context.
     %This is again an example of where users can and should conduct due diligence but also where developers and experienced users can help.
@@ -175,31 +175,31 @@ Why might this be the case?
 
 \subsection{How can we solve some of these problems?}
   \subsubsection{1. Simplify, summarise and share}
-    Many of the problems above are the result of methods that are difficult to communicate in purely descriptive terms.
+    Many of the problems above arise because PCMs are difficult to communicate in purely descriptive terms.
     This is not entirely the fault of those writing these papers; most journals have strict word limits and a one line equation is generally a more succinct and precise descriptor of a method than a paragraph of text. 
-    As we note above, the onus is on the reader to read extensively and to do due diligence.
-    Nonetheless, due diligence is a responsibility at all levels of research and that includes ensuring clarity to all target readers, especially in describing assumptions and limitations.\\
+    As we note above, the onus is on the end-user to read extensively and to do due diligence.
+    Nonetheless, due diligence is a responsibility at all levels of research and that includes ensuring clarity to all target users, especially in describing assumptions and limitations.\\
 
     One solution is to prepare an accompanying blog post or video for each new method, explaining it in less technical terms. 
     Some journals already encourage this (including the British Ecological Society journals; see https://soundcloud.com/besjournals, https://www.youtube.com/user/MethodsEcolEvol), and even if they do not, there are great benefits to doing this anyway and hosting it on a personal website. 
     The ability to share ideas with a non-technical audience is a key skill to develop, and may encourage more people to use the method.
-    Some package developers also provide blog updates (e.g. phytools http://blog.phytools.org) that serve this function. \\
+    Some package developers also provide blog updates (e.g. \texttt{phytools}: http://blog.phytools.org; \citealp{revell2012phytools}) that serve this function. \\
 
     Encouraging increased efforts at reproducibility would also help make methods more accessible to new users, by providing fully worked examples that can act as a starting point for their analyses.
     Reproducibility can be achieved by including \texttt{knitR} \citep{Xie:2015aa} reports in Supplementary Material showing exactly how each analysis was run \citep[e.g.][]{fitzjohn2014much}, or by requiring all analyses and code to be available on GitHub or Bitbucket. 
     At the very least, having a list of the main assumptions, biases and caveats of the method somewhere obvious would reduce misuse and provide a place to point people to when they begin using a method (this will be difficult as there are often hidden assumptions in a method, and listing all possible assumptions and caveats may be unfeasible in some cases).\\
 
     An important point here is that we do not see these possible solutions as entirely the responsibility of the method developer or package writer. 
-    The comparative methods community can help too and indeed often does via platforms such as \texttt{r-sig-phylo}.
+    The PCM community can help too and indeed often does via platforms such as \texttt{r-sig-phylo} (http://www.mail-archive.com/r-sig-phylo@r-project.org/).
     However, the ability to find helpful replies on a listserv depends on the subject headings and details in the text.
-    A longer lasting solution would be to make published methods papers, and especially those that have a software focus, more readily updatable, rather than requiring a new paper for each update.
-    One example that gets around this problem is PLoS Currents (currents.plos.org) where published papers can be updated relatively quickly with the full history of updated articles versioned.\\
+    A longer lasting solution would be to make published methods papers, especially those that have a software focus, more readily updatable, rather than requiring a new paper for each update.
+    One example that gets around this problem is PLoS Currents (http://currents.plos.org) where published papers can be updated relatively quickly with the full history of updated articles versioned.\\
     
     Summarising the glut of literature that already exists for established methods is a more difficult problem to solve.
     The Oxford Bibliographies Evolutionary biology pages have lists of key papers (http://www.oxfordbibliographies.com/obo/page/evolutionary-biology), but these are curated by just a few individuals and tend to contain a lot of papers. 
     One solution would be to establish a wiki-style website where people could post summaries of commonly used methods, along with lists of key papers to read. 
     The community would be responsible for peer reviewing these summaries to ensure all opinions are covered. 
-    Two excellent examples of a similar approach are Erick Matsen's Phylobabble discourse page (http://phylobabble.org/) for phylogenetics, and the Prometheus wiki for protocols in plant physiology (http://prometheuswiki.publish.csiro.au/tiki-custom\_home.php). 
+    Two excellent examples of a similar approach are Erick Matsen's Phylobabble discourse page for phylogenetics (http://phylobabble.org/), and the Prometheus wiki for protocols in plant physiology (http://prometheuswiki.publish.csiro.au/tiki-custom\_home.php). 
     The British Ecological Society's Quantitative Ecology Special Interest Group is also in the process of creating a ``Field Guide for Ecologists'' (http://bes-qsig.github.io/fge/) that will fill a similar niche in ecological methods.
     We plan to establish a similar guide for PCMs in the near future with help from across the community.\\
     %Unfortunately there is currently little incentive for people to contribute to such a project at the cost of time pursuing their own research.\\
@@ -259,7 +259,7 @@ Why might this be the case?
   \subsection{Data Accessibility}
     All data are available on GitHub at https://github.com/nhcooper123/pcm-darkside.
 
-\bibliographystyle{mee}
+\bibliographystyle{mee2}
 \bibliography{darkside}
 
 \newpage
