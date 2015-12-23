@@ -1,12 +1,12 @@
 %%
-%% This is file `mee.bst',
+%% This is file `mee2.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,nm-rvvc,keyxyr,dt-beg,yr-par,yrp-x,note-yr,vol-bf,vnum-x,volp-com,num-xser,edby-par,edbyx,pp,ed,xedn,amper,and-xcom,etal-xc,nfss,')
+%% merlin.mbs  (with options: `ay,nat,nm-rvvc,keyxyr,dt-beg,yr-par,yrp-x,note-yr,atit-u,vol-bf,vnum-x,volp-com,num-xser,xedn,amper,and-xcom,etal-xc,nfss,')
 %% ----------------------------------------
-%% ***  ***
+%% *** n ***
 %% 
 %% Copyright 1994-2011 Patrick W Daly
  % ===============================================================
@@ -214,10 +214,10 @@ FUNCTION {bbl.etal}
 { "et~al." }
 
 FUNCTION {bbl.editors}
-{ "eds." }
+{ "editors" }
 
 FUNCTION {bbl.editor}
-{ "ed." }
+{ "editor" }
 
 FUNCTION {bbl.edby}
 { "edited by" }
@@ -241,10 +241,10 @@ FUNCTION {bbl.in}
 { "in" }
 
 FUNCTION {bbl.pages}
-{ "pp." }
+{ "pages" }
 
 FUNCTION {bbl.page}
-{ "p." }
+{ "page" }
 
 FUNCTION {bbl.chapter}
 { "chapter" }
@@ -495,9 +495,6 @@ FUNCTION {format.note}
 
 FUNCTION {format.title}
 { title
-  duplicate$ empty$ 'skip$
-    { "t" change.case$ }
-  if$
   "title" bibinfo.check
 }
 FUNCTION {format.full.names}
@@ -817,11 +814,11 @@ FUNCTION {format.in.ed.booktitle}
     {
       editor "editor" format.names.ed duplicate$ empty$ 'pop$
         {
+          "," *
+          " " *
           get.bbl.editor
-          " " * swap$ *
-          "(" swap$ * ")" *
-          swap$
-          " " * swap$
+          ", " *
+          * swap$
           * }
       if$
       word.in swap$ *
@@ -1471,4 +1468,4 @@ FUNCTION {end.bib}
 EXECUTE {end.bib}
 %% End of customized bst file
 %%
-%% End of file `mee.bst'.
+%% End of file `mee2.bst'.
